@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Calculator — Monthly Payment for Auto, Personal &amp; Student Loans</title>
+<meta name="description" content="Free loan calculator for auto, personal, and student loans. Enter principal, rate and term to see your monthly payment, total interest, and payoff schedule.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/loan-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance" class="active">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Loan Calculator</div>
+    <h1>Loan Calculator</h1>
+    <p class="dek">For auto, personal or student loans — a simple fixed-rate, fixed-term amortizing loan.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="principal">Loan amount</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="principal" value="25000" step="500" inputmode="decimal"></div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="rate">Interest rate (APR)</label>
+            <div class="input-group"><input type="number" id="rate" value="7.5" step="0.05" inputmode="decimal"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label for="termYears">Loan term</label>
+            <div class="row-2" style="gap:0;">
+              <div class="input-group"><input type="number" id="termYears" value="5" step="1" inputmode="numeric"><span class="suffix">yrs</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Monthly payment</div>
+        <div class="result-value" id="monthlyPayment">$501</div>
+        <div class="result-sub">Fixed payment for the life of the loan</div>
+        <ul class="result-list">
+          <li><span class="k">Loan amount</span><span class="v" id="loanAmt">–</span></li>
+          <li><span class="k">Total interest</span><span class="v" id="totalInterest">–</span></li>
+          <li><span class="k">Total repaid</span><span class="v" id="totalRepaid">–</span></li>
+          <li><span class="k">Payoff date (from today)</span><span class="v" id="payoffDate">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Payoff schedule (yearly)</h2></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Remaining balance</th></tr></thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How this is calculated</h2>
+    <div class="formula">M = P &times; [r(1+r)<sup>n</sup>] &divide; [(1+r)<sup>n</sup> &minus; 1]<br>P = loan amount, r = monthly rate, n = number of monthly payments</div>
+    <p>This assumes a standard fixed-rate, fully-amortizing loan — the same payment each month, split between interest and principal, with the balance reaching zero at the end of the term. It doesn't include origination fees, which some personal and student loans charge upfront.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Does this work for student loans?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes, for standard fixed-rate repayment. Income-driven repayment plans, deferment, and variable rates common to student loans will produce different real-world numbers than this fixed-payment estimate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's APR vs. interest rate?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>APR includes certain lender fees spread over the loan term, so it's usually slightly higher than the stated interest rate. Using APR here gives a more realistic monthly payment estimate.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Estimates only — confirm exact terms with your lender. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/mortgage-calculator.html"><h3>Mortgage Calculator</h3><p>Home loans with taxes and insurance.</p></a>
+    <a class="calc-card" href="/calculators/compound-interest-calculator.html"><h3>Compound Interest Calculator</h3><p>Grow savings over time.</p></a>
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Quick percentage math.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var principal = document.getElementById("principal");
+  var rate = document.getElementById("rate");
+  var termYears = document.getElementById("termYears");
+
+  function money(n) {
+    if (!isFinite(n)) return "$0";
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function compute() {
+    var P = parseFloat(principal.value) || 0;
+    var r = (parseFloat(rate.value) || 0) / 100 / 12;
+    var years = parseFloat(termYears.value) || 0;
+    var n = years * 12;
+
+    var m = 0;
+    if (n > 0) m = r > 0 ? P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : P / n;
+
+    document.getElementById("monthlyPayment").textContent = money(m);
+    document.getElementById("loanAmt").textContent = money(P);
+
+    var balance = P;
+    var rows = [];
+    var totalInterest = 0;
+    var wholeYears = Math.ceil(years);
+    if (n > 0 && P > 0) {
+      for (var y = 1; y <= wholeYears; y++) {
+        var yp = 0, yi = 0;
+        for (var mo = 0; mo < 12 && balance > 0.005; mo++) {
+          var interestPortion = balance * r;
+          var principalPortion = Math.min(balance, m - interestPortion);
+          balance -= principalPortion;
+          yp += principalPortion;
+          yi += interestPortion;
+        }
+        totalInterest += yi;
+        rows.push({ year: y, principal: yp, interest: yi, balance: Math.max(0, balance) });
+      }
+    }
+    document.getElementById("totalInterest").textContent = money(totalInterest);
+    document.getElementById("totalRepaid").textContent = money(P + totalInterest);
+
+    var payoff = new Date();
+    payoff.setMonth(payoff.getMonth() + Math.round(n));
+    document.getElementById("payoffDate").textContent = n > 0 ? payoff.toLocaleDateString(undefined, { month: "short", year: "numeric" }) : "–";
+
+    document.getElementById("scheduleBody").innerHTML = rows.map(function(row){
+      return "<tr><td>" + row.year + "</td><td>" + money(row.principal) + "</td><td>" + money(row.interest) + "</td><td>" + money(row.balance) + "</td></tr>";
+    }).join("");
+  }
+
+  [principal, rate, termYears].forEach(function(el){ el.addEventListener("input", compute); });
+  compute();
+})();
+</script>
+</body>
+</html>

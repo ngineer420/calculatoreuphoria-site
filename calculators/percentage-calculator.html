@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator — Find % of a Number, % Change &amp; More</title>
+<meta name="description" content="Free percentage calculator: find X% of a number, what percent one number is of another, or the percent change between two numbers.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/percentage-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I calculate a percentage of a number?","acceptedAnswer":{"@type":"Answer","text":"Multiply the number by the percentage, then divide by 100. For example, 20% of 50 is (20/100) x 50 = 10."}},
+{"@type":"Question","name":"How do I find what percent one number is of another?","acceptedAnswer":{"@type":"Answer","text":"Divide the part by the whole and multiply by 100. For example, 15 out of 60 is (15/60) x 100 = 25%."}},
+{"@type":"Question","name":"How is percentage change calculated?","acceptedAnswer":{"@type":"Answer","text":"Subtract the old value from the new value, divide by the old value, then multiply by 100. A positive result is an increase; a negative result is a decrease."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math" class="active">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#math">Math</a> / Percentage Calculator</div>
+    <h1>Percentage Calculator</h1>
+    <p class="dek">Find a percentage of a number, work out what percent one number is of another, or calculate percent change — pick a mode below.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="toggle-group" style="margin-bottom:24px;">
+      <button class="active" data-mode="of">X% of Y</button>
+      <button data-mode="what">X is what % of Y</button>
+      <button data-mode="change">% change X → Y</button>
+    </div>
+    <div class="calc-layout">
+      <div>
+        <div class="field" data-label="x">
+          <label id="labelX">Percentage (%)</label>
+          <div class="input-group">
+            <input type="number" id="inputX" value="20" inputmode="decimal">
+          </div>
+        </div>
+        <div class="field" data-label="y">
+          <label id="labelY">Of number</label>
+          <div class="input-group">
+            <input type="number" id="inputY" value="50" inputmode="decimal">
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label" id="resultLabel">Result</div>
+        <div class="result-value" id="resultValue">10</div>
+        <div class="result-sub" id="resultSub">20% of 50</div>
+        <ul class="result-list" id="resultList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How percentage formulas work</h2>
+    <h3>Percentage of a number</h3>
+    <div class="formula">result = (percentage &divide; 100) &times; number</div>
+    <p>To find 20% of 50: (20 &divide; 100) &times; 50 = 10.</p>
+
+    <h3>What percent is X of Y</h3>
+    <div class="formula">percent = (X &divide; Y) &times; 100</div>
+    <p>To find what percent 15 is of 60: (15 &divide; 60) &times; 100 = 25%.</p>
+
+    <h3>Percent change</h3>
+    <div class="formula">change % = ((new &minus; old) &divide; old) &times; 100</div>
+    <p>Going from 50 to 65 is a change of ((65 &minus; 50) &divide; 50) &times; 100 = 30% increase. A negative result means a decrease.</p>
+
+    <div style="margin-top:28px;">
+      <div class="faq-item">
+        <button class="faq-q">How do I calculate a percentage of a number?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Multiply the number by the percentage, then divide by 100. For example, 20% of 50 is (20/100) &times; 50 = 10.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I find what percent one number is of another?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Divide the part by the whole and multiply by 100. For example, 15 out of 60 is (15/60) &times; 100 = 25%.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is percentage change calculated?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Subtract the old value from the new value, divide by the old value, then multiply by 100. A positive result is an increase; a negative result is a decrease.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Results are for general informational purposes. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/discount-calculator.html"><h3>Discount Calculator</h3><p>Apply a percentage discount to a price.</p></a>
+    <a class="calc-card" href="/calculators/gpa-calculator.html"><h3>GPA Calculator</h3><p>Turn grades and credits into a GPA.</p></a>
+    <a class="calc-card" href="/calculators/scientific-calculator.html"><h3>Scientific Calculator</h3><p>Full expressions, trig and logs.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var mode = "of";
+  var x = document.getElementById("inputX");
+  var y = document.getElementById("inputY");
+  var labelX = document.getElementById("labelX");
+  var labelY = document.getElementById("labelY");
+  var resultLabel = document.getElementById("resultLabel");
+  var resultValue = document.getElementById("resultValue");
+  var resultSub = document.getElementById("resultSub");
+  var resultList = document.getElementById("resultList");
+  var modeBtns = document.querySelectorAll("[data-mode]");
+
+  function fmt(n) {
+    if (!isFinite(n)) return "—";
+    return n.toLocaleString(undefined, { maximumFractionDigits: 4 });
+  }
+
+  function setMode(m) {
+    mode = m;
+    modeBtns.forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-mode") === m); });
+    if (m === "of") { labelX.textContent = "Percentage (%)"; labelY.textContent = "Of number"; x.value = 20; y.value = 50; }
+    if (m === "what") { labelX.textContent = "Number (part)"; labelY.textContent = "Out of (whole)"; x.value = 15; y.value = 60; }
+    if (m === "change") { labelX.textContent = "Old value"; labelY.textContent = "New value"; x.value = 50; y.value = 65; }
+    compute();
+  }
+
+  function compute() {
+    var X = parseFloat(x.value), Y = parseFloat(y.value);
+    if (mode === "of") {
+      var r = (X / 100) * Y;
+      resultLabel.textContent = "Result";
+      resultValue.textContent = fmt(r);
+      resultSub.textContent = fmt(X) + "% of " + fmt(Y);
+      resultList.innerHTML = "";
+    } else if (mode === "what") {
+      var r2 = Y !== 0 ? (X / Y) * 100 : NaN;
+      resultLabel.textContent = "Result";
+      resultValue.textContent = fmt(r2) + "%";
+      resultSub.textContent = fmt(X) + " is " + fmt(r2) + "% of " + fmt(Y);
+      resultList.innerHTML = "";
+    } else {
+      var r3 = X !== 0 ? ((Y - X) / X) * 100 : NaN;
+      var up = r3 >= 0;
+      resultLabel.textContent = up ? "Increase" : "Decrease";
+      resultValue.textContent = (up ? "+" : "") + fmt(r3) + "%";
+      resultSub.textContent = fmt(X) + " → " + fmt(Y);
+      resultList.innerHTML = "<li><span class='k'>Absolute change</span><span class='v " + (up ? "good" : "bad") + "'>" + (Y-X >= 0 ? "+" : "") + fmt(Y-X) + "</span></li>";
+    }
+  }
+
+  modeBtns.forEach(function(b){ b.addEventListener("click", function(){ setMode(b.getAttribute("data-mode")); }); });
+  [x, y].forEach(function(el){ el.addEventListener("input", compute); });
+  compute();
+})();
+</script>
+</body>
+</html>

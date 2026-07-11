@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calorie Calculator — Daily Calorie Needs (TDEE) &amp; Macros</title>
+<meta name="description" content="Free calorie calculator using the Mifflin-St Jeor formula. Find your BMR, daily calorie needs (TDEE), and calorie targets for losing, maintaining or gaining weight.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/calorie-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health" class="active">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#health">Health</a> / Calorie Calculator</div>
+    <h1>Calorie Calculator</h1>
+    <p class="dek">Estimate your daily calorie needs using the Mifflin-St Jeor formula, and get a target for losing, maintaining, or gaining weight.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="toggle-group" style="margin-bottom:24px; max-width:260px;">
+      <button class="active" data-units="metric">Metric</button>
+      <button data-units="imperial">Imperial</button>
+    </div>
+    <div class="calc-layout">
+      <div>
+        <div class="row-2">
+          <div class="field">
+            <label for="sex">Sex</label>
+            <div class="input-group">
+              <select id="sex"><option value="male">Male</option><option value="female">Female</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="age">Age</label>
+            <div class="input-group"><input type="number" id="age" value="30" inputmode="numeric"><span class="suffix">yrs</span></div>
+          </div>
+        </div>
+
+        <div id="metricFields">
+          <div class="row-2">
+            <div class="field">
+              <label for="heightCm">Height</label>
+              <div class="input-group"><input type="number" id="heightCm" value="170" inputmode="decimal"><span class="suffix">cm</span></div>
+            </div>
+            <div class="field">
+              <label for="weightKg">Weight</label>
+              <div class="input-group"><input type="number" id="weightKg" value="70" inputmode="decimal"><span class="suffix">kg</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="imperialFields" style="display:none;">
+          <div class="field">
+            <label>Height</label>
+            <div class="row-2">
+              <div class="input-group"><input type="number" id="heightFt" value="5" inputmode="numeric"><span class="suffix">ft</span></div>
+              <div class="input-group"><input type="number" id="heightIn" value="7" inputmode="numeric"><span class="suffix">in</span></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="weightLb">Weight</label>
+            <div class="input-group"><input type="number" id="weightLb" value="154" inputmode="decimal"><span class="suffix">lb</span></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="activity">Activity level</label>
+          <div class="input-group">
+            <select id="activity">
+              <option value="1.2">Sedentary — little or no exercise</option>
+              <option value="1.375" selected>Light — exercise 1–3 days/week</option>
+              <option value="1.55">Moderate — exercise 3–5 days/week</option>
+              <option value="1.725">Active — exercise 6–7 days/week</option>
+              <option value="1.9">Very active — hard training or physical job</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="goal">Goal</label>
+          <div class="input-group">
+            <select id="goal">
+              <option value="-1000">Lose 1 lb/week</option>
+              <option value="-500" selected>Lose 0.5 lb/week</option>
+              <option value="0">Maintain weight</option>
+              <option value="500">Gain 0.5 lb/week</option>
+              <option value="1000">Gain 1 lb/week</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Daily calorie target</div>
+        <div class="result-value" id="goalCalories">2,050</div>
+        <div class="result-sub" id="goalSub">To lose 0.5 lb/week</div>
+        <ul class="result-list">
+          <li><span class="k">BMR (base metabolic rate)</span><span class="v" id="bmr">–</span></li>
+          <li><span class="k">Maintenance (TDEE)</span><span class="v" id="tdee">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Suggested daily macros</h2></div>
+    <div class="row-3" id="macroCards">
+      <div class="field"><label>Protein (30%)</label><div class="result-value" style="font-size:22px;" id="macroProtein">–</div></div>
+      <div class="field"><label>Carbs (40%)</label><div class="result-value" style="font-size:22px;" id="macroCarbs">–</div></div>
+      <div class="field"><label>Fat (30%)</label><div class="result-value" style="font-size:22px;" id="macroFat">–</div></div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How this is calculated</h2>
+    <div class="formula">BMR (men) = 10 &times; kg + 6.25 &times; cm &minus; 5 &times; age + 5<br>BMR (women) = 10 &times; kg + 6.25 &times; cm &minus; 5 &times; age &minus; 161<br>TDEE = BMR &times; activity multiplier</div>
+    <p>This uses the Mifflin-St Jeor equation, generally considered more accurate than the older Harris-Benedict formula. A 500 calorie/day deficit or surplus roughly corresponds to 1 lb (0.45 kg) of body weight change per week.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Why does this ask for activity level?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>BMR only estimates the calories your body burns at complete rest. Multiplying by an activity factor accounts for calories burned through daily movement and exercise, giving your total daily energy expenditure (TDEE).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How accurate is this estimate?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Formula-based estimates are typically within about 10% of true measured metabolic rate for most people, but individual metabolism varies. Treat the number as a starting point and adjust based on your actual results over a few weeks.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Not medical or dietary advice. Consult a doctor or registered dietitian for individualized guidance. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/bmi-calculator.html"><h3>BMI Calculator</h3><p>Body mass index and healthy range.</p></a>
+    <a class="calc-card" href="/calculators/age-calculator.html"><h3>Age Calculator</h3><p>Exact age between two dates.</p></a>
+    <a class="calc-card" href="/calculators/unit-converter.html"><h3>Unit Converter</h3><p>Convert weight and length.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var unitBtns = document.querySelectorAll("[data-units]");
+  var metricFields = document.getElementById("metricFields");
+  var imperialFields = document.getElementById("imperialFields");
+  var units = "metric";
+  var sex = document.getElementById("sex");
+  var age = document.getElementById("age");
+  var activity = document.getElementById("activity");
+  var goal = document.getElementById("goal");
+
+  function num(n) { return isFinite(n) ? Math.round(n).toLocaleString() : "–"; }
+
+  function compute() {
+    var kg, cm;
+    if (units === "metric") {
+      cm = parseFloat(document.getElementById("heightCm").value) || 0;
+      kg = parseFloat(document.getElementById("weightKg").value) || 0;
+    } else {
+      var ft = parseFloat(document.getElementById("heightFt").value) || 0;
+      var inch = parseFloat(document.getElementById("heightIn").value) || 0;
+      var lb = parseFloat(document.getElementById("weightLb").value) || 0;
+      cm = (ft * 12 + inch) * 2.54;
+      kg = lb * 0.453592;
+    }
+    var a = parseFloat(age.value) || 0;
+    var base = 10 * kg + 6.25 * cm - 5 * a;
+    var bmr = sex.value === "male" ? base + 5 : base - 161;
+    var tdee = bmr * parseFloat(activity.value);
+    var goalCal = tdee + parseFloat(goal.value);
+
+    document.getElementById("bmr").textContent = num(bmr) + " kcal";
+    document.getElementById("tdee").textContent = num(tdee) + " kcal";
+    document.getElementById("goalCalories").textContent = num(goalCal);
+
+    var goalLabel = goal.options[goal.selectedIndex].textContent;
+    document.getElementById("goalSub").textContent = "To " + goalLabel.toLowerCase();
+
+    var protein = (goalCal * 0.30) / 4;
+    var carbs = (goalCal * 0.40) / 4;
+    var fat = (goalCal * 0.30) / 9;
+    document.getElementById("macroProtein").textContent = num(protein) + "g";
+    document.getElementById("macroCarbs").textContent = num(carbs) + "g";
+    document.getElementById("macroFat").textContent = num(fat) + "g";
+  }
+
+  unitBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      unitBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      units = btn.getAttribute("data-units");
+      metricFields.style.display = units === "metric" ? "" : "none";
+      imperialFields.style.display = units === "imperial" ? "" : "none";
+      compute();
+    });
+  });
+
+  document.querySelectorAll("#metricFields input, #imperialFields input, #sex, #age, #activity, #goal").forEach(function(el){
+    el.addEventListener("input", compute);
+    el.addEventListener("change", compute);
+  });
+  compute();
+})();
+</script>
+</body>
+</html>

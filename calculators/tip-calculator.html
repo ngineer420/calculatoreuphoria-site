@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator — Split the Bill &amp; Calculate Tip Instantly</title>
+<meta name="description" content="Free tip calculator: enter your bill and tip percentage to get the tip amount, total, and per-person split for any group size.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/tip-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance" class="active">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Tip Calculator</div>
+    <h1>Tip Calculator</h1>
+    <p class="dek">Enter the bill, choose a tip percentage, and split it evenly across your table.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="bill">Bill amount</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="bill" value="80.00" step="0.01" inputmode="decimal"></div>
+        </div>
+        <div class="field">
+          <label>Tip percentage</label>
+          <div class="toggle-group" style="margin-bottom:10px;">
+            <button data-tip="10">10%</button>
+            <button data-tip="15">15%</button>
+            <button class="active" data-tip="18">18%</button>
+            <button data-tip="20">20%</button>
+            <button data-tip="25">25%</button>
+          </div>
+          <div class="input-group"><input type="number" id="tipPct" value="18" step="0.5" inputmode="decimal"><span class="suffix">%</span></div>
+        </div>
+        <div class="field">
+          <label for="people">Split between</label>
+          <div class="input-group"><input type="number" id="people" value="1" min="1" step="1" inputmode="numeric"><span class="suffix">people</span></div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Total per person</div>
+        <div class="result-value" id="perPersonTotal">$94.40</div>
+        <div class="result-sub">Tip + bill, split evenly</div>
+        <ul class="result-list">
+          <li><span class="k">Tip amount</span><span class="v" id="tipAmount">$14.40</span></li>
+          <li><span class="k">Total bill</span><span class="v" id="totalBill">$94.40</span></li>
+          <li><span class="k">Tip per person</span><span class="v" id="tipPerPerson">$14.40</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How the tip is calculated</h2>
+    <div class="formula">tip = bill &times; (tip % &divide; 100)<br>total = bill + tip<br>per person = total &divide; number of people</div>
+    <p>Tip norms vary by country and service type — 15–20% is typical at U.S. sit-down restaurants, while many other countries have no tipping expectation or include a service charge automatically. Check your receipt for an existing "service charge" line before adding a full tip on top.</p>
+
+    <div style="margin-top:28px;">
+      <div class="faq-item">
+        <button class="faq-q">Should I tip on the pre-tax or post-tax amount?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Convention varies, but tipping on the pre-tax subtotal is the more common practice in the U.S. This calculator uses whatever "bill amount" you enter, so use the pre-tax subtotal if that's your preference.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's a normal tip percentage?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>In the U.S., 15–20% is standard for sit-down service, 20%+ for excellent service, and 10% or less for counter service. Delivery drivers are often tipped a flat $3–5 or 10–15%.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/discount-calculator.html"><h3>Discount Calculator</h3><p>Work out a sale price after a percentage off.</p></a>
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>General percentage math.</p></a>
+    <a class="calc-card" href="/calculators/loan-calculator.html"><h3>Loan Calculator</h3><p>Monthly payments on any loan.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var bill = document.getElementById("bill");
+  var tipPct = document.getElementById("tipPct");
+  var people = document.getElementById("people");
+  var tipBtns = document.querySelectorAll("[data-tip]");
+
+  function money(n) {
+    if (!isFinite(n)) return "$0.00";
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function compute() {
+    var b = parseFloat(bill.value) || 0;
+    var t = parseFloat(tipPct.value) || 0;
+    var p = Math.max(1, parseInt(people.value) || 1);
+    var tip = b * (t / 100);
+    var total = b + tip;
+    document.getElementById("tipAmount").textContent = money(tip);
+    document.getElementById("totalBill").textContent = money(total);
+    document.getElementById("tipPerPerson").textContent = money(tip / p);
+    document.getElementById("perPersonTotal").textContent = money(total / p);
+  }
+
+  tipBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      tipBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      tipPct.value = btn.getAttribute("data-tip");
+      compute();
+    });
+  });
+  [bill, tipPct, people].forEach(function(el){ el.addEventListener("input", function(){
+    tipBtns.forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-tip") === tipPct.value); });
+    compute();
+  }); });
+  compute();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Calculator — Trig, Logs, Powers &amp; Roots Online</title>
+<meta name="description" content="Free online scientific calculator with trigonometry, logarithms, powers, roots, memory and full expression support. Degree or radian mode.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/scientific-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<style>
+  .calc-shell { max-width: 460px; margin: 0 auto; }
+  .calc-display {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 16px; text-align: right; margin-bottom: 14px;
+  }
+  .calc-preview { color: var(--text-muted); font-size: 14px; min-height: 18px; overflow-x: auto; white-space: nowrap; }
+  .calc-expr { font-size: 28px; font-weight: 700; min-height: 34px; overflow-x: auto; white-space: nowrap; }
+  .util-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .util-row button {
+    flex: 1; min-width: 54px; padding: 8px 6px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text); font-size: 12.5px; font-weight: 700; cursor: pointer;
+  }
+  .util-row button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .keypad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .keypad button {
+    padding: 14px 0; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); font-size: 16px; font-weight: 700; cursor: pointer;
+  }
+  .keypad button:hover { background: var(--surface-2); }
+  .keypad button.op { background: var(--primary-light); color: var(--primary); }
+  .keypad button.fn { font-size: 13.5px; }
+  .keypad button.ac { color: var(--danger); }
+  .equals-btn { margin-top: 8px; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math" class="active">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#math">Math</a> / Scientific Calculator</div>
+    <h1>Scientific Calculator</h1>
+    <p class="dek">Trigonometry, logarithms, powers and roots, with full expression and memory support. Keyboard input works too.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-shell">
+      <div class="util-row">
+        <button id="degRadBtn" data-action="degrad">DEG</button>
+        <button id="secondBtn" data-action="second">2nd</button>
+        <button data-action="memclear">MC</button>
+        <button data-action="memrecall">MR</button>
+        <button data-action="memadd">M+</button>
+        <button data-action="memsub">M-</button>
+      </div>
+      <div class="calc-display">
+        <div class="calc-preview" id="preview">&nbsp;</div>
+        <div class="calc-expr" id="expr">0</div>
+      </div>
+      <div class="keypad">
+        <button class="fn" data-func="sin" id="btnSin">sin</button>
+        <button class="fn" data-func="cos" id="btnCos">cos</button>
+        <button class="fn" data-func="tan" id="btnTan">tan</button>
+        <button class="op" data-op="(">(</button>
+        <button class="op" data-op=")">)</button>
+
+        <button class="fn" data-func="ln">ln</button>
+        <button class="fn" data-func="log">log</button>
+        <button class="fn" data-func="sqrt">√</button>
+        <button class="op" data-op="^">x^y</button>
+        <button class="op" data-action="square">x²</button>
+
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button class="op" data-op="/">÷</button>
+        <button class="op" data-action="reciprocal">1/x</button>
+
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button class="op" data-op="*">×</button>
+        <button class="op" data-action="percent">%</button>
+
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button class="op" data-op="-">−</button>
+        <button class="op" data-const="pi">π</button>
+
+        <button class="ac" data-action="ac">AC</button>
+        <button data-key="0">0</button>
+        <button data-key=".">.</button>
+        <button class="op" data-op="+">+</button>
+        <button class="op" data-const="e">e</button>
+      </div>
+      <div style="display:flex; gap:8px; margin-top:8px;">
+        <button class="btn btn-secondary" data-action="del" style="flex:1;">DEL</button>
+        <button class="btn equals-btn" data-action="equals" style="flex:2;">=</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>Using this calculator</h2>
+    <p>Type an expression using the keypad or your keyboard, then press <strong>=</strong> or Enter. Unclosed parentheses are automatically balanced. Trig functions use whichever mode — DEG or RAD — is selected above. Press <strong>2nd</strong> to switch sin/cos/tan to their inverse functions (sin⁻¹, cos⁻¹, tan⁻¹).</p>
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Can I use my keyboard?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes — digits, + - * / ^ ( ) and the decimal point all work directly, plus Enter to evaluate, Backspace to delete, and Escape to clear.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this calculator safe — does it use eval()?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>No. Expressions are parsed with a small hand-written parser that only understands numbers, operators and a fixed list of math functions — there's no JavaScript code execution involved.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Percent of, percent change and more.</p></a>
+    <a class="calc-card" href="/calculators/gpa-calculator.html"><h3>GPA Calculator</h3><p>Weighted GPA from grades and credits.</p></a>
+    <a class="calc-card" href="/calculators/unit-converter.html"><h3>Unit Converter</h3><p>Length, weight, temperature, volume.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  // ---- Safe expression parser (no eval) ----
+  function tokenize(input) {
+    var tokens = [], i = 0;
+    while (i < input.length) {
+      var c = input[i];
+      if (/\s/.test(c)) { i++; continue; }
+      if (/[0-9.]/.test(c)) {
+        var start = i;
+        while (i < input.length && /[0-9.]/.test(input[i])) i++;
+        tokens.push({ type: "num", value: parseFloat(input.slice(start, i)) });
+        continue;
+      }
+      if (/[a-zA-Z]/.test(c)) {
+        var s2 = i;
+        while (i < input.length && /[a-zA-Z]/.test(input[i])) i++;
+        tokens.push({ type: "ident", value: input.slice(s2, i) });
+        continue;
+      }
+      if ("+-*/^()%".indexOf(c) !== -1) { tokens.push({ type: c, value: c }); i++; continue; }
+      throw new Error("Unexpected character: " + c);
+    }
+    return tokens;
+  }
+
+  function Parser(tokens) { this.tokens = tokens; this.pos = 0; }
+  Parser.prototype.peek = function () { return this.tokens[this.pos]; };
+  Parser.prototype.next = function () { return this.tokens[this.pos++]; };
+  Parser.prototype.parseExpression = function () {
+    var node = this.parseTerm();
+    while (this.peek() && (this.peek().type === "+" || this.peek().type === "-")) {
+      var op = this.next().type;
+      node = { op: op, left: node, right: this.parseTerm() };
+    }
+    return node;
+  };
+  Parser.prototype.parseTerm = function () {
+    var node = this.parsePow();
+    while (this.peek() && (this.peek().type === "*" || this.peek().type === "/")) {
+      var op = this.next().type;
+      node = { op: op, left: node, right: this.parsePow() };
+    }
+    return node;
+  };
+  Parser.prototype.parsePow = function () {
+    var node = this.parseUnary();
+    if (this.peek() && this.peek().type === "^") {
+      this.next();
+      node = { op: "^", left: node, right: this.parsePow() };
+    }
+    return node;
+  };
+  Parser.prototype.parseUnary = function () {
+    if (this.peek() && (this.peek().type === "-" || this.peek().type === "+")) {
+      var op = this.next().type;
+      return { op: op === "-" ? "neg" : "pos", operand: this.parseUnary() };
+    }
+    return this.parsePostfix();
+  };
+  Parser.prototype.parsePostfix = function () {
+    var node = this.parsePrimary();
+    while (this.peek() && this.peek().type === "%") { this.next(); node = { op: "pct", operand: node }; }
+    return node;
+  };
+  Parser.prototype.parsePrimary = function () {
+    var t = this.peek();
+    if (!t) throw new Error("Unexpected end of expression");
+    if (t.type === "num") { this.next(); return { type: "num", value: t.value }; }
+    if (t.type === "(") {
+      this.next();
+      var node = this.parseExpression();
+      if (!this.peek() || this.peek().type !== ")") throw new Error("Missing )");
+      this.next();
+      return node;
+    }
+    if (t.type === "ident") {
+      this.next();
+      var name = t.value.toLowerCase();
+      if (name === "pi") return { type: "num", value: Math.PI };
+      if (name === "e") return { type: "num", value: Math.E };
+      if (!this.peek() || this.peek().type !== "(") throw new Error("Expected ( after " + name);
+      this.next();
+      var arg = this.parseExpression();
+      if (!this.peek() || this.peek().type !== ")") throw new Error("Missing ) after " + name);
+      this.next();
+      return { type: "func", name: name, arg: arg };
+    }
+    throw new Error("Unexpected token");
+  };
+
+  function evaluateNode(node, angleMode) {
+    if (node.type === "num") return node.value;
+    if (node.type === "func") {
+      var v = evaluateNode(node.arg, angleMode);
+      var toRad = function (x) { return angleMode === "deg" ? x * Math.PI / 180 : x; };
+      var toDeg = function (x) { return angleMode === "deg" ? x * 180 / Math.PI : x; };
+      switch (node.name) {
+        case "sin": return Math.sin(toRad(v));
+        case "cos": return Math.cos(toRad(v));
+        case "tan": return Math.tan(toRad(v));
+        case "asin": return toDeg(Math.asin(v));
+        case "acos": return toDeg(Math.acos(v));
+        case "atan": return toDeg(Math.atan(v));
+        case "ln": return Math.log(v);
+        case "log": return Math.log10(v);
+        case "sqrt": return Math.sqrt(v);
+        default: throw new Error("Unknown function " + node.name);
+      }
+    }
+    if (node.op === "neg") return -evaluateNode(node.operand, angleMode);
+    if (node.op === "pos") return evaluateNode(node.operand, angleMode);
+    if (node.op === "pct") return evaluateNode(node.operand, angleMode) / 100;
+    var l = evaluateNode(node.left, angleMode), r = evaluateNode(node.right, angleMode);
+    switch (node.op) {
+      case "+": return l + r;
+      case "-": return l - r;
+      case "*": return l * r;
+      case "/": return l / r;
+      case "^": return Math.pow(l, r);
+    }
+  }
+
+  function evaluateExpression(str, angleMode) {
+    var opens = (str.match(/\(/g) || []).length;
+    var closes = (str.match(/\)/g) || []).length;
+    var balanced = str + ")".repeat(Math.max(0, opens - closes));
+    var tokens = tokenize(balanced);
+    var parser = new Parser(tokens);
+    var ast = parser.parseExpression();
+    if (parser.pos !== tokens.length) throw new Error("Unexpected trailing input");
+    return evaluateNode(ast, angleMode);
+  }
+
+  function formatNumber(n) {
+    if (!isFinite(n)) return "Error";
+    var rounded = Math.round(n * 1e10) / 1e10;
+    return rounded.toString();
+  }
+
+  // ---- UI wiring ----
+  var expr = "0";
+  var angleMode = "deg";
+  var secondActive = false;
+  var memory = 0;
+
+  var exprEl = document.getElementById("expr");
+  var previewEl = document.getElementById("preview");
+  var degRadBtn = document.getElementById("degRadBtn");
+  var secondBtn = document.getElementById("secondBtn");
+
+  function displayFormat(str) {
+    return str
+      .replace(/asin/g, "sin⁻¹").replace(/acos/g, "cos⁻¹").replace(/atan/g, "tan⁻¹")
+      .replace(/sqrt/g, "√").replace(/\bpi\b/g, "π")
+      .replace(/\*/g, "×").replace(/\//g, "÷");
+  }
+
+  function render() {
+    exprEl.textContent = displayFormat(expr);
+    try {
+      if (expr.trim() === "" || expr === "0") { previewEl.innerHTML = "&nbsp;"; return; }
+      var r = evaluateExpression(expr, angleMode);
+      previewEl.textContent = isFinite(r) ? "= " + formatNumber(r) : "";
+    } catch (e) {
+      previewEl.innerHTML = "&nbsp;";
+    }
+  }
+
+  function append(str) {
+    if (expr === "0" && /^[0-9.]/.test(str)) expr = str;
+    else if (expr === "0") expr = str;
+    else expr += str;
+    render();
+  }
+
+  function clearAll() { expr = "0"; render(); }
+  function del() { expr = expr.length > 1 ? expr.slice(0, -1) : "0"; render(); }
+  function equals() {
+    try {
+      var r = evaluateExpression(expr, angleMode);
+      expr = formatNumber(r);
+    } catch (e) {
+      previewEl.textContent = "Invalid expression";
+      return;
+    }
+    render();
+  }
+
+  document.querySelectorAll("[data-key]").forEach(function (btn) {
+    btn.addEventListener("click", function () { append(btn.getAttribute("data-key")); });
+  });
+  document.querySelectorAll("[data-op]").forEach(function (btn) {
+    btn.addEventListener("click", function () { append(btn.getAttribute("data-op")); });
+  });
+  document.querySelectorAll("[data-const]").forEach(function (btn) {
+    btn.addEventListener("click", function () { append(btn.getAttribute("data-const")); });
+  });
+  document.querySelectorAll("[data-func]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var base = btn.getAttribute("data-func");
+      var inverseMap = { sin: "asin", cos: "acos", tan: "atan" };
+      var name = (secondActive && inverseMap[base]) ? inverseMap[base] : base;
+      append(name + "(");
+    });
+  });
+
+  document.querySelector('[data-action="ac"]').addEventListener("click", clearAll);
+  document.querySelector('[data-action="del"]').addEventListener("click", del);
+  document.querySelector('[data-action="equals"]').addEventListener("click", equals);
+  document.querySelector('[data-action="square"]').addEventListener("click", function () { append("^2"); });
+  document.querySelector('[data-action="reciprocal"]').addEventListener("click", function () { append("^(-1)"); });
+  document.querySelector('[data-action="percent"]').addEventListener("click", function () { append("%"); });
+
+  degRadBtn.addEventListener("click", function () {
+    angleMode = angleMode === "deg" ? "rad" : "deg";
+    degRadBtn.textContent = angleMode.toUpperCase();
+    render();
+  });
+
+  secondBtn.addEventListener("click", function () {
+    secondActive = !secondActive;
+    secondBtn.classList.toggle("active", secondActive);
+    document.getElementById("btnSin").textContent = secondActive ? "sin⁻¹" : "sin";
+    document.getElementById("btnCos").textContent = secondActive ? "cos⁻¹" : "cos";
+    document.getElementById("btnTan").textContent = secondActive ? "tan⁻¹" : "tan";
+  });
+
+  document.querySelector('[data-action="memclear"]').addEventListener("click", function () { memory = 0; });
+  document.querySelector('[data-action="memrecall"]').addEventListener("click", function () { append(formatNumber(memory)); });
+  document.querySelector('[data-action="memadd"]').addEventListener("click", function () {
+    try { memory += evaluateExpression(expr, angleMode); } catch (e) {}
+  });
+  document.querySelector('[data-action="memsub"]').addEventListener("click", function () {
+    try { memory -= evaluateExpression(expr, angleMode); } catch (e) {}
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!document.getElementById("expr")) return;
+    if (/^[0-9.+\-*/^()]$/.test(e.key)) { append(e.key); e.preventDefault(); }
+    else if (e.key === "Enter" || e.key === "=") { equals(); e.preventDefault(); }
+    else if (e.key === "Backspace") { del(); e.preventDefault(); }
+    else if (e.key === "Escape") { clearAll(); e.preventDefault(); }
+    else if (e.key === "%") { append("%"); e.preventDefault(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

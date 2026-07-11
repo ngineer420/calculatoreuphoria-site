@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter — Length, Weight, Temperature &amp; Volume</title>
+<meta name="description" content="Free unit converter for length, weight, temperature and volume. Convert metric and imperial units instantly, both directions.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/unit-converter.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#everyday">Everyday</a> / Unit Converter</div>
+    <h1>Unit Converter</h1>
+    <p class="dek">Convert length, weight, temperature and volume between metric and imperial units.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="pills" style="justify-content:flex-start; margin:0 0 24px;">
+      <button class="pill active" data-cat="length">Length</button>
+      <button class="pill" data-cat="weight">Weight</button>
+      <button class="pill" data-cat="temperature">Temperature</button>
+      <button class="pill" data-cat="volume">Volume</button>
+    </div>
+    <div class="row-2" style="align-items:end;">
+      <div class="field">
+        <label for="fromValue">From</label>
+        <div class="input-group">
+          <input type="number" id="fromValue" value="1" inputmode="decimal">
+          <select id="fromUnit"></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="toValue">To</label>
+        <div class="input-group">
+          <input type="number" id="toValue" readonly>
+          <select id="toUnit"></select>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-secondary" id="swapBtn" style="max-width:160px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      Swap units
+    </button>
+  </div>
+
+  <div class="calc-content">
+    <h2>Common conversions</h2>
+    <div id="quickRef" class="table-wrap">
+      <table class="data-table"><tbody id="quickRefBody"></tbody></table>
+    </div>
+    <p class="disclaimer">Conversions use standard international unit definitions.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/bmi-calculator.html"><h3>BMI Calculator</h3><p>Body mass index in metric or imperial.</p></a>
+    <a class="calc-card" href="/calculators/age-calculator.html"><h3>Age Calculator</h3><p>Exact age between two dates.</p></a>
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Quick percentage math.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var UNITS = {
+    length: {
+      label: "Length",
+      base: "meters",
+      units: { mm: 0.001, cm: 0.01, m: 1, km: 1000, "in": 0.0254, ft: 0.3048, yd: 0.9144, mi: 1609.344 },
+      names: { mm: "Millimeters", cm: "Centimeters", m: "Meters", km: "Kilometers", "in": "Inches", ft: "Feet", yd: "Yards", mi: "Miles" },
+      quick: [["1", "m", "ft"], ["1", "km", "mi"], ["1", "in", "cm"], ["1", "ft", "m"]]
+    },
+    weight: {
+      label: "Weight",
+      base: "kg",
+      units: { mg: 0.000001, g: 0.001, kg: 1, oz: 0.0283495, lb: 0.453592, st: 6.35029, t: 1000 },
+      names: { mg: "Milligrams", g: "Grams", kg: "Kilograms", oz: "Ounces", lb: "Pounds", st: "Stone", t: "Metric tons" },
+      quick: [["1", "kg", "lb"], ["1", "lb", "kg"], ["1", "oz", "g"], ["1", "st", "kg"]]
+    },
+    temperature: {
+      label: "Temperature",
+      units: { c: 1, f: 1, k: 1 },
+      names: { c: "Celsius", f: "Fahrenheit", k: "Kelvin" },
+      quick: [["0", "c", "f"], ["100", "c", "f"], ["98.6", "f", "c"], ["0", "c", "k"]]
+    },
+    volume: {
+      label: "Volume",
+      base: "liters",
+      units: { ml: 0.001, l: 1, tsp: 0.00492892, tbsp: 0.0147868, floz: 0.0295735, cup: 0.24, pt: 0.473176, qt: 0.946353, gal: 3.78541 },
+      names: { ml: "Milliliters", l: "Liters", tsp: "Teaspoons (US)", tbsp: "Tablespoons (US)", floz: "Fluid ounces (US)", cup: "Cups (US)", pt: "Pints (US)", qt: "Quarts (US)", gal: "Gallons (US)" },
+      quick: [["1", "gal", "l"], ["1", "l", "cup"], ["1", "cup", "ml"], ["1", "tbsp", "ml"]]
+    }
+  };
+
+  var category = "length";
+  var fromValue = document.getElementById("fromValue");
+  var toValue = document.getElementById("toValue");
+  var fromUnit = document.getElementById("fromUnit");
+  var toUnit = document.getElementById("toUnit");
+  var pills = document.querySelectorAll("[data-cat]");
+  var swapBtn = document.getElementById("swapBtn");
+
+  function toCelsius(v, u) {
+    if (u === "c") return v;
+    if (u === "f") return (v - 32) * 5 / 9;
+    return v - 273.15;
+  }
+  function fromCelsius(c, u) {
+    if (u === "c") return c;
+    if (u === "f") return c * 9 / 5 + 32;
+    return c + 273.15;
+  }
+
+  function convert(value, from, to, cat) {
+    if (cat === "temperature") {
+      return fromCelsius(toCelsius(value, from), to);
+    }
+    var def = UNITS[cat];
+    var base = value * def.units[from];
+    return base / def.units[to];
+  }
+
+  function populateUnits(cat) {
+    var def = UNITS[cat];
+    var keys = Object.keys(def.units);
+    [fromUnit, toUnit].forEach(function(sel){
+      sel.innerHTML = keys.map(function(k){ return '<option value="' + k + '">' + def.names[k] + " (" + k + ")</option>"; }).join("");
+    });
+    fromUnit.value = keys[0];
+    toUnit.value = keys.length > 1 ? keys[1] : keys[0];
+  }
+
+  function renderQuickRef(cat) {
+    var def = UNITS[cat];
+    document.getElementById("quickRefBody").innerHTML = def.quick.map(function(q){
+      var val = parseFloat(q[0]);
+      var result = convert(val, q[1], q[2], cat);
+      return "<tr><td>" + q[0] + " " + def.names[q[1]] + "</td><td>" + result.toLocaleString(undefined,{maximumFractionDigits:4}) + " " + def.names[q[2]] + "</td></tr>";
+    }).join("");
+  }
+
+  function compute() {
+    var v = parseFloat(fromValue.value);
+    if (isNaN(v)) { toValue.value = ""; return; }
+    var r = convert(v, fromUnit.value, toUnit.value, category);
+    toValue.value = isFinite(r) ? (Math.round(r * 100000) / 100000) : "";
+  }
+
+  pills.forEach(function(pill){
+    pill.addEventListener("click", function(){
+      pills.forEach(function(p){ p.classList.remove("active"); });
+      pill.classList.add("active");
+      category = pill.getAttribute("data-cat");
+      populateUnits(category);
+      renderQuickRef(category);
+      compute();
+    });
+  });
+
+  swapBtn.addEventListener("click", function(){
+    var f = fromUnit.value, t = toUnit.value;
+    fromUnit.value = t;
+    toUnit.value = f;
+    var currentTo = toValue.value;
+    if (currentTo !== "") fromValue.value = currentTo;
+    compute();
+  });
+
+  [fromValue, fromUnit, toUnit].forEach(function(el){ el.addEventListener("input", compute); });
+
+  populateUnits(category);
+  renderQuickRef(category);
+  compute();
+})();
+</script>
+</body>
+</html>

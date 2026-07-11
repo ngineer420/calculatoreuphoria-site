@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPA Calculator — Weighted GPA from Grades &amp; Credit Hours</title>
+<meta name="description" content="Free GPA calculator. Add your courses, credit hours and letter grades to get your weighted GPA on a standard 4.0 scale.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/gpa-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<style>
+  .gpa-row { display: grid; grid-template-columns: 1fr 90px 130px 36px; gap: 10px; align-items: center; margin-bottom: 10px; }
+  @media (max-width: 560px) { .gpa-row { grid-template-columns: 1fr 70px 100px 32px; } }
+  .gpa-row input, .gpa-row select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font-size: 14px; }
+  .gpa-remove { border: none; background: none; color: var(--text-muted); cursor: pointer; font-size: 18px; width: 36px; }
+  .gpa-remove:hover { color: var(--danger); }
+  .gpa-head { display: grid; grid-template-columns: 1fr 90px 130px 36px; gap: 10px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
+  @media (max-width: 560px) { .gpa-head { grid-template-columns: 1fr 70px 100px 32px; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math" class="active">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.79"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#math">Math</a> / GPA Calculator</div>
+    <h1>GPA Calculator</h1>
+    <p class="dek">Add each course's credit hours and letter grade to calculate your weighted GPA on a 4.0 scale.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="gpa-head">
+          <span>Course</span><span>Credits</span><span>Grade</span><span></span>
+        </div>
+        <div id="courseRows"></div>
+        <button class="btn btn-secondary" id="addRow" style="max-width:200px;">+ Add course</button>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Your GPA</div>
+        <div class="result-value" id="gpaValue">3.42</div>
+        <div class="result-sub">On a 4.0 scale</div>
+        <ul class="result-list">
+          <li><span class="k">Total credit hours</span><span class="v" id="totalCredits">–</span></li>
+          <li><span class="k">Quality points</span><span class="v" id="qualityPoints">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How GPA is calculated</h2>
+    <div class="formula">GPA = &Sigma;(credit hours &times; grade points) &divide; &Sigma;(credit hours)</div>
+    <h3>Standard 4.0 scale</h3>
+    <table class="data-table" style="margin:10px 0;">
+      <tr><th>Grade</th><th>Points</th><th>Grade</th><th>Points</th></tr>
+      <tr><td>A+ / A</td><td>4.0</td><td>C+</td><td>2.3</td></tr>
+      <tr><td>A-</td><td>3.7</td><td>C</td><td>2.0</td></tr>
+      <tr><td>B+</td><td>3.3</td><td>C-</td><td>1.7</td></tr>
+      <tr><td>B</td><td>3.0</td><td>D+</td><td>1.3</td></tr>
+      <tr><td>B-</td><td>2.7</td><td>D</td><td>1.0</td></tr>
+      <tr><td>F</td><td>0.0</td><td>D-</td><td>0.7</td></tr>
+    </table>
+    <p class="disclaimer">Grading scales vary by school — check your institution's official scale for transcripts. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Percent of, percent change and more.</p></a>
+    <a class="calc-card" href="/calculators/scientific-calculator.html"><h3>Scientific Calculator</h3><p>Full expressions, trig and logs.</p></a>
+    <a class="calc-card" href="/calculators/age-calculator.html"><h3>Age Calculator</h3><p>Exact age between two dates.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var GRADES = { "A+": 4.0, "A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7, "C+": 2.3, "C": 2.0, "C-": 1.7, "D+": 1.3, "D": 1.0, "D-": 0.7, "F": 0.0 };
+  var rowsContainer = document.getElementById("courseRows");
+  var rowCount = 0;
+
+  function gradeOptions(selected) {
+    return Object.keys(GRADES).map(function(g){
+      return '<option value="' + g + '"' + (g === selected ? " selected" : "") + ">" + g + "</option>";
+    }).join("");
+  }
+
+  function addRow(name, credits, grade) {
+    rowCount++;
+    var row = document.createElement("div");
+    row.className = "gpa-row";
+    row.innerHTML =
+      '<input type="text" placeholder="Course name" value="' + (name || "") + '" data-field="name">' +
+      '<input type="number" min="0" step="0.5" value="' + (credits != null ? credits : 3) + '" data-field="credits">' +
+      '<select data-field="grade">' + gradeOptions(grade || "A") + "</select>" +
+      '<button class="gpa-remove" type="button" aria-label="Remove course">&times;</button>';
+    rowsContainer.appendChild(row);
+
+    row.querySelectorAll("input, select").forEach(function(el){ el.addEventListener("input", compute); el.addEventListener("change", compute); });
+    row.querySelector(".gpa-remove").addEventListener("click", function(){ row.remove(); compute(); });
+  }
+
+  function compute() {
+    var totalCredits = 0, qualityPoints = 0;
+    rowsContainer.querySelectorAll(".gpa-row").forEach(function(row){
+      var credits = parseFloat(row.querySelector('[data-field="credits"]').value) || 0;
+      var grade = row.querySelector('[data-field="grade"]').value;
+      var points = GRADES[grade] != null ? GRADES[grade] : 0;
+      totalCredits += credits;
+      qualityPoints += credits * points;
+    });
+    var gpa = totalCredits > 0 ? qualityPoints / totalCredits : 0;
+    document.getElementById("gpaValue").textContent = gpa.toFixed(2);
+    document.getElementById("totalCredits").textContent = totalCredits;
+    document.getElementById("qualityPoints").textContent = qualityPoints.toFixed(2);
+  }
+
+  document.getElementById("addRow").addEventListener("click", function(){ addRow("", 3, "A"); });
+
+  addRow("Introduction to Psychology", 3, "A");
+  addRow("Calculus I", 4, "B+");
+  addRow("English Composition", 3, "A-");
+  addRow("World History", 3, "B");
+  compute();
+})();
+</script>
+</body>
+</html>

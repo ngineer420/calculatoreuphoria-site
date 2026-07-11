@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator — Exact Age in Years, Months &amp; Days</title>
+<meta name="description" content="Free age calculator. Find your exact age in years, months and days between any two dates, total days lived, and a countdown to your next birthday.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/age-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#everyday">Everyday</a> / Age Calculator</div>
+    <h1>Age Calculator</h1>
+    <p class="dek">Find the exact age between two dates, down to the day.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="birthDate">Date of birth</label>
+          <div class="input-group"><input type="date" id="birthDate" value="1990-06-15"></div>
+        </div>
+        <div class="field">
+          <label for="asOfDate">Calculate age as of</label>
+          <div class="input-group"><input type="date" id="asOfDate"></div>
+          <div class="hint">Defaults to today.</div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Age</div>
+        <div class="result-value" id="ageMain">—</div>
+        <div class="result-sub" id="ageSub">–</div>
+        <ul class="result-list">
+          <li><span class="k">Total days lived</span><span class="v" id="totalDays">–</span></li>
+          <li><span class="k">Total weeks</span><span class="v" id="totalWeeks">–</span></li>
+          <li><span class="k">Total months</span><span class="v" id="totalMonths">–</span></li>
+          <li><span class="k">Next birthday in</span><span class="v" id="nextBirthday">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How age is calculated</h2>
+    <p>We count whole years, then whole months from the last birthday, then remaining days — the same way you'd count age by hand on a calendar. Total days is the exact number of calendar days between the two dates.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Does this account for leap years?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes. Because the calculation works from actual calendar dates rather than a fixed 365-day year, leap years are automatically handled correctly, including for people born on February 29.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I calculate the age of something other than a person?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes — enter any start date (a purchase date, an anniversary, a founding date) and this works the same way, though the "next birthday" line is only meaningful for people.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/bmi-calculator.html"><h3>BMI Calculator</h3><p>Body mass index and healthy range.</p></a>
+    <a class="calc-card" href="/calculators/gpa-calculator.html"><h3>GPA Calculator</h3><p>Weighted GPA from grades and credits.</p></a>
+    <a class="calc-card" href="/calculators/unit-converter.html"><h3>Unit Converter</h3><p>Length, weight, temperature and volume.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var birthDate = document.getElementById("birthDate");
+  var asOfDate = document.getElementById("asOfDate");
+
+  var today = new Date();
+  asOfDate.value = today.toISOString().slice(0,10);
+
+  function daysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+  }
+
+  function compute() {
+    var birth = new Date(birthDate.value + "T00:00:00");
+    var asOf = new Date((asOfDate.value || today.toISOString().slice(0,10)) + "T00:00:00");
+
+    if (isNaN(birth.getTime()) || isNaN(asOf.getTime())) return;
+
+    var future = birth > asOf;
+    var a = future ? asOf : birth;
+    var b = future ? birth : asOf;
+
+    var years = b.getFullYear() - a.getFullYear();
+    var months = b.getMonth() - a.getMonth();
+    var days = b.getDate() - a.getDate();
+
+    if (days < 0) {
+      months -= 1;
+      var prevMonthDate = new Date(b.getFullYear(), b.getMonth(), 0);
+      days += prevMonthDate.getDate();
+    }
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+
+    document.getElementById("ageMain").textContent = years + "y " + months + "m " + days + "d";
+    document.getElementById("ageSub").textContent = future
+      ? "Date of birth is in the future"
+      : years + " years, " + months + " months, " + days + " days old";
+
+    var msPerDay = 1000 * 60 * 60 * 24;
+    var totalDays = Math.round((b - a) / msPerDay);
+    document.getElementById("totalDays").textContent = totalDays.toLocaleString();
+    document.getElementById("totalWeeks").textContent = Math.floor(totalDays / 7).toLocaleString();
+    document.getElementById("totalMonths").textContent = (years * 12 + months).toLocaleString();
+
+    // Next birthday relative to "as of" date
+    var nextBday = new Date(asOf.getFullYear(), birth.getMonth(), birth.getDate());
+    if (nextBday < asOf) nextBday = new Date(asOf.getFullYear() + 1, birth.getMonth(), birth.getDate());
+    var daysToNext = Math.round((nextBday - asOf) / msPerDay);
+    document.getElementById("nextBirthday").textContent = daysToNext === 0 ? "Today!" : daysToNext + " days";
+  }
+
+  [birthDate, asOfDate].forEach(function(el){ el.addEventListener("input", compute); });
+  compute();
+})();
+</script>
+</body>
+</html>

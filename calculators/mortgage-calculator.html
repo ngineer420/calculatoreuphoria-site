@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator — Monthly Payment, Taxes, Insurance &amp; Amortization</title>
+<meta name="description" content="Free mortgage calculator with taxes, insurance, PMI and HOA. See your monthly payment, total interest, and a year-by-year amortization schedule.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/mortgage-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance" class="active">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Mortgage Calculator</div>
+    <h1>Mortgage Calculator</h1>
+    <p class="dek">Estimate your monthly payment including principal, interest, taxes, insurance and PMI — with a full amortization schedule.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="homePrice">Home price</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="homePrice" value="400000" step="1000" inputmode="decimal"></div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="downPayment">Down payment</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="downPayment" value="80000" step="1000" inputmode="decimal"></div>
+          </div>
+          <div class="field">
+            <label for="downPct">Down payment %</label>
+            <div class="input-group"><input type="number" id="downPct" value="20" step="0.5" inputmode="decimal"><span class="suffix">%</span></div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="rate">Interest rate</label>
+            <div class="input-group"><input type="number" id="rate" value="6.5" step="0.05" inputmode="decimal"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label for="term">Loan term</label>
+            <div class="input-group"><input type="number" id="term" value="30" step="1" inputmode="numeric"><span class="suffix">yrs</span></div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="propertyTax">Property tax</label>
+            <div class="input-group"><input type="number" id="propertyTax" value="1.1" step="0.05" inputmode="decimal"><span class="suffix">%/yr</span></div>
+          </div>
+          <div class="field">
+            <label for="homeInsurance">Home insurance</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="homeInsurance" value="1500" step="50" inputmode="decimal"><span class="suffix">/yr</span></div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="pmiRate">PMI rate</label>
+            <div class="input-group"><input type="number" id="pmiRate" value="0.5" step="0.05" inputmode="decimal"><span class="suffix">%/yr</span></div>
+            <div class="hint">Applied only if down payment is under 20%.</div>
+          </div>
+          <div class="field">
+            <label for="hoa">HOA dues</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="hoa" value="0" step="10" inputmode="decimal"><span class="suffix">/mo</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Estimated monthly payment</div>
+        <div class="result-value" id="totalMonthly">$2,527</div>
+        <div class="result-sub">Principal, interest, taxes, insurance &amp; fees</div>
+        <ul class="result-list">
+          <li><span class="k">Principal &amp; interest</span><span class="v" id="piMonthly">–</span></li>
+          <li><span class="k">Property tax</span><span class="v" id="taxMonthly">–</span></li>
+          <li><span class="k">Home insurance</span><span class="v" id="insMonthly">–</span></li>
+          <li><span class="k">PMI</span><span class="v" id="pmiMonthly">–</span></li>
+          <li><span class="k">HOA</span><span class="v" id="hoaMonthly">–</span></li>
+          <li><span class="k">Loan amount</span><span class="v" id="loanAmount">–</span></li>
+          <li><span class="k">Total interest paid</span><span class="v" id="totalInterest">–</span></li>
+          <li><span class="k">Total cost of loan</span><span class="v" id="totalCost">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Amortization schedule (yearly)</h2><span id="scheduleHint"></span></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Remaining balance</th></tr></thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How the monthly payment is calculated</h2>
+    <div class="formula">M = P &times; [r(1+r)<sup>n</sup>] &divide; [(1+r)<sup>n</sup> &minus; 1]<br>P = loan amount, r = monthly interest rate, n = number of monthly payments</div>
+    <p>Taxes, insurance, PMI and HOA are added on top of this principal-and-interest payment to estimate your full monthly housing cost.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">What is PMI and when do I need it?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Private Mortgage Insurance is typically required by lenders when your down payment is below 20% of the home price. It protects the lender, not you, and can usually be removed once you reach 20% equity.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why does my early payments go mostly to interest?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Interest is charged on the remaining balance, which is highest at the start of the loan. As the balance shrinks, more of each fixed payment goes toward principal — this is why the amortization schedule shows interest dropping and principal rising over time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does this include closing costs?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>No. Closing costs (loan origination, title, appraisal, etc.) are typically paid upfront and are not part of the recurring monthly payment estimated here.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Estimates only — actual loan terms, taxes and insurance vary by lender and location. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/loan-calculator.html"><h3>Loan Calculator</h3><p>Auto, personal or student loan payments.</p></a>
+    <a class="calc-card" href="/calculators/compound-interest-calculator.html"><h3>Compound Interest Calculator</h3><p>Grow savings with contributions.</p></a>
+    <a class="calc-card" href="/calculators/discount-calculator.html"><h3>Discount Calculator</h3><p>Percentage off any price.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var homePrice = document.getElementById("homePrice");
+  var downPayment = document.getElementById("downPayment");
+  var downPct = document.getElementById("downPct");
+  var rate = document.getElementById("rate");
+  var term = document.getElementById("term");
+  var propertyTax = document.getElementById("propertyTax");
+  var homeInsurance = document.getElementById("homeInsurance");
+  var pmiRate = document.getElementById("pmiRate");
+  var hoa = document.getElementById("hoa");
+  var syncing = false;
+
+  function money(n, decimals) {
+    if (!isFinite(n)) return "$0";
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: decimals || 0, maximumFractionDigits: decimals || 0 });
+  }
+
+  function syncFromDollar() {
+    if (syncing) return;
+    syncing = true;
+    var price = parseFloat(homePrice.value) || 0;
+    var down = parseFloat(downPayment.value) || 0;
+    downPct.value = price > 0 ? ((down / price) * 100).toFixed(1) : 0;
+    syncing = false;
+  }
+  function syncFromPct() {
+    if (syncing) return;
+    syncing = true;
+    var price = parseFloat(homePrice.value) || 0;
+    var pct = parseFloat(downPct.value) || 0;
+    downPayment.value = Math.round(price * (pct / 100));
+    syncing = false;
+  }
+
+  function compute() {
+    var price = parseFloat(homePrice.value) || 0;
+    var down = parseFloat(downPayment.value) || 0;
+    var loan = Math.max(0, price - down);
+    var r = (parseFloat(rate.value) || 0) / 100 / 12;
+    var n = (parseFloat(term.value) || 0) * 12;
+    var pmiPct = parseFloat(pmiRate.value) || 0;
+    var downRatio = price > 0 ? down / price : 0;
+
+    var pi = 0;
+    if (n > 0) {
+      pi = r > 0 ? loan * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : loan / n;
+    }
+    var taxMonthly = (price * (parseFloat(propertyTax.value) || 0) / 100) / 12;
+    var insMonthly = (parseFloat(homeInsurance.value) || 0) / 12;
+    var pmiMonthly = downRatio < 0.20 ? (loan * pmiPct / 100) / 12 : 0;
+    var hoaMonthly = parseFloat(hoa.value) || 0;
+    var totalMonthly = pi + taxMonthly + insMonthly + pmiMonthly + hoaMonthly;
+
+    document.getElementById("totalMonthly").textContent = money(totalMonthly);
+    document.getElementById("piMonthly").textContent = money(pi);
+    document.getElementById("taxMonthly").textContent = money(taxMonthly);
+    document.getElementById("insMonthly").textContent = money(insMonthly);
+    document.getElementById("pmiMonthly").textContent = pmiMonthly > 0 ? money(pmiMonthly) : "None";
+    document.getElementById("hoaMonthly").textContent = money(hoaMonthly);
+    document.getElementById("loanAmount").textContent = money(loan);
+
+    // Amortization (yearly rollup)
+    var balance = loan;
+    var years = Math.round((parseFloat(term.value) || 0));
+    var rows = [];
+    var totalInterestPaid = 0;
+    if (n > 0 && loan > 0) {
+      for (var y = 1; y <= years; y++) {
+        var yearPrincipal = 0, yearInterest = 0;
+        for (var m = 0; m < 12 && balance > 0.005; m++) {
+          var interestPortion = balance * r;
+          var principalPortion = Math.min(balance, pi - interestPortion);
+          balance -= principalPortion;
+          yearPrincipal += principalPortion;
+          yearInterest += interestPortion;
+        }
+        totalInterestPaid += yearInterest;
+        rows.push({ year: y, principal: yearPrincipal, interest: yearInterest, balance: Math.max(0, balance) });
+      }
+    }
+    document.getElementById("totalInterest").textContent = money(totalInterestPaid);
+    document.getElementById("totalCost").textContent = money(loan + totalInterestPaid);
+
+    var tbody = document.getElementById("scheduleBody");
+    tbody.innerHTML = rows.map(function(row){
+      return "<tr><td>" + row.year + "</td><td>" + money(row.principal) + "</td><td>" + money(row.interest) + "</td><td>" + money(row.balance) + "</td></tr>";
+    }).join("");
+  }
+
+  homePrice.addEventListener("input", function(){ syncFromDollar(); compute(); });
+  downPayment.addEventListener("input", function(){ syncFromDollar(); compute(); });
+  downPct.addEventListener("input", function(){ syncFromPct(); compute(); });
+  [rate, term, propertyTax, homeInsurance, pmiRate, hoa].forEach(function(el){ el.addEventListener("input", compute); });
+
+  compute();
+})();
+</script>
+</body>
+</html>

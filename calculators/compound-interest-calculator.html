@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest Calculator — With Monthly Contributions</title>
+<meta name="description" content="Free compound interest calculator with monthly contributions. See how savings and investments grow over time, with a year-by-year growth table.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/compound-interest-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance" class="active">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Compound Interest Calculator</div>
+    <h1>Compound Interest Calculator</h1>
+    <p class="dek">See how a lump sum plus regular contributions grows over time at a given rate of return.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="principal">Starting amount</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="principal" value="10000" step="500" inputmode="decimal"></div>
+        </div>
+        <div class="field">
+          <label for="contribution">Monthly contribution</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="contribution" value="300" step="25" inputmode="decimal"></div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="rate">Annual return rate</label>
+            <div class="input-group"><input type="number" id="rate" value="7" step="0.1" inputmode="decimal"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label for="years">Time period</label>
+            <div class="input-group"><input type="number" id="years" value="20" step="1" inputmode="numeric"><span class="suffix">yrs</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="compound">Compounding frequency</label>
+          <div class="input-group">
+            <select id="compound">
+              <option value="365">Daily</option>
+              <option value="12" selected>Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="1">Annually</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Future value</div>
+        <div class="result-value" id="futureValue">$168,432</div>
+        <div class="result-sub">After contributions and compounding</div>
+        <ul class="result-list">
+          <li><span class="k">Starting amount</span><span class="v" id="startAmt">–</span></li>
+          <li><span class="k">Total contributions</span><span class="v" id="totalContrib">–</span></li>
+          <li><span class="k">Total interest earned</span><span class="v good" id="totalInterest">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Growth by year</h2></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Year</th><th>Contributions to date</th><th>Interest earned to date</th><th>Balance</th></tr></thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How compound interest works</h2>
+    <div class="formula">A = P(1 + r/n)<sup>nt</sup> + contributions compounded each period<br>P = starting amount, r = annual rate, n = compounds per year, t = years</div>
+    <p>Compound interest means you earn returns not just on your original deposit, but on all the interest it has already earned — which is why growth accelerates over long time horizons. Adding regular contributions on top compounds even faster.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Does compounding frequency matter much?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>More frequent compounding (daily vs. annually) produces slightly higher returns at the same stated annual rate, but the difference is usually small compared to the effect of the rate itself or your contribution amount.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this calculator accounting for investment risk?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>No — it assumes a constant annual return, which real investments (like stock index funds) never actually deliver year to year. Use a conservative average rate to get a realistic long-term estimate, not a guarantee.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">For informational purposes only, not investment advice. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/mortgage-calculator.html"><h3>Mortgage Calculator</h3><p>Home loan payments and amortization.</p></a>
+    <a class="calc-card" href="/calculators/loan-calculator.html"><h3>Loan Calculator</h3><p>Auto, personal or student loans.</p></a>
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Quick percentage math.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var principal = document.getElementById("principal");
+  var contribution = document.getElementById("contribution");
+  var rate = document.getElementById("rate");
+  var years = document.getElementById("years");
+  var compound = document.getElementById("compound");
+
+  function money(n) {
+    if (!isFinite(n)) return "$0";
+    return "$" + Math.round(n).toLocaleString();
+  }
+
+  function compute() {
+    var P = parseFloat(principal.value) || 0;
+    var monthlyContrib = parseFloat(contribution.value) || 0;
+    var r = (parseFloat(rate.value) || 0) / 100;
+    var t = parseFloat(years.value) || 0;
+    var n = parseFloat(compound.value) || 12;
+    var contribPerPeriod = monthlyContrib * (12 / n);
+    var ratePerPeriod = r / n;
+    var totalPeriods = Math.round(n * t);
+
+    var balance = P;
+    var totalContrib = 0;
+    var rows = [];
+    var periodsPerYear = n;
+
+    for (var period = 1; period <= totalPeriods; period++) {
+      balance += contribPerPeriod;
+      totalContrib += contribPerPeriod;
+      balance *= (1 + ratePerPeriod);
+
+      if (period % Math.round(periodsPerYear) === 0 || period === totalPeriods) {
+        var yearIndex = Math.round(period / periodsPerYear);
+        rows.push({
+          year: (period === totalPeriods && period % Math.round(periodsPerYear) !== 0) ? (yearIndex) : yearIndex,
+          contrib: totalContrib,
+          interest: balance - P - totalContrib,
+          balance: balance
+        });
+      }
+    }
+
+    document.getElementById("futureValue").textContent = money(balance);
+    document.getElementById("startAmt").textContent = money(P);
+    document.getElementById("totalContrib").textContent = money(totalContrib);
+    document.getElementById("totalInterest").textContent = money(balance - P - totalContrib);
+
+    document.getElementById("scheduleBody").innerHTML = rows.map(function(row){
+      return "<tr><td>Year " + row.year + "</td><td>" + money(row.contrib) + "</td><td>" + money(row.interest) + "</td><td>" + money(row.balance) + "</td></tr>";
+    }).join("");
+  }
+
+  [principal, contribution, rate, years, compound].forEach(function(el){ el.addEventListener("input", compute); });
+  compute();
+})();
+</script>
+</body>
+</html>
