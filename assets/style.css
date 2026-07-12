@@ -535,6 +535,9 @@ table.data-table th { color: var(--text-muted); font-size: 12px; text-transform:
   padding-top: 20px; border-top: 1px solid var(--border);
 }
 
+.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; }
+.erabbit-mark img { display: block; width: 10px; height: 10px; }
+
 .static-page { padding: 40px 0 70px; }
 .static-page h1 { font-size: 30px; margin-bottom: 6px; }
 .static-page .updated { color: var(--text-muted); font-size: 13px; margin-bottom: 30px; }
