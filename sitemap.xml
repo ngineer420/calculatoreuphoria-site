@@ -13,6 +13,10 @@
   <url><loc>https://calculatoreuphoria.com/calculators/gpa-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://calculatoreuphoria.com/calculators/age-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://calculatoreuphoria.com/calculators/unit-converter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://calculatoreuphoria.com/articles/guide-to-our-calculators.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calculatoreuphoria.com/articles/mental-math-vs-calculators.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calculatoreuphoria.com/articles/history-of-the-calculator.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calculatoreuphoria.com/articles/why-we-built-calculator-euphoria.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://calculatoreuphoria.com/about.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://calculatoreuphoria.com/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
   <url><loc>https://calculatoreuphoria.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
