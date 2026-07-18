@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discount Calculator — Sale Price, Savings &amp; Stacked Discounts</title>
-<meta name="description" content="Free discount calculator. Find the sale price and savings for any percentage off, stack a second discount, or work backward from a sale price.">
-<link rel="canonical" href="https://calculatoreuphoria.com/calculators/discount-calculator.html">
+<title>Date Calculator — Days Between Dates &amp; Add/Subtract Days</title>
+<meta name="description" content="Free date calculator. Find the number of days between two dates, or add or subtract a number of days, weeks, or months from a date.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/date-calculator.html">
 <link rel="stylesheet" href="/assets/style.css">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
     </a>
     <nav>
       <a href="/index.html">Home</a>
-      <a href="/index.html#finance" class="active">Finance</a>
+      <a href="/index.html#finance">Finance</a>
       <a href="/index.html#health">Health</a>
       <a href="/index.html#math">Math</a>
       <a href="/about.html">About</a>
@@ -44,7 +44,7 @@
       <a href="/calculators/loan-calculator">Loan</a>
       <a href="/calculators/compound-interest-calculator">Compound Interest</a>
       <a href="/calculators/tip-calculator">Tip</a>
-      <a href="/calculators/discount-calculator" class="active" aria-current="page">Discount</a>
+      <a href="/calculators/discount-calculator">Discount</a>
       <a href="/calculators/sales-tax-calculator">Sales Tax</a>
       <a href="/calculators/simple-interest-calculator">Simple Interest</a>
     </div>
@@ -65,7 +65,7 @@
       <span class="calc-menu-label">Everyday</span>
       <a href="/calculators/age-calculator">Age</a>
       <a href="/calculators/unit-converter">Unit Converter</a>
-      <a href="/calculators/date-calculator">Date</a>
+      <a href="/calculators/date-calculator" class="active" aria-current="page">Date</a>
       <a href="/calculators/aspect-ratio-calculator">Aspect Ratio</a>
     </div>
   </div>
@@ -73,71 +73,69 @@
 
 <main id="main" class="wrap">
   <div class="calc-page-head">
-    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Discount Calculator</div>
-    <h1>Discount Calculator</h1>
-    <p class="dek">Work out a sale price, your total savings, or the original price before a discount.</p>
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#everyday">Everyday</a> / Date Calculator</div>
+    <h1>Date Calculator</h1>
+    <p class="dek">Find the number of days between two dates, or add or subtract days from a date.</p>
   </div>
 
   <div class="calc-app">
     <div class="toggle-group" style="margin-bottom:24px; max-width:360px;">
-      <button class="active" data-mode="forward">Original → sale price</button>
-      <button data-mode="reverse">Sale price → original</button>
+      <button class="active" data-mode="between">Days between dates</button>
+      <button data-mode="addsub">Add/subtract days</button>
     </div>
     <div class="calc-layout">
       <div>
-        <div id="forwardFields">
+        <div id="betweenFields">
           <div class="field">
-            <label for="origPrice">Original price</label>
-            <div class="input-group"><span class="prefix">$</span><input type="number" id="origPrice" value="120" step="1" inputmode="decimal"></div>
+            <label for="startDate">Start date</label>
+            <div class="input-group"><input type="date" id="startDate" value="2026-01-01"></div>
           </div>
           <div class="field">
-            <label for="discountPct">Discount</label>
-            <div class="input-group"><input type="number" id="discountPct" value="25" step="1" inputmode="decimal"><span class="suffix">%</span></div>
-          </div>
-          <div class="field">
-            <label for="secondPct">Extra discount (optional, stacked)</label>
-            <div class="input-group"><input type="number" id="secondPct" value="0" step="1" inputmode="decimal"><span class="suffix">%</span></div>
-            <div class="hint">Applied on top of the already-discounted price, e.g. an extra 20% off clearance.</div>
+            <label for="endDate">End date</label>
+            <div class="input-group"><input type="date" id="endDate" value="2026-07-17"></div>
           </div>
         </div>
-        <div id="reverseFields" style="display:none;">
+        <div id="addSubFields" style="display:none;">
           <div class="field">
-            <label for="salePrice">Sale price</label>
-            <div class="input-group"><span class="prefix">$</span><input type="number" id="salePrice" value="90" step="1" inputmode="decimal"></div>
+            <label for="baseDate">Start date</label>
+            <div class="input-group"><input type="date" id="baseDate" value="2026-07-17"></div>
           </div>
           <div class="field">
-            <label for="reverseDiscountPct">Discount applied</label>
-            <div class="input-group"><input type="number" id="reverseDiscountPct" value="25" step="1" inputmode="decimal"><span class="suffix">%</span></div>
+            <label for="dayOffset">Days to add (use a negative number to subtract)</label>
+            <div class="input-group"><input type="number" id="dayOffset" value="30" step="1" inputmode="numeric"></div>
           </div>
         </div>
       </div>
       <div class="result-panel">
-        <div class="result-label" id="resultLabel">You pay</div>
-        <div class="result-value" id="resultValue">$90.00</div>
-        <div class="result-sub" id="resultSub">25% off $120</div>
+        <div class="result-label" id="resultLabel">Days between</div>
+        <div class="result-value" id="resultValue">–</div>
+        <div class="result-sub" id="resultSub">–</div>
         <ul class="result-list" id="resultList"></ul>
       </div>
     </div>
   </div>
 
   <div class="calc-content">
-    <h2>How discounts are calculated</h2>
-    <div class="formula">sale price = original &times; (1 &minus; discount% &divide; 100)<br>original price = sale price &divide; (1 &minus; discount% &divide; 100)</div>
-    <p>Stacked discounts multiply, they don't add: 25% off followed by an extra 20% off is <strong>not</strong> 45% off — it's a combined discount of 1 &minus; (0.75 &times; 0.80) = 40%.</p>
+    <h2>How date math works</h2>
+    <p>Days between two dates counts every full calendar day from the start date up to the end date. Adding or subtracting days moves forward or backward on the calendar, correctly rolling over month and year boundaries — including leap years.</p>
 
     <div style="margin-top:20px;">
       <div class="faq-item">
-        <button class="faq-q">Why isn't 25% + 20% off equal to 45% off?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Because the second discount applies to the already-reduced price, not the original. On a $120 item, 25% off brings it to $90; an extra 20% off $90 is $18, landing at $72 — a 40% total discount, not 45%.</p></div>
+        <button class="faq-q">Does "days between" include both the start and end date?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>The count reflects the number of nights or full days that pass between the two dates — for example, January 1 to January 3 is 2 days apart. If you need an inclusive count (counting both the start and end day), add 1 to the result.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does this handle leap years correctly?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes. Because the calculation works with real calendar dates rather than a fixed 365-day year, February 29 in leap years is automatically accounted for.</p></div>
       </div>
     </div>
   </div>
 
   <div class="section-heading"><h2>Related calculators</h2></div>
   <div class="related-grid">
-    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>General percentage math.</p></a>
-    <a class="calc-card" href="/calculators/tip-calculator.html"><h3>Tip Calculator</h3><p>Tip and split any bill.</p></a>
-    <a class="calc-card" href="/calculators/compound-interest-calculator.html"><h3>Compound Interest Calculator</h3><p>Grow savings over time.</p></a>
+    <a class="calc-card" href="/calculators/age-calculator.html"><h3>Age Calculator</h3><p>Exact age between two dates.</p></a>
+    <a class="calc-card" href="/calculators/sleep-calculator.html"><h3>Sleep Calculator</h3><p>Bedtime and wake-up by sleep cycle.</p></a>
+    <a class="calc-card" href="/calculators/unit-converter.html"><h3>Unit Converter</h3><p>Length, weight, temperature and volume.</p></a>
   </div>
 </main>
 
@@ -154,13 +152,14 @@
 <script>
 (function(){
   var modeBtns = document.querySelectorAll("[data-mode]");
-  var forwardFields = document.getElementById("forwardFields");
-  var reverseFields = document.getElementById("reverseFields");
-  var mode = "forward";
+  var betweenFields = document.getElementById("betweenFields");
+  var addSubFields = document.getElementById("addSubFields");
+  var mode = "between";
+  var msPerDay = 1000 * 60 * 60 * 24;
+  var weekdayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-  function money(n) {
-    if (!isFinite(n)) return "$0.00";
-    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function fmtDate(d) {
+    return d.toLocaleDateString(undefined, { weekday: "long", year: "numeric", month: "long", day: "numeric" });
   }
 
   function compute() {
@@ -169,36 +168,32 @@
     var resultSub = document.getElementById("resultSub");
     var resultList = document.getElementById("resultList");
 
-    if (mode === "forward") {
-      var orig = parseFloat(document.getElementById("origPrice").value) || 0;
-      var d1 = parseFloat(document.getElementById("discountPct").value) || 0;
-      var d2 = parseFloat(document.getElementById("secondPct").value) || 0;
+    if (mode === "between") {
+      var start = new Date(document.getElementById("startDate").value + "T00:00:00");
+      var end = new Date(document.getElementById("endDate").value + "T00:00:00");
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) return;
 
-      var afterFirst = orig * (1 - d1 / 100);
-      var afterSecond = afterFirst * (1 - d2 / 100);
-      var totalOff = orig > 0 ? (1 - afterSecond / orig) * 100 : 0;
-      var savings = orig - afterSecond;
+      var diffDays = Math.round((end - start) / msPerDay);
+      var absDays = Math.abs(diffDays);
 
-      resultLabel.textContent = "You pay";
-      resultValue.textContent = money(afterSecond);
-      resultSub.textContent = d2 > 0
-        ? d1 + "% then extra " + d2 + "% off $" + orig.toFixed(2)
-        : d1 + "% off $" + orig.toFixed(2);
+      resultLabel.textContent = diffDays < 0 ? "Days before start" : "Days between";
+      resultValue.textContent = absDays.toLocaleString();
+      resultSub.textContent = fmtDate(start) + " → " + fmtDate(end);
       resultList.innerHTML =
-        "<li><span class='k'>You save</span><span class='v good'>" + money(savings) + "</span></li>" +
-        "<li><span class='k'>Effective total discount</span><span class='v'>" + totalOff.toFixed(1) + "%</span></li>";
+        "<li><span class='k'>Weeks &amp; days</span><span class='v'>" + Math.floor(absDays / 7) + "w " + (absDays % 7) + "d</span></li>" +
+        "<li><span class='k'>Total weeks</span><span class='v'>" + (absDays / 7).toFixed(1) + "</span></li>";
     } else {
-      var sale = parseFloat(document.getElementById("salePrice").value) || 0;
-      var d = parseFloat(document.getElementById("reverseDiscountPct").value) || 0;
-      var factor = 1 - d / 100;
-      var original = factor > 0 ? sale / factor : NaN;
-      var savings2 = original - sale;
+      var base = new Date(document.getElementById("baseDate").value + "T00:00:00");
+      var offset = parseInt(document.getElementById("dayOffset").value, 10) || 0;
+      if (isNaN(base.getTime())) return;
 
-      resultLabel.textContent = "Original price";
-      resultValue.textContent = money(original);
-      resultSub.textContent = "Before " + d + "% off, priced at " + money(sale);
+      var result = new Date(base.getTime() + offset * msPerDay);
+
+      resultLabel.textContent = offset >= 0 ? "Date " + offset + " days later" : "Date " + Math.abs(offset) + " days earlier";
+      resultValue.textContent = result.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+      resultSub.textContent = fmtDate(result);
       resultList.innerHTML =
-        "<li><span class='k'>You saved</span><span class='v good'>" + money(savings2) + "</span></li>";
+        "<li><span class='k'>Day of week</span><span class='v'>" + weekdayNames[result.getDay()] + "</span></li>";
     }
   }
 
@@ -207,13 +202,13 @@
       modeBtns.forEach(function(b){ b.classList.remove("active"); });
       btn.classList.add("active");
       mode = btn.getAttribute("data-mode");
-      forwardFields.style.display = mode === "forward" ? "" : "none";
-      reverseFields.style.display = mode === "reverse" ? "" : "none";
+      betweenFields.style.display = mode === "between" ? "" : "none";
+      addSubFields.style.display = mode === "addsub" ? "" : "none";
       compute();
     });
   });
 
-  document.querySelectorAll("#forwardFields input, #reverseFields input").forEach(function(el){
+  document.querySelectorAll("#betweenFields input, #addSubFields input").forEach(function(el){
     el.addEventListener("input", compute);
   });
   compute();

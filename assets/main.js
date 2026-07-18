@@ -6,15 +6,21 @@ var CALCULATORS = [
   { name: "Percentage Calculator", url: "/calculators/percentage-calculator.html", category: "Math" },
   { name: "Scientific Calculator", url: "/calculators/scientific-calculator.html", category: "Math" },
   { name: "GPA Calculator", url: "/calculators/gpa-calculator.html", category: "Math" },
+  { name: "Fraction Calculator", url: "/calculators/fraction-calculator.html", category: "Math" },
   { name: "Mortgage Calculator", url: "/calculators/mortgage-calculator.html", category: "Finance" },
   { name: "Loan Calculator", url: "/calculators/loan-calculator.html", category: "Finance" },
   { name: "Compound Interest Calculator", url: "/calculators/compound-interest-calculator.html", category: "Finance" },
   { name: "Tip Calculator", url: "/calculators/tip-calculator.html", category: "Finance" },
   { name: "Discount Calculator", url: "/calculators/discount-calculator.html", category: "Finance" },
+  { name: "Sales Tax Calculator", url: "/calculators/sales-tax-calculator.html", category: "Finance" },
+  { name: "Simple Interest Calculator", url: "/calculators/simple-interest-calculator.html", category: "Finance" },
   { name: "BMI Calculator", url: "/calculators/bmi-calculator.html", category: "Health" },
   { name: "Calorie Calculator", url: "/calculators/calorie-calculator.html", category: "Health" },
+  { name: "Sleep Calculator", url: "/calculators/sleep-calculator.html", category: "Health" },
   { name: "Age Calculator", url: "/calculators/age-calculator.html", category: "Everyday" },
-  { name: "Unit Converter", url: "/calculators/unit-converter.html", category: "Everyday" }
+  { name: "Unit Converter", url: "/calculators/unit-converter.html", category: "Everyday" },
+  { name: "Date Calculator", url: "/calculators/date-calculator.html", category: "Everyday" },
+  { name: "Aspect Ratio Calculator", url: "/calculators/aspect-ratio-calculator.html", category: "Everyday" }
 ];
 
 (function () {
