@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraction Calculator — Add, Subtract, Multiply &amp; Divide Fractions</title>
+<meta name="description" content="Free fraction calculator. Add, subtract, multiply or divide two fractions and get the simplified result, decimal equivalent, and mixed number.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/fraction-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<style>
+  .frac-row { display: flex; align-items: center; gap: 10px; }
+  .frac-stack { display: flex; flex-direction: column; gap: 6px; width: 90px; }
+  .frac-stack input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font-size: 15px; text-align: center; }
+  .frac-bar { border-top: 2px solid var(--text); }
+  .frac-op { display: flex; flex-direction: column; gap: 6px; }
+  .frac-op button { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text-muted); font-size: 17px; font-weight: 700; cursor: pointer; }
+  .frac-op button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .frac-op-row { display: flex; gap: 6px; }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/index.html#finance">Finance</a>
+      <a href="/index.html#health">Health</a>
+      <a href="/index.html#math" class="active">Math</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="calc-menu" aria-label="All calculators">
+  <div class="wrap">
+    <div class="calc-menu-group">
+      <span class="calc-menu-label">Finance</span>
+      <a href="/calculators/mortgage-calculator">Mortgage</a>
+      <a href="/calculators/loan-calculator">Loan</a>
+      <a href="/calculators/compound-interest-calculator">Compound Interest</a>
+      <a href="/calculators/tip-calculator">Tip</a>
+      <a href="/calculators/discount-calculator">Discount</a>
+      <a href="/calculators/sales-tax-calculator">Sales Tax</a>
+      <a href="/calculators/simple-interest-calculator">Simple Interest</a>
+    </div>
+    <div class="calc-menu-group">
+      <span class="calc-menu-label">Health</span>
+      <a href="/calculators/bmi-calculator">BMI</a>
+      <a href="/calculators/calorie-calculator">Calorie</a>
+      <a href="/calculators/sleep-calculator">Sleep</a>
+    </div>
+    <div class="calc-menu-group">
+      <span class="calc-menu-label">Math</span>
+      <a href="/calculators/percentage-calculator">Percentage</a>
+      <a href="/calculators/scientific-calculator">Scientific</a>
+      <a href="/calculators/gpa-calculator">GPA</a>
+      <a href="/calculators/fraction-calculator" class="active" aria-current="page">Fraction</a>
+    </div>
+    <div class="calc-menu-group">
+      <span class="calc-menu-label">Everyday</span>
+      <a href="/calculators/age-calculator">Age</a>
+      <a href="/calculators/unit-converter">Unit Converter</a>
+      <a href="/calculators/date-calculator">Date</a>
+      <a href="/calculators/aspect-ratio-calculator">Aspect Ratio</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#math">Math</a> / Fraction Calculator</div>
+    <h1>Fraction Calculator</h1>
+    <p class="dek">Add, subtract, multiply or divide two fractions and get the simplified result.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="frac-row" style="margin-bottom:20px;">
+          <div class="frac-stack">
+            <input type="number" id="num1" value="1" inputmode="decimal">
+            <div class="frac-bar"></div>
+            <input type="number" id="den1" value="2" inputmode="decimal">
+          </div>
+          <div class="frac-op">
+            <div class="frac-op-row">
+              <button class="active" data-op="add">+</button>
+              <button data-op="sub">&minus;</button>
+            </div>
+            <div class="frac-op-row">
+              <button data-op="mul">&times;</button>
+              <button data-op="div">&divide;</button>
+            </div>
+          </div>
+          <div class="frac-stack">
+            <input type="number" id="num2" value="1" inputmode="decimal">
+            <div class="frac-bar"></div>
+            <input type="number" id="den2" value="3" inputmode="decimal">
+          </div>
+        </div>
+        <div class="field">
+          <div class="hint">Enter whole numbers for numerators and denominators. Denominators can't be zero.</div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Result</div>
+        <div class="result-value" id="resultValue">5/6</div>
+        <div class="result-sub" id="resultSub">1/2 + 1/3</div>
+        <ul class="result-list" id="resultList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How fraction operations work</h2>
+    <div class="formula">
+      addition: a/b + c/d = (a&times;d + c&times;b) / (b&times;d)<br>
+      subtraction: a/b &minus; c/d = (a&times;d &minus; c&times;b) / (b&times;d)<br>
+      multiplication: a/b &times; c/d = (a&times;c) / (b&times;d)<br>
+      division: a/b &divide; c/d = (a&times;d) / (b&times;c)
+    </div>
+    <p>After the operation, the result is simplified by dividing the numerator and denominator by their greatest common divisor (GCD), so you always get the fraction in lowest terms.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Why do fractions need a common denominator to add or subtract?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>A fraction's denominator tells you the size of each piece. You can only add or subtract pieces that are the same size, so both fractions are rewritten over a shared denominator (here, the product of the two denominators) before combining the numerators.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why don't multiplication and division need a common denominator?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Multiplying fractions just multiplies numerators together and denominators together — there's no need for matching piece sizes. Dividing by a fraction is the same as multiplying by its reciprocal (flip the second fraction), so it follows the same rule.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Percent of, percent change and more.</p></a>
+    <a class="calc-card" href="/calculators/scientific-calculator.html"><h3>Scientific Calculator</h3><p>Full expressions, trig and logs.</p></a>
+    <a class="calc-card" href="/calculators/gpa-calculator.html"><h3>GPA Calculator</h3><p>Weighted GPA from grades and credits.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var opBtns = document.querySelectorAll("[data-op]");
+  var op = "add";
+
+  function gcd(a, b) {
+    a = Math.abs(a); b = Math.abs(b);
+    while (b) { var t = b; b = a % b; a = t; }
+    return a || 1;
+  }
+
+  function simplify(num, den) {
+    if (den < 0) { num = -num; den = -den; }
+    var g = gcd(num, den);
+    return { n: num / g, d: den / g };
+  }
+
+  function fracStr(n, d) {
+    if (d === 1) return String(n);
+    return n + "/" + d;
+  }
+
+  function mixedStr(n, d) {
+    if (d === 0) return "—";
+    var sign = n < 0 ? -1 : 1;
+    var an = Math.abs(n);
+    var whole = Math.floor(an / d);
+    var rem = an % d;
+    if (whole === 0) return (sign < 0 ? "-" : "") + fracStr(rem, d);
+    if (rem === 0) return String(sign * whole);
+    return (sign < 0 ? "-" : "") + whole + " " + rem + "/" + d;
+  }
+
+  var opSymbols = { add: "+", sub: "−", mul: "×", div: "÷" };
+
+  function compute() {
+    var n1 = parseInt(document.getElementById("num1").value, 10) || 0;
+    var d1 = parseInt(document.getElementById("den1").value, 10) || 0;
+    var n2 = parseInt(document.getElementById("num2").value, 10) || 0;
+    var d2 = parseInt(document.getElementById("den2").value, 10) || 0;
+
+    var resultValue = document.getElementById("resultValue");
+    var resultSub = document.getElementById("resultSub");
+    var resultList = document.getElementById("resultList");
+
+    resultSub.textContent = fracStr(n1, d1 || 1) + " " + opSymbols[op] + " " + fracStr(n2, d2 || 1);
+
+    if (d1 === 0 || d2 === 0) {
+      resultValue.textContent = "—";
+      resultList.innerHTML = "<li><span class='k'>Error</span><span class='v bad'>Denominator can't be zero</span></li>";
+      return;
+    }
+
+    var rn, rd;
+    if (op === "add") { rn = n1 * d2 + n2 * d1; rd = d1 * d2; }
+    else if (op === "sub") { rn = n1 * d2 - n2 * d1; rd = d1 * d2; }
+    else if (op === "mul") { rn = n1 * n2; rd = d1 * d2; }
+    else { // div
+      if (n2 === 0) {
+        resultValue.textContent = "—";
+        resultList.innerHTML = "<li><span class='k'>Error</span><span class='v bad'>Can't divide by zero</span></li>";
+        return;
+      }
+      rn = n1 * d2; rd = d1 * n2;
+    }
+
+    var simplified = simplify(rn, rd);
+    resultValue.textContent = fracStr(simplified.n, simplified.d);
+
+    var decimal = simplified.d !== 0 ? simplified.n / simplified.d : NaN;
+    resultList.innerHTML =
+      "<li><span class='k'>Decimal</span><span class='v'>" + (isFinite(decimal) ? decimal.toFixed(6).replace(/0+$/, "").replace(/\.$/, "") : "—") + "</span></li>" +
+      "<li><span class='k'>Mixed number</span><span class='v'>" + mixedStr(simplified.n, simplified.d) + "</span></li>";
+  }
+
+  opBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      opBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      op = btn.getAttribute("data-op");
+      compute();
+    });
+  });
+
+  ["num1", "den1", "num2", "den2"].forEach(function(id){
+    document.getElementById(id).addEventListener("input", compute);
+  });
+  compute();
+})();
+</script>
+</body>
+</html>
