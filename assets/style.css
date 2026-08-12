@@ -308,6 +308,11 @@ code, .num, .result-value, input[type="number"], input[type="text"].numeric {
   margin: 0 0 4px; padding: 0 14px;
   font-size: 12px; font-weight: 800; letter-spacing: .08em;
   text-transform: uppercase; color: var(--tb-text-dim);
+  /* A group label and its list are two boxes, so `break-inside: avoid` on the
+     list does nothing to keep them together: the column balancer will happily
+     end a column on the heading and start the next one with the list it
+     introduces. */
+  break-after: avoid;
 }
 /* The group label doubles as the link to that category on the homepage grid,
    which is what absorbs the old header's Finance/Health/Math links. */
