@@ -27,58 +27,69 @@
       <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
       Calculator<span class="accent">Euphoria</span>
     </a>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/index.html#finance">Finance</a>
-      <a href="/index.html#health">Health</a>
-      <a href="/index.html#math" class="active">Math</a>
-      <a href="/about.html">About</a>
-    </nav>
     <div class="header-spacer"></div>
     <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.79"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
   </div>
 </header>
 
-<nav class="calc-menu" aria-label="All calculators">
-  <div class="wrap">
-    <div class="calc-menu-group">
-      <span class="calc-menu-label">Finance</span>
-      <a href="/calculators/mortgage-calculator">Mortgage</a>
-      <a href="/calculators/loan-calculator">Loan</a>
-      <a href="/calculators/compound-interest-calculator">Compound Interest</a>
-      <a href="/calculators/tip-calculator">Tip</a>
-      <a href="/calculators/discount-calculator">Discount</a>
-      <a href="/calculators/sales-tax-calculator">Sales Tax</a>
-      <a href="/calculators/simple-interest-calculator">Simple Interest</a>
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 18 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 18<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html" aria-current="page">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="calc-menu-group">
-      <span class="calc-menu-label">Health</span>
-      <a href="/calculators/bmi-calculator">BMI</a>
-      <a href="/calculators/calorie-calculator">Calorie</a>
-      <a href="/calculators/sleep-calculator">Sleep</a>
-    </div>
-    <div class="calc-menu-group">
-      <span class="calc-menu-label">Math</span>
-      <a href="/calculators/percentage-calculator">Percentage</a>
-      <a href="/calculators/scientific-calculator">Scientific</a>
-      <a href="/calculators/gpa-calculator" class="active" aria-current="page">GPA</a>
-      <a href="/calculators/fraction-calculator">Fraction</a>
-    </div>
-    <div class="calc-menu-group">
-      <span class="calc-menu-label">Everyday</span>
-      <a href="/calculators/age-calculator">Age</a>
-      <a href="/calculators/unit-converter">Unit Converter</a>
-      <a href="/calculators/date-calculator">Date</a>
-      <a href="/calculators/aspect-ratio-calculator">Aspect Ratio</a>
-    </div>
-  </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
 </nav>
+<!-- nav:end -->
 
 <main id="main" class="wrap">
   <div class="calc-page-head">
