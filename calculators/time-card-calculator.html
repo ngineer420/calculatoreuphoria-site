@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Card Calculator — Weekly Timesheet With Unpaid Breaks</title>
+<meta name="description" content="Free weekly time card calculator. Seven days of in, out and unpaid break times, with daily and weekly totals in decimal hours, an optional pay rate, and correct weekly or daily overtime. Saved in your browser.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/time-card-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 21 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 21<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html" aria-current="page">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#everyday">Everyday</a> / Time Card Calculator</div>
+    <h1>Time Card Calculator</h1>
+    <p class="dek">A week of in, out and unpaid break times &mdash; daily and weekly totals in decimal hours, an optional pay rate, and overtime that does not pay the same hour twice. Saved in this browser.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="table-wrap">
+      <table class="data-table time-card">
+        <thead>
+          <tr><th>Day</th><th>In</th><th>Out</th><th>Break (min)</th><th>Hours</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Monday</span><span class="tc-day-short">Mon</span></th>
+              <td data-label="In"><label class="tc-lab" for="in0">Monday in</label><input type="time" id="in0" class="tc-in" value="09:00"></td>
+              <td data-label="Out"><label class="tc-lab" for="out0">Monday out</label><input type="time" id="out0" class="tc-out" value="17:30"></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk0">Monday unpaid break in minutes</label><input type="number" id="brk0" class="tc-brk" value="30" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot0">&ndash;</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Tuesday</span><span class="tc-day-short">Tue</span></th>
+              <td data-label="In"><label class="tc-lab" for="in1">Tuesday in</label><input type="time" id="in1" class="tc-in" value="09:00"></td>
+              <td data-label="Out"><label class="tc-lab" for="out1">Tuesday out</label><input type="time" id="out1" class="tc-out" value="17:30"></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk1">Tuesday unpaid break in minutes</label><input type="number" id="brk1" class="tc-brk" value="30" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot1">&ndash;</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Wednesday</span><span class="tc-day-short">Wed</span></th>
+              <td data-label="In"><label class="tc-lab" for="in2">Wednesday in</label><input type="time" id="in2" class="tc-in" value="09:00"></td>
+              <td data-label="Out"><label class="tc-lab" for="out2">Wednesday out</label><input type="time" id="out2" class="tc-out" value="17:30"></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk2">Wednesday unpaid break in minutes</label><input type="number" id="brk2" class="tc-brk" value="30" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot2">&ndash;</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Thursday</span><span class="tc-day-short">Thu</span></th>
+              <td data-label="In"><label class="tc-lab" for="in3">Thursday in</label><input type="time" id="in3" class="tc-in" value="09:00"></td>
+              <td data-label="Out"><label class="tc-lab" for="out3">Thursday out</label><input type="time" id="out3" class="tc-out" value="17:30"></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk3">Thursday unpaid break in minutes</label><input type="number" id="brk3" class="tc-brk" value="30" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot3">&ndash;</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Friday</span><span class="tc-day-short">Fri</span></th>
+              <td data-label="In"><label class="tc-lab" for="in4">Friday in</label><input type="time" id="in4" class="tc-in" value="09:00"></td>
+              <td data-label="Out"><label class="tc-lab" for="out4">Friday out</label><input type="time" id="out4" class="tc-out" value="17:30"></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk4">Friday unpaid break in minutes</label><input type="number" id="brk4" class="tc-brk" value="30" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot4">&ndash;</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Saturday</span><span class="tc-day-short">Sat</span></th>
+              <td data-label="In"><label class="tc-lab" for="in5">Saturday in</label><input type="time" id="in5" class="tc-in" value=""></td>
+              <td data-label="Out"><label class="tc-lab" for="out5">Saturday out</label><input type="time" id="out5" class="tc-out" value=""></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk5">Saturday unpaid break in minutes</label><input type="number" id="brk5" class="tc-brk" value="0" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot5">&ndash;</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tc-day-long">Sunday</span><span class="tc-day-short">Sun</span></th>
+              <td data-label="In"><label class="tc-lab" for="in6">Sunday in</label><input type="time" id="in6" class="tc-in" value=""></td>
+              <td data-label="Out"><label class="tc-lab" for="out6">Sunday out</label><input type="time" id="out6" class="tc-out" value=""></td>
+              <td data-label="Break (min)"><label class="tc-lab" for="brk6">Sunday unpaid break in minutes</label><input type="number" id="brk6" class="tc-brk" value="0" min="0" step="5" inputmode="numeric"></td>
+              <td class="tc-total" data-label="Hours" id="tot6">&ndash;</td>
+            </tr>
+        </tbody>
+        <tfoot>
+          <tr><th scope="row">Week</th><td colspan="3" class="tc-foot-note">Decimal hours, unpaid breaks removed</td><td class="tc-total" id="weekTotal">&ndash;</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="btn-row" style="margin-top:16px; max-width:420px;">
+      <button type="button" class="btn btn-secondary" id="clearWeek">Clear the week</button>
+      <button type="button" class="btn btn-secondary" id="fillWeek">Fill Mon&ndash;Fri 9&ndash;5</button>
+    </div>
+    <p class="hint" id="saveNote" style="margin-top:10px;">Saved in this browser only, so the grid is still here next time. Nothing is uploaded.</p>
+
+    <div class="calc-layout" style="margin-top:28px;">
+      <div>
+        <div class="field">
+          <label for="rate">Hourly rate (optional &mdash; leave at 0 for hours only)</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="rate" value="0" min="0" step="0.01" inputmode="decimal"></div>
+        </div>
+        <div class="field">
+          <label>Overtime rule</label>
+          <div class="toggle-group" style="max-width:460px;">
+            <button type="button" class="active" data-rule="weekly">Weekly only (federal / FLSA)</button>
+            <button type="button" data-rule="daily">Daily + weekly (state rule)</button>
+          </div>
+          <p class="hint" id="ruleHint">Overtime on hours past 40 in the week. There is no federal daily overtime rule.</p>
+        </div>
+        <div class="row-3">
+          <div class="field">
+            <label for="weekThreshold">Weekly OT after</label>
+            <div class="input-group"><input type="number" id="weekThreshold" value="40" min="0" max="168" step="1" inputmode="numeric"><span class="suffix">h</span></div>
+          </div>
+          <div class="field">
+            <label for="otMult">Overtime rate</label>
+            <div class="input-group"><input type="number" id="otMult" value="1.5" min="1" step="0.1" inputmode="decimal"><span class="suffix">&times;</span></div>
+          </div>
+          <div class="field">
+            <label for="dtMult">Double-time rate</label>
+            <div class="input-group"><input type="number" id="dtMult" value="2" min="1" step="0.1" inputmode="decimal"><span class="suffix">&times;</span></div>
+          </div>
+        </div>
+        <div class="row-2" id="dailyThresholds" style="display:none;">
+          <div class="field">
+            <label for="dayOtThreshold">Daily OT after</label>
+            <div class="input-group"><input type="number" id="dayOtThreshold" value="8" min="0" max="24" step="0.5" inputmode="decimal"><span class="suffix">h</span></div>
+          </div>
+          <div class="field">
+            <label for="dayDtThreshold">Daily double time after</label>
+            <div class="input-group"><input type="number" id="dayDtThreshold" value="12" min="0" max="24" step="0.5" inputmode="decimal"><span class="suffix">h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-panel">
+        <div class="result-label" id="resultLabel">Total hours this week</div>
+        <div class="result-value" id="resultValue">&ndash;</div>
+        <div class="result-sub" id="resultSub">&ndash;</div>
+        <ul class="result-list" id="resultList"></ul>
+      </div>
+    </div>
+    <p class="disclaimer" id="ruleNote"></p>
+  </div>
+
+  <div class="calc-content">
+    <h2>A weekly timesheet with unpaid lunch breaks</h2>
+    <p>Twenty-one fields &mdash; an in time, an out time and an unpaid break for each of seven days. Each row is worked out on its own, so a Tuesday with a 45-minute lunch and a Thursday with none both come out right, and the week is the sum of the seven. Every total is shown in decimal hours, because that is the form payroll wants and the form that multiplies cleanly by a rate.</p>
+    <p>Leave a day blank and it counts as zero rather than as an error. Days off are the normal case, not an exception.</p>
+
+    <h2>Night shifts and shifts that cross midnight</h2>
+    <p>A row whose out time is earlier on the clock than its in time is read as running overnight, so a 10:00&nbsp;pm start and a 6:30&nbsp;am finish is eight and a half hours rather than a negative number. The shift is credited to the day it started on, which is the convention most timesheets use &mdash; if your employer splits an overnight shift across two days, enter it as two rows.</p>
+
+    <h2>Your week is saved in this browser</h2>
+    <p>Everything you type is written to this browser's local storage and read back when you return. There is no account, no upload and no server &mdash; clearing your browser data clears the timesheet, and it will not appear on another device.</p>
+    <p>The honest value of that is not re-typing twenty-one fields. Nobody is going to abandon their payroll system for a web page, and this is not trying to be one: it is for the person who wants to check what the week actually adds up to before it goes in, and who would rather not start from an empty grid every Friday.</p>
+
+    <h2>How overtime is split</h2>
+    <p>By default the week is measured against the federal rule: everything past 40 hours in the workweek is overtime at one and a half times the rate (29 U.S.C. &sect;207(a)(1)). There is no federal daily overtime rule, so under this setting four ten-hour days is forty hours and no overtime at all.</p>
+    <p>Switch to the daily rule and each day is measured first &mdash; over 8 hours at time and a half, over 12 at double time, the pattern California uses under Labor Code &sect;510(a) &mdash; and then, crucially, <strong>those premium hours are taken out of the week before the 40-hour test runs</strong>. California&rsquo;s Court of Appeal stated the principle in <em>Monzon v. Schaefer Ambulance Service, Inc.</em> (1990) 224 Cal.App.3d 16, 38: the weekly trigger &ldquo;is reached after the employee has worked 40 hours at straight or regular time, not the first 40 hours&rdquo;. A ten-hour Monday in a 42-hour week therefore yields two overtime hours, not four. Leaving them in would pay the same two hours a premium twice, which is the single most common error in timesheet arithmetic. The <a href="/calculators/overtime-pay-calculator.html">overtime pay calculator</a> shows that split day by day if you want to see the working.</p>
+    <p>Rounding is not applied anywhere. Quarter-hour and tenth-of-an-hour rounding are employer policies rather than arithmetic, they vary, and applying one here would put this page quietly out of step with your own timesheet.</p>
+
+    <div class="disclaimer">This is a wage arithmetic tool, not payroll software and not legal advice. Overtime rules vary by state and by industry &mdash; check your state labor department before relying on a figure.</div>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">How do I use a timesheet calculator with an unpaid lunch break?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Enter each day's clock-in and clock-out as they appear on your timesheet, then put the unpaid minutes in the break column for that day. The break is subtracted from that day only, so a 45-minute Tuesday lunch and a 30-minute Wednesday one both come out right without any hand arithmetic.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does the time card save my entries?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes, in this browser. Every change is written to local storage and read back when you come back to the page. There is no account and nothing is uploaded &mdash; which also means clearing your browser data clears the grid, and it will not follow you to another device.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does it handle a shift that starts at 10pm and ends at 6am?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>It reads any row whose out time is earlier on the clock than its in time as an overnight shift and adds a full day, so 10:00&nbsp;pm to 6:30&nbsp;am comes back as 8.5 hours. The shift is credited to the day it started on.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why does the weekly overtime figure change when I switch to the daily rule?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Because the two rules count different things. The federal rule only looks at the weekly total. A daily rule looks at each day first, and the hours it has already paid a premium on are then removed from the week before the 40-hour test runs, so they are not paid twice. A week of five 8-hour days and one 10-hour day is 42 hours and 2 overtime hours either way; a week of six 10-hour days is 60 hours, and the two rules reach 20 overtime hours by different routes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I enter hours instead of clock times?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Not on this page &mdash; it is built around punches, because that is what a time card holds. If you already know the hours per day, the <a href="/calculators/overtime-pay-calculator.html">overtime pay calculator</a> takes daily hours directly, and the <a href="/calculators/hours-calculator.html">hours calculator</a> converts a single pair of times.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is 8 hours and 15 minutes in decimal?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>8.25. Divide the minutes by 60 and add them to the whole hours: 15 &divide; 60 is 0.25. Every total on this page is already in decimal hours for that reason.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/hours-calculator.html"><h3>Hours Calculator</h3><p>Hours between two clock times, minus a break.</p></a>
+    <a class="calc-card" href="/calculators/overtime-pay-calculator.html"><h3>Overtime Pay Calculator</h3><p>Time and a half and double time, day by day.</p></a>
+    <a class="calc-card" href="/calculators/date-calculator.html"><h3>Date Calculator</h3><p>Days between dates, and date arithmetic.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var STORE_KEY = "timecard";
+  var DAY_NAMES = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  var ruleBtns = document.querySelectorAll("[data-rule]");
+  var dailyThresholds = document.getElementById("dailyThresholds");
+  var ruleHint = document.getElementById("ruleHint");
+  var rule = "weekly";
+
+  function num(id, fallback) {
+    var el = document.getElementById(id);
+    var v = parseFloat(el && el.value);
+    return isFinite(v) ? v : fallback;
+  }
+  function money(n) {
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function hrs(n) {
+    return (Math.round(n * 100) / 100).toFixed(2);
+  }
+
+  // "HH:MM" -> minutes since midnight, or null when the field is empty.
+  function toMinutes(value) {
+    var m = /^(\d{1,2}):(\d{2})$/.exec(value || "");
+    if (!m) return null;
+    var h = parseInt(m[1], 10), mi = parseInt(m[2], 10);
+    if (h > 23 || mi > 59) return null;
+    return h * 60 + mi;
+  }
+
+  /* ------------------------------------------------------------------ *
+   * SHARED OVERTIME ENGINE — kept byte-identical with the copy in
+   * overtime-pay-calculator.html. Each calculator page on this site
+   * carries a self-contained inline script (main.js is deferred and has
+   * not run when these execute), so the function is duplicated rather
+   * than imported. If you change one, change both.
+   *
+   * The load-bearing line is `pool`. Daily overtime REPLACES the weekly
+   * calculation for the hours it has already claimed; it does not stack
+   * on top. Without the subtraction, a 10-hour Monday in a 42-hour week
+   * is paid a premium twice — once by the daily rule and again by the
+   * weekly one — and the answer comes out too high.
+   * ------------------------------------------------------------------ */
+  function splitOvertime(dayHours, opt) {
+    var total = 0, dailyOt = 0, dailyDt = 0, perDay = [], i, h, ot, dt;
+    var dtCut = Math.max(opt.dayOtThreshold, opt.dayDtThreshold);
+
+    for (i = 0; i < dayHours.length; i++) {
+      h = Math.max(0, dayHours[i] || 0);
+      total += h;
+      if (opt.daily) {
+        dt = Math.max(0, h - dtCut);
+        ot = Math.max(0, Math.min(h, dtCut) - opt.dayOtThreshold);
+        dailyOt += ot;
+        dailyDt += dt;
+        perDay.push({ hours: h, reg: h - ot - dt, ot: ot, dt: dt });
+      }
+    }
+
+    var pool = total - dailyOt - dailyDt;
+    var weeklyOt = Math.max(0, pool - opt.weekThreshold);
+    var regular = pool - weeklyOt;
+
+    return {
+      total: total,
+      regular: regular,
+      overtime: dailyOt + weeklyOt,
+      doubleTime: dailyDt,
+      dailyOt: dailyOt,
+      weeklyOt: weeklyOt,
+      perDay: perDay
+    };
+  }
+
+  // One row's paid minutes. A row whose out time is earlier on the clock
+  // than its in time ran overnight, so a day is added; identical times are
+  // read as zero rather than as twenty-four hours.
+  function rowMinutes(i) {
+    var start = toMinutes(document.getElementById("in" + i).value);
+    var end = toMinutes(document.getElementById("out" + i).value);
+    if (start === null || end === null) return 0;
+    var span = end - start;
+    if (span < 0) span += 1440;
+    var brk = Math.max(0, parseInt(document.getElementById("brk" + i).value, 10) || 0);
+    return Math.max(0, span - brk);
+  }
+
+  function save() {
+    try {
+      var data = { rule: rule, rate: document.getElementById("rate").value, days: [] };
+      for (var i = 0; i < 7; i++) {
+        data.days.push({
+          in: document.getElementById("in" + i).value,
+          out: document.getElementById("out" + i).value,
+          brk: document.getElementById("brk" + i).value
+        });
+      }
+      localStorage.setItem(STORE_KEY, JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  function restore() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      if (!data || !Array.isArray(data.days)) return;
+      for (var i = 0; i < 7 && i < data.days.length; i++) {
+        var d = data.days[i] || {};
+        if (typeof d.in === "string") document.getElementById("in" + i).value = d.in;
+        if (typeof d.out === "string") document.getElementById("out" + i).value = d.out;
+        if (typeof d.brk === "string") document.getElementById("brk" + i).value = d.brk;
+      }
+      if (typeof data.rate === "string") document.getElementById("rate").value = data.rate;
+      if (data.rule === "daily") setRule("daily");
+    } catch (e) {}
+  }
+
+  function setRule(next) {
+    rule = next;
+    ruleBtns.forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-rule") === next); });
+    var isDaily = next === "daily";
+    dailyThresholds.style.display = isDaily ? "" : "none";
+    ruleHint.innerHTML = isDaily
+      ? "Each day is measured first — overtime past 8 hours, double time past 12 — and those hours are then taken out of the week before the 40-hour test runs, so nothing is paid twice."
+      : "Overtime on hours past 40 in the week. There is no federal daily overtime rule.";
+  }
+
+  function compute() {
+    var dayHours = [], i, mins;
+    for (i = 0; i < 7; i++) {
+      mins = rowMinutes(i);
+      dayHours.push(mins / 60);
+      document.getElementById("tot" + i).textContent = mins > 0 ? hrs(mins / 60) : "—";
+    }
+
+    var opt = {
+      daily: rule === "daily",
+      weekThreshold: Math.max(0, num("weekThreshold", 40)),
+      dayOtThreshold: Math.max(0, num("dayOtThreshold", 8)),
+      dayDtThreshold: Math.max(0, num("dayDtThreshold", 12))
+    };
+    var r = splitOvertime(dayHours, opt);
+    var rate = Math.max(0, num("rate", 0));
+    var otMult = Math.max(1, num("otMult", 1.5));
+    var dtMult = Math.max(1, num("dtMult", 2));
+
+    document.getElementById("weekTotal").textContent = hrs(r.total);
+
+    var rows = "";
+    if (rate > 0) {
+      var regPay = r.regular * rate, otPay = r.overtime * rate * otMult, dtPay = r.doubleTime * rate * dtMult;
+      document.getElementById("resultLabel").textContent = "Gross pay for the week";
+      document.getElementById("resultValue").textContent = money(regPay + otPay + dtPay);
+      document.getElementById("resultSub").textContent = hrs(r.total) + " hours at " + money(rate) + "/hr";
+      rows =
+        "<li><span class='k'>Regular &mdash; " + hrs(r.regular) + " h</span><span class='v'>" + money(regPay) + "</span></li>" +
+        "<li><span class='k'>Overtime &mdash; " + hrs(r.overtime) + " h @ " + money(rate * otMult) + "</span><span class='v'>" + money(otPay) + "</span></li>";
+      if (r.doubleTime > 0) {
+        rows += "<li><span class='k'>Double time &mdash; " + hrs(r.doubleTime) + " h @ " + money(rate * dtMult) + "</span><span class='v'>" + money(dtPay) + "</span></li>";
+      }
+    } else {
+      document.getElementById("resultLabel").textContent = "Total hours this week";
+      document.getElementById("resultValue").textContent = hrs(r.total);
+      document.getElementById("resultSub").textContent = "Decimal hours, unpaid breaks removed";
+      rows =
+        "<li><span class='k'>Regular hours</span><span class='v'>" + hrs(r.regular) + "</span></li>" +
+        "<li><span class='k'>Overtime hours</span><span class='v'>" + hrs(r.overtime) + "</span></li>";
+      if (r.doubleTime > 0) {
+        rows += "<li><span class='k'>Double-time hours</span><span class='v'>" + hrs(r.doubleTime) + "</span></li>";
+      }
+    }
+    var longest = 0, longestDay = "";
+    for (i = 0; i < 7; i++) { if (dayHours[i] > longest) { longest = dayHours[i]; longestDay = DAY_NAMES[i]; } }
+    if (longest > 0) {
+      rows += "<li><span class='k'>Longest day</span><span class='v'>" + longestDay + ", " + hrs(longest) + " h</span></li>";
+    }
+    document.getElementById("resultList").innerHTML = rows;
+
+    var note = document.getElementById("ruleNote");
+    if (rule === "daily") {
+      note.innerHTML = "Daily rule: " + hrs(r.dailyOt) + " h of overtime and " + hrs(r.doubleTime) +
+        " h of double time came from long days. Those hours were <strong>removed</strong> from the " +
+        hrs(r.total) + " h before the " + hrs(opt.weekThreshold) +
+        "-hour weekly test, leaving a straight-time pool of " + hrs(r.total - r.dailyOt - r.doubleTime) +
+        " h and " + hrs(r.weeklyOt) + " h of weekly overtime. Counting them in both places would pay the same hours a premium twice.";
+    } else {
+      note.innerHTML = "Federal rule only: overtime is the " + hrs(r.overtime) + " h past the " +
+        hrs(opt.weekThreshold) + "-hour weekly threshold. The shape of the week does not change this figure &mdash; only the total does.";
+    }
+    save();
+  }
+
+  ruleBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      setRule(btn.getAttribute("data-rule"));
+      compute();
+    });
+  });
+
+  document.getElementById("clearWeek").addEventListener("click", function(){
+    for (var i = 0; i < 7; i++) {
+      document.getElementById("in" + i).value = "";
+      document.getElementById("out" + i).value = "";
+      document.getElementById("brk" + i).value = "0";
+    }
+    compute();
+  });
+
+  document.getElementById("fillWeek").addEventListener("click", function(){
+    for (var i = 0; i < 7; i++) {
+      var work = i < 5;
+      document.getElementById("in" + i).value = work ? "09:00" : "";
+      document.getElementById("out" + i).value = work ? "17:30" : "";
+      document.getElementById("brk" + i).value = work ? "30" : "0";
+    }
+    compute();
+  });
+
+  document.querySelectorAll(".calc-app input").forEach(function(el){
+    el.addEventListener("input", compute);
+    el.addEventListener("change", compute);
+  });
+
+  restore();
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>

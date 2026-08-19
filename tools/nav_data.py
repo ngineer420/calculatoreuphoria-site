@@ -5,7 +5,7 @@ copies verbatim. Nothing here is computed at runtime by the browser: sync_nav
 renders it into the static HTML of every page.
 
 Tier rule (portfolio spec, ngineer420.github.io#13): a page is tier 1 only if it
-answers a *different question*. Every one of these 18 calculators does — there is
+answers a *different question*. Every one of these 21 calculators does — there is
 no preset family on this site, so there is no tier 2, no hub row and no in-panel
 sibling chips.
 
@@ -15,7 +15,7 @@ place writing extensionless paths, which split every calculator's equity across
 two URLs.
 """
 
-# Noun used in the menu trigger: "All 18 calculators".
+# Noun used in the menu trigger: "All 21 calculators".
 NOUN = "calculators"
 
 # Tier-1 tools. The first eight are the rail, in traffic order; the rest are
@@ -44,6 +44,9 @@ TOOLS = [
     {"href": "/calculators/fraction-calculator.html",          "label": "Fraction",       "long": "Fraction Calculator",          "group": "math",     "tier": 1},
     {"href": "/calculators/date-calculator.html",              "label": "Date",           "long": "Date Calculator",              "group": "everyday", "tier": 1},
     {"href": "/calculators/aspect-ratio-calculator.html",      "label": "Aspect Ratio",   "long": "Aspect Ratio Calculator",      "group": "everyday", "tier": 1},
+    {"href": "/calculators/hours-calculator.html",             "label": "Hours",          "long": "Hours Calculator",             "group": "everyday", "tier": 1},
+    {"href": "/calculators/time-card-calculator.html",         "label": "Time Card",      "long": "Time Card Calculator",         "group": "everyday", "tier": 1},
+    {"href": "/calculators/overtime-pay-calculator.html",      "label": "Overtime Pay",   "long": "Overtime Pay Calculator",      "group": "everyday", "tier": 1},
 ]
 
 # Sheet groups, in order: (key, label, category hub). The site's own four
