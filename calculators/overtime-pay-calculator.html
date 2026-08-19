@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overtime Pay Calculator — Time and a Half, Double Time, Weekly &amp; Daily</title>
+<meta name="description" content="Free overtime pay calculator. Works out regular, time-and-a-half and double-time pay on the federal weekly rule, or on a state-style daily rule where daily overtime hours are correctly removed from the weekly calculation instead of being paid twice.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/overtime-pay-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 21 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 21<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html" aria-current="page">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#everyday">Everyday</a> / Overtime Pay Calculator</div>
+    <h1>Overtime Pay Calculator</h1>
+    <p class="dek">Regular, time and a half and double time &mdash; on the federal weekly rule, or on a state-style daily rule that takes daily overtime hours out of the weekly calculation instead of paying them twice.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="toggle-group" style="margin-bottom:8px; max-width:520px;">
+      <button class="active" data-rule="weekly">Weekly only (federal / FLSA)</button>
+      <button data-rule="daily">Daily + weekly (state rule)</button>
+    </div>
+    <p class="hint" id="ruleHint" style="margin:0 0 24px;">The federal default: overtime on hours past 40 in a workweek. There is no federal daily overtime rule.</p>
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="rate">Hourly rate</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="rate" value="22" min="0" step="0.01" inputmode="decimal"></div>
+        </div>
+
+        <div id="weeklyFields">
+          <div class="field">
+            <label for="weekHours">Hours worked this week</label>
+            <div class="input-group"><input type="number" id="weekHours" value="46" min="0" max="168" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+          </div>
+        </div>
+
+        <div id="dailyFields" style="display:none;">
+          <div class="field"><label>Hours worked each day</label></div>
+          <div class="row-3">
+            <div class="field">
+              <label for="d0">Monday</label>
+              <div class="input-group"><input type="number" id="d0" class="ot-day" value="10" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="d1">Tuesday</label>
+              <div class="input-group"><input type="number" id="d1" class="ot-day" value="8" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="d2">Wednesday</label>
+              <div class="input-group"><input type="number" id="d2" class="ot-day" value="8" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="d3">Thursday</label>
+              <div class="input-group"><input type="number" id="d3" class="ot-day" value="8" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="d4">Friday</label>
+              <div class="input-group"><input type="number" id="d4" class="ot-day" value="8" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="d5">Saturday</label>
+              <div class="input-group"><input type="number" id="d5" class="ot-day" value="0" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="d6">Sunday</label>
+              <div class="input-group"><input type="number" id="d6" class="ot-day" value="0" min="0" max="24" step="0.25" inputmode="decimal"><span class="suffix">h</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-3" style="margin-top:6px;">
+          <div class="field">
+            <label for="weekThreshold">Weekly overtime after</label>
+            <div class="input-group"><input type="number" id="weekThreshold" value="40" min="0" max="168" step="1" inputmode="numeric"><span class="suffix">h</span></div>
+          </div>
+          <div class="field">
+            <label for="otMult">Overtime rate</label>
+            <div class="input-group"><input type="number" id="otMult" value="1.5" min="1" step="0.1" inputmode="decimal"><span class="suffix">&times;</span></div>
+          </div>
+          <div class="field">
+            <label for="dtMult">Double-time rate</label>
+            <div class="input-group"><input type="number" id="dtMult" value="2" min="1" step="0.1" inputmode="decimal"><span class="suffix">&times;</span></div>
+          </div>
+        </div>
+
+        <div class="row-2" id="dailyThresholds" style="display:none;">
+          <div class="field">
+            <label for="dayOtThreshold">Daily overtime after</label>
+            <div class="input-group"><input type="number" id="dayOtThreshold" value="8" min="0" max="24" step="0.5" inputmode="decimal"><span class="suffix">h</span></div>
+          </div>
+          <div class="field">
+            <label for="dayDtThreshold">Daily double time after</label>
+            <div class="input-group"><input type="number" id="dayDtThreshold" value="12" min="0" max="24" step="0.5" inputmode="decimal"><span class="suffix">h</span></div>
+          </div>
+        </div>
+
+        <div id="dailyBreakdown" style="display:none; margin-top:18px;">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Day</th><th>Hours</th><th>Regular</th><th>OT 1.5&times;</th><th>DT 2&times;</th></tr></thead>
+              <tbody id="dayRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-panel">
+        <div class="result-label">Gross pay for the week</div>
+        <div class="result-value" id="resultValue">&ndash;</div>
+        <div class="result-sub" id="resultSub">&ndash;</div>
+        <ul class="result-list" id="resultList"></ul>
+      </div>
+    </div>
+    <p class="disclaimer" id="ruleNote"></p>
+  </div>
+
+  <div class="calc-content">
+    <h2>How overtime is calculated under the federal rule</h2>
+    <p>The Fair Labor Standards Act sets one overtime rule and it is weekly: a covered, non-exempt employee must be paid at least one and a half times their regular rate for every hour worked beyond 40 in a workweek (29 U.S.C. &sect;207(a)(1); 29 C.F.R. &sect;778.102). There is no federal rule about long days. As a California appellate court put it while summarising the federal position, &ldquo;hours worked in one day, regardless of the number, do not require overtime pay&rdquo; (<em>Huntington Memorial Hospital v. Superior Court</em> (2005) 131 Cal.App.4th 893, fn. 1). Under federal law alone, four ten-hour days is forty hours and carries no overtime at all, and a fourteen-hour Tuesday in a thirty-hour week carries none either.</p>
+    <p>A workweek is a fixed, recurring period of seven consecutive 24-hour days. It does not have to start on Monday, but once an employer sets it, it cannot be shifted around to dodge overtime, and hours cannot be averaged across two of them.</p>
+    <div class="formula">Weekly overtime hours = max(0, hours worked &minus; 40)
+Gross pay = (regular hours &times; rate) + (overtime hours &times; rate &times; 1.5)</div>
+
+    <h2>Daily overtime replaces the weekly calculation &mdash; it does not stack on top of it</h2>
+    <p>Several states add a daily rule on top of the federal weekly one. California's is the one most people mean: over 8 hours in a workday at time and a half, and over 12 hours in a workday at double time (Cal. Labor Code &sect;510(a)).</p>
+    <p><strong>This is where most overtime calculators go wrong.</strong> When both rules are in play, an hour that has already been paid an overtime premium under the daily rule is not counted again toward the weekly 40. California&rsquo;s Court of Appeal put the rule plainly in <em>Monzon v. Schaefer Ambulance Service, Inc.</em> (1990) 224 Cal.App.3d 16: &ldquo;The weekly overtime trigger of 40 hours is reached after the employee has worked 40 hours at straight or regular time, not the first 40 hours&rdquo; (at p. 38). The court named the vice directly &mdash; otherwise &ldquo;the daily overtime hours are effectively counted twice&mdash;once for purpose of daily overtime and again for purpose of weekly overtime&rdquo; (at p. 32). The federal scheme reaches the same place from the other direction: premium pay already made at time and a half or better is credited against the overtime owed rather than added on top of it (29 U.S.C. &sect;207(h)(2); 29 C.F.R. &sect;778.202).</p>
+    <p>Take a 10-hour Monday followed by four 8-hour days: 42 hours in total, with 2 of Monday's hours already paid at time and a half. If you then also treat the week as &ldquo;42 hours, so 2 hours of weekly overtime&rdquo;, you have paid the same two hours a premium twice, and the answer is too high.</p>
+    <p>The correct arithmetic subtracts the daily premium hours from the pool before the weekly threshold is applied:</p>
+    <div class="formula">Straight-time pool  = total hours &minus; daily OT hours &minus; daily DT hours
+Weekly OT hours     = max(0, straight-time pool &minus; 40)
+Regular hours       = straight-time pool &minus; weekly OT hours</div>
+    <p>Run the 10-hour-Monday week through that and you get 40 regular hours and 2 overtime hours &mdash; not 4. Switch the toggle above between the two rules and watch the total: on the federal rule that same week pays 40 regular and 2 overtime as well, because 42 hours minus 40 is 2. The two rules agree here by coincidence. They stop agreeing the moment the week is longer: six 10-hour days is 60 hours, which the federal rule pays as 40 regular and 20 overtime, and the daily rule pays as 40 regular and 20 overtime by a completely different route &mdash; 12 hours of daily overtime plus 8 hours of weekly overtime. Add a fourteen-hour day and only the daily rule produces any double time at all.</p>
+    <p>The per-day table shows exactly which hours landed in which bucket, so you can check the split rather than trusting a single number.</p>
+
+    <h2>Time and a half, double time, and the regular rate</h2>
+    <p>"Time and a half" is 1.5 &times; the regular rate, so $22 an hour becomes $33 for overtime hours. Double time is 2 &times;, or $44. Both multipliers are editable above, because a union agreement or an employment contract can set a higher premium than the legal floor &mdash; the law sets a minimum, not a maximum.</p>
+    <p>One thing this calculator cannot do for you: work out your <em>regular rate</em>. Under the FLSA the regular rate is not simply your base hourly wage. Non-discretionary bonuses, shift differentials and commissions have to be folded in and the rate recomputed for that workweek, which can raise the overtime rate above 1.5 &times; your posted hourly wage. If your pay includes any of those, the figure to type into the rate field is the recomputed regular rate, not the number on your offer letter.</p>
+
+    <h2>What is not modelled here</h2>
+    <p>Deliberately left out, because getting them subtly wrong would be worse than leaving them out: the seventh-consecutive-day premium California applies under the same section, alternative workweek schedules, exempt-employee tests, and pay for on-call or travel time. This is a wage arithmetic tool, not payroll software and not legal advice &mdash; overtime rules vary by state and by industry, so check your own state labor department before relying on a figure.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">How do I calculate time and a half?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Multiply your hourly rate by 1.5 and apply it to the overtime hours only. At $22 an hour, overtime hours pay $33. A 46-hour week at that rate is 40 &times; $22 plus 6 &times; $33 &mdash; $880 plus $198, or $1,078 gross.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">If I work 10 hours on Monday and 42 hours for the week, how much overtime is that?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Two hours, not four. Under a daily rule the two hours past 8 on Monday are already paid at time and a half, so they are taken out before the weekly 40-hour test is applied &mdash; leaving a 40-hour straight-time pool and no additional weekly overtime. As <em>Monzon v. Schaefer Ambulance Service</em> (1990) 224 Cal.App.3d 16, 38 puts it, the 40-hour trigger is reached after 40 hours at straight time, not after the first 40 hours worked. Counting them in both places would pay the same two hours a premium twice. Under the federal weekly rule alone it is also two hours, by the simpler route of 42 minus 40.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I get overtime for working more than 8 hours in a day?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Not under federal law, which only counts hours past 40 in a workweek &mdash; hours worked in a single day, however many, do not trigger federal overtime on their own. Some states do have a daily rule &mdash; California's is over 8 hours at time and a half and over 12 at double time under Labor Code &sect;510(a) &mdash; and where one applies the employee gets whichever calculation is more favourable, not both stacked. Switch the toggle above to see the difference.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does a paid holiday or sick day count toward the 40 hours?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Generally not for federal overtime purposes: the FLSA counts hours actually worked, so paid time off does not push you over the 40-hour threshold on its own. An employer or a union contract can be more generous and count it, in which case enter the hours the way your own agreement treats them.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are salaried employees entitled to overtime?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Being paid a salary does not by itself make someone exempt. Exemption depends on the duties actually performed and on the salary meeting a threshold, and misclassification is common. If you are non-exempt but salaried, overtime is still owed &mdash; work out your regular hourly rate first and use that as the rate above.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why can I edit the 1.5&times; and 2&times; multipliers?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Because the statutory figures are floors, not fixed values. A collective agreement or a contract can promise double time on Sundays or on the seventh consecutive day, and a calculator that hard-codes 1.5 cannot express that.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/time-card-calculator.html"><h3>Time Card Calculator</h3><p>A full week of in, out and break times.</p></a>
+    <a class="calc-card" href="/calculators/hours-calculator.html"><h3>Hours Calculator</h3><p>Hours between two clock times, minus a break.</p></a>
+    <a class="calc-card" href="/calculators/simple-interest-calculator.html"><h3>Simple Interest Calculator</h3><p>Interest on a principal over time.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var ruleBtns = document.querySelectorAll("[data-rule]");
+  var weeklyFields = document.getElementById("weeklyFields");
+  var dailyFields = document.getElementById("dailyFields");
+  var dailyThresholds = document.getElementById("dailyThresholds");
+  var dailyBreakdown = document.getElementById("dailyBreakdown");
+  var ruleHint = document.getElementById("ruleHint");
+  var rule = "weekly";
+  var DAY_NAMES = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+
+  function num(id, fallback) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isFinite(v) ? v : fallback;
+  }
+
+  function money(n) {
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function hrs(n) {
+    return (Math.round(n * 100) / 100).toLocaleString(undefined, { maximumFractionDigits: 2 });
+  }
+
+  /* ------------------------------------------------------------------ *
+   * SHARED OVERTIME ENGINE — kept byte-identical with the copy in
+   * time-card-calculator.html. Each calculator page on this site carries
+   * a self-contained inline script (main.js is deferred and has not run
+   * when these execute), so the function is duplicated rather than
+   * imported. If you change one, change both.
+   *
+   * The load-bearing line is `pool`. Daily overtime REPLACES the weekly
+   * calculation for the hours it has already claimed; it does not stack
+   * on top. Without the subtraction, a 10-hour Monday in a 42-hour week
+   * is paid a premium twice — once by the daily rule and again by the
+   * weekly one — and the answer comes out too high.
+   * ------------------------------------------------------------------ */
+  function splitOvertime(dayHours, opt) {
+    var total = 0, dailyOt = 0, dailyDt = 0, perDay = [], i, h, ot, dt;
+    var dtCut = Math.max(opt.dayOtThreshold, opt.dayDtThreshold);
+
+    for (i = 0; i < dayHours.length; i++) {
+      h = Math.max(0, dayHours[i] || 0);
+      total += h;
+      if (opt.daily) {
+        dt = Math.max(0, h - dtCut);
+        ot = Math.max(0, Math.min(h, dtCut) - opt.dayOtThreshold);
+        dailyOt += ot;
+        dailyDt += dt;
+        perDay.push({ hours: h, reg: h - ot - dt, ot: ot, dt: dt });
+      }
+    }
+
+    var pool = total - dailyOt - dailyDt;
+    var weeklyOt = Math.max(0, pool - opt.weekThreshold);
+    var regular = pool - weeklyOt;
+
+    return {
+      total: total,
+      regular: regular,
+      overtime: dailyOt + weeklyOt,
+      doubleTime: dailyDt,
+      dailyOt: dailyOt,
+      weeklyOt: weeklyOt,
+      perDay: perDay
+    };
+  }
+
+  function compute() {
+    var rate = Math.max(0, num("rate", 0));
+    var otMult = Math.max(1, num("otMult", 1.5));
+    var dtMult = Math.max(1, num("dtMult", 2));
+    var opt = {
+      daily: rule === "daily",
+      weekThreshold: Math.max(0, num("weekThreshold", 40)),
+      dayOtThreshold: Math.max(0, num("dayOtThreshold", 8)),
+      dayDtThreshold: Math.max(0, num("dayDtThreshold", 12))
+    };
+
+    var dayHours;
+    if (rule === "daily") {
+      dayHours = [];
+      document.querySelectorAll(".ot-day").forEach(function(el){
+        var v = parseFloat(el.value);
+        dayHours.push(isFinite(v) ? Math.max(0, Math.min(24, v)) : 0);
+      });
+    } else {
+      dayHours = [Math.max(0, num("weekHours", 0))];
+    }
+
+    var r = splitOvertime(dayHours, opt);
+    var regPay = r.regular * rate;
+    var otPay = r.overtime * rate * otMult;
+    var dtPay = r.doubleTime * rate * dtMult;
+    var gross = regPay + otPay + dtPay;
+
+    document.getElementById("resultValue").textContent = money(gross);
+    document.getElementById("resultSub").textContent =
+      hrs(r.total) + " hours worked at " + money(rate) + "/hr";
+
+    var rows =
+      "<li><span class='k'>Regular &mdash; " + hrs(r.regular) + " h @ " + money(rate) + "</span><span class='v'>" + money(regPay) + "</span></li>" +
+      "<li><span class='k'>Overtime &mdash; " + hrs(r.overtime) + " h @ " + money(rate * otMult) + "</span><span class='v'>" + money(otPay) + "</span></li>";
+    if (r.doubleTime > 0) {
+      rows += "<li><span class='k'>Double time &mdash; " + hrs(r.doubleTime) + " h @ " + money(rate * dtMult) + "</span><span class='v'>" + money(dtPay) + "</span></li>";
+    }
+    rows += "<li><span class='k'>Premium above straight time</span><span class='v good'>" +
+      money(gross - r.total * rate) + "</span></li>";
+    document.getElementById("resultList").innerHTML = rows;
+
+    var note = document.getElementById("ruleNote");
+    if (rule === "daily") {
+      note.innerHTML = "Daily rule: " + hrs(r.dailyOt) + " h of overtime and " + hrs(r.doubleTime) +
+        " h of double time came from long days. Those " + hrs(r.dailyOt + r.doubleTime) +
+        " h were then <strong>removed</strong> from the " + hrs(r.total) +
+        " h before the weekly threshold was applied, leaving a straight-time pool of " +
+        hrs(r.total - r.dailyOt - r.doubleTime) + " h and " + hrs(r.weeklyOt) +
+        " h of weekly overtime. Counting them in both places would pay the same hours a premium twice.";
+    } else {
+      note.innerHTML = "Federal rule only: overtime is the " + hrs(r.overtime) +
+        " h past the " + hrs(opt.weekThreshold) + "-hour weekly threshold. Federal law has no daily overtime rule, so the shape of the week does not change the answer &mdash; only the total does.";
+    }
+
+    var body = document.getElementById("dayRows");
+    if (rule === "daily") {
+      body.innerHTML = r.perDay.map(function(d, i){
+        return "<tr><td>" + DAY_NAMES[i] + "</td><td>" + hrs(d.hours) + "</td><td>" +
+          hrs(d.reg) + "</td><td>" + hrs(d.ot) + "</td><td>" + hrs(d.dt) + "</td></tr>";
+      }).join("") +
+      "<tr><td><strong>Weekly OT</strong></td><td>&mdash;</td><td>&minus;" + hrs(r.weeklyOt) +
+      "</td><td>+" + hrs(r.weeklyOt) + "</td><td>&mdash;</td></tr>";
+    }
+  }
+
+  ruleBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      ruleBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      rule = btn.getAttribute("data-rule");
+      var isDaily = rule === "daily";
+      weeklyFields.style.display = isDaily ? "none" : "";
+      dailyFields.style.display = isDaily ? "" : "none";
+      dailyThresholds.style.display = isDaily ? "" : "none";
+      dailyBreakdown.style.display = isDaily ? "" : "none";
+      ruleHint.innerHTML = isDaily
+        ? "A state-style rule, California's being the usual example: overtime past 8 hours in a day and double time past 12, with those hours then taken out of the weekly calculation so nothing is paid twice."
+        : "The federal default: overtime on hours past 40 in a workweek. There is no federal daily overtime rule.";
+      compute();
+    });
+  });
+
+  document.querySelectorAll(".calc-app input").forEach(function(el){
+    el.addEventListener("input", compute);
+  });
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>

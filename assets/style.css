@@ -581,6 +581,11 @@ select:focus, input:focus {
 
 .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+/* One spacing system per container: the row owns the gap, so a .field inside
+   it drops its own bottom margin. Without this the vertical gap in a wrapped
+   three-column row is 14px in the stylesheet and 30px on screen. */
+.row-2 > .field, .row-3 > .field { margin-bottom: 0; }
+.row-2, .row-3 { margin-bottom: 16px; }
 @media (max-width: 460px) { .row-2, .row-3 { grid-template-columns: 1fr; } }
 
 .btn {
@@ -733,3 +738,98 @@ table.data-table th { color: var(--text-muted); font-size: 12px; text-transform:
   padding: 10px 16px; border-radius: 8px; z-index: 100;
 }
 .skip-link:focus { left: 16px; top: 16px; }
+
+/* ---------- Time card grid ----------
+   A 7x4 punch grid inside the existing .data-table. The per-cell <label>s are
+   visually hidden and carry the day name, because a column header alone does
+   not name a control and 21 unlabelled time fields is unusable with a screen
+   reader. The visible captions on narrow screens come from data-label instead,
+   so the accessible name and the caption can differ in length. */
+table.time-card { table-layout: fixed; }
+table.time-card th, table.time-card td { padding: 6px 8px; vertical-align: middle; }
+table.time-card th:first-child { width: 16%; }
+table.time-card th:nth-child(2), table.time-card th:nth-child(3) { width: 23%; }
+table.time-card th:nth-child(4) { width: 22%; }
+table.time-card th:nth-child(5) { width: 16%; }
+table.time-card input[type="time"],
+table.time-card input[type="number"] {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+}
+table.time-card input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+table.time-card .tc-total { font-weight: 700; white-space: nowrap; }
+table.time-card tfoot th, table.time-card tfoot td {
+  border-top: 2px solid var(--border);
+  border-bottom: none;
+  padding-top: 12px;
+  font-weight: 700;
+}
+table.time-card .tc-foot-note { text-align: left; font-weight: 400; color: var(--text-muted); font-size: 13px; }
+.tc-lab {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.tc-day-short { display: none; }
+
+/* Below ~620px five columns cannot hold two native time inputs without the
+   Hours column falling off the right edge inside its own scroller — which is
+   the one column being read. So each day becomes its own card instead. */
+@media (max-width: 620px) {
+  .table-wrap:has(table.time-card) { overflow-x: visible; }
+  table.time-card, table.time-card tbody, table.time-card tfoot,
+  table.time-card tr, table.time-card th, table.time-card td { display: block; width: auto; }
+  table.time-card thead { display: none; }
+  table.time-card tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  table.time-card tbody th {
+    grid-column: 1 / -1;
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+  table.time-card tbody td { border: none; padding: 0; text-align: left; }
+  table.time-card tbody td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  table.time-card tbody td.tc-total {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+    font-size: 16px;
+  }
+  table.time-card tbody td.tc-total::before { margin-bottom: 0; font-size: 12px; }
+  table.time-card tfoot tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    border-top: 2px solid var(--border);
+    padding-top: 12px;
+  }
+  table.time-card tfoot th, table.time-card tfoot td { border: none; padding: 0; }
+  table.time-card .tc-foot-note { display: none; }
+}

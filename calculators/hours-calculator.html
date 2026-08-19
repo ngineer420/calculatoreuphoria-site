@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hours Calculator — Time Between Two Times, With Unpaid Break</title>
+<meta name="description" content="Free hours calculator. Work out the hours between two clock times, minus an unpaid break, in hours:minutes and decimal hours. Handles shifts that cross midnight, and adds or subtracts time from a clock time.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/hours-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 21 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 21<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html" aria-current="page">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#everyday">Everyday</a> / Hours Calculator</div>
+    <h1>Hours Calculator</h1>
+    <p class="dek">Hours between two clock times, minus an unpaid break, in hours:minutes and decimal hours &mdash; or add and subtract time from a clock time.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="toggle-group" style="margin-bottom:24px; max-width:420px;">
+      <button class="active" data-mode="between">Hours between two times</button>
+      <button data-mode="addsub">Add or subtract time</button>
+    </div>
+    <div class="calc-layout">
+      <div>
+        <div id="betweenFields">
+          <div class="row-2">
+            <div class="field">
+              <label for="startTime">Start time</label>
+              <div class="input-group"><input type="time" id="startTime" value="09:15"></div>
+            </div>
+            <div class="field">
+              <label for="endTime">End time</label>
+              <div class="input-group"><input type="time" id="endTime" value="17:40"></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="breakMins">Unpaid break</label>
+            <div class="input-group"><input type="number" id="breakMins" value="30" min="0" step="5" inputmode="numeric"><span class="suffix">min</span></div>
+            <p class="hint">Subtracted from the total. Set it to 0 for a paid break or no break.</p>
+          </div>
+        </div>
+        <div id="addSubFields" style="display:none;">
+          <div class="field">
+            <label for="baseTime">Start time</label>
+            <div class="input-group"><input type="time" id="baseTime" value="09:15"></div>
+          </div>
+          <div class="field">
+            <label for="direction">Direction</label>
+            <div class="input-group"><select id="direction"><option value="1">Add time</option><option value="-1">Subtract time</option></select></div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label for="offsetHours">Hours</label>
+              <div class="input-group"><input type="number" id="offsetHours" value="7" min="0" step="1" inputmode="numeric"><span class="suffix">h</span></div>
+            </div>
+            <div class="field">
+              <label for="offsetMins">Minutes</label>
+              <div class="input-group"><input type="number" id="offsetMins" value="45" min="0" step="5" inputmode="numeric"><span class="suffix">min</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label" id="resultLabel">Hours worked</div>
+        <div class="result-value" id="resultValue">&ndash;</div>
+        <div class="result-sub" id="resultSub">&ndash;</div>
+        <ul class="result-list" id="resultList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>Hours between two times, with an unpaid lunch break</h2>
+    <p>Enter the time you clocked in, the time you clocked out, and how many minutes of break went unpaid. The calculator subtracts the break and reports the answer two ways: as hours and minutes, which is how you read a clock, and as decimal hours, which is how payroll reads a timesheet. A shift from 9:15&nbsp;am to 5:40&nbsp;pm with a 30-minute unpaid lunch is 7 hours 55 minutes, or 7.92 decimal hours.</p>
+    <p>The break comes out of the total, not off the end. If you take two shorter breaks, add them together and enter the sum — the arithmetic is identical, and where in the day they fell makes no difference to the total.</p>
+
+    <h2>Shifts that cross midnight</h2>
+    <p>If the end time is earlier on the clock than the start time, the shift is treated as running overnight and a full day is added. A shift from 10:00&nbsp;pm to 6:30&nbsp;am comes back as 8 hours 30 minutes rather than a negative number. That is the behaviour you want for night shifts, and it is where most quick mental arithmetic goes wrong.</p>
+    <p>One deliberate exception: if the start and end times are identical, the answer is zero, not twenty-four hours. A calculator cannot tell "I did not work" from "I worked a full round-the-clock shift", and zero is the safer of the two to assume. If you really did work twenty-four hours, enter the end time as one minute either side and adjust.</p>
+
+    <h2>Minutes to decimal hours</h2>
+    <p>Payroll systems almost always want decimal hours, because a decimal multiplies cleanly by an hourly rate and 7:55 does not. Converting is one division: minutes &divide; 60. The awkward part is that only a few minute values land on a tidy decimal, which is why the quarter-hour is such a common rounding unit.</p>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Minutes</th><th>Decimal</th><th>Minutes</th><th>Decimal</th></tr></thead>
+        <tbody>
+        <tr><td>0 min</td><td>0.00</td><td>30 min</td><td>0.50</td></tr>
+        <tr><td>5 min</td><td>0.08</td><td>35 min</td><td>0.58</td></tr>
+        <tr><td>10 min</td><td>0.17</td><td>40 min</td><td>0.67</td></tr>
+        <tr><td>15 min</td><td>0.25</td><td>45 min</td><td>0.75</td></tr>
+        <tr><td>20 min</td><td>0.33</td><td>50 min</td><td>0.83</td></tr>
+        <tr><td>25 min</td><td>0.42</td><td>55 min</td><td>0.92</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Rounding is a policy decision, not a maths one. Some employers round every punch to the nearest quarter hour, some to the nearest tenth (6 minutes), and some not at all. This calculator does none of it — it gives you the exact figure, and any rounding your employer applies happens on top.</p>
+
+    <h2>Add or subtract time from a clock time</h2>
+    <p>The second mode answers the other half of this question: not "how long between these two times" but "what time will it be after this much time". Give it a start time and a duration and it rolls over midnight correctly in both directions, telling you when the result lands on the following day or the previous one. It is the calculation behind "I start at 9:15 and owe eight hours — when can I leave?" and behind working out a hand-off time across a night shift.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">How do I calculate hours worked with a 30-minute unpaid lunch break?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Work out the gap between clock-in and clock-out first, then subtract the break. From 9:15&nbsp;am to 5:40&nbsp;pm is 8 hours 25 minutes on the clock; take off 30 minutes of unpaid lunch and you are paid for 7 hours 55 minutes, or 7.92 decimal hours. Enter the break in the field above and the subtraction happens for you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I calculate hours for a shift that goes past midnight?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Enter the times exactly as they appear on the clock. When the end time is earlier than the start time, the calculator adds a full day automatically, so 10:00&nbsp;pm to 6:30&nbsp;am comes out as 8 hours 30 minutes rather than a negative figure.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is 7 hours and 55 minutes in decimal hours?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>7.92. Divide the minutes by 60 &mdash; 55 &divide; 60 is 0.9166… &mdash; and add it to the whole hours. Payroll figures are normally shown to two decimal places, so 7.9166… is written 7.92.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why does payroll use decimal hours instead of hours and minutes?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Because pay is hours multiplied by a rate, and 7:55 is not a number you can multiply. 7.92 is. Hours-and-minutes is a base-60 notation for reading a clock; decimal hours is the same duration in a form arithmetic can use.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does this calculator round my hours to the nearest quarter?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>No. It reports the exact duration. Quarter-hour and tenth-of-an-hour rounding are employer policies rather than arithmetic, and they vary, so applying one here would quietly disagree with whatever your own timesheet does.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/time-card-calculator.html"><h3>Time Card Calculator</h3><p>A full week of in, out and break times.</p></a>
+    <a class="calc-card" href="/calculators/overtime-pay-calculator.html"><h3>Overtime Pay Calculator</h3><p>Regular, time and a half, and double time.</p></a>
+    <a class="calc-card" href="/calculators/date-calculator.html"><h3>Date Calculator</h3><p>Days between dates, and date arithmetic.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var modeBtns = document.querySelectorAll("[data-mode]");
+  var betweenFields = document.getElementById("betweenFields");
+  var addSubFields = document.getElementById("addSubFields");
+  var mode = "between";
+
+  // "HH:MM" -> minutes since midnight, or null if the field is empty/invalid.
+  function toMinutes(value) {
+    var m = /^(\d{1,2}):(\d{2})$/.exec(value || "");
+    if (!m) return null;
+    var h = parseInt(m[1], 10), mi = parseInt(m[2], 10);
+    if (h > 23 || mi > 59) return null;
+    return h * 60 + mi;
+  }
+
+  function fmtClock(mins) {
+    var m = ((mins % 1440) + 1440) % 1440;
+    var h24 = Math.floor(m / 60), mi = m % 60;
+    var suffix = h24 < 12 ? "AM" : "PM";
+    var h12 = h24 % 12; if (h12 === 0) h12 = 12;
+    return h12 + ":" + (mi < 10 ? "0" : "") + mi + " " + suffix;
+  }
+
+  function fmtHM(mins) {
+    var h = Math.floor(mins / 60), mi = mins % 60;
+    return h + ":" + (mi < 10 ? "0" : "") + mi;
+  }
+
+  function compute() {
+    var resultLabel = document.getElementById("resultLabel");
+    var resultValue = document.getElementById("resultValue");
+    var resultSub = document.getElementById("resultSub");
+    var resultList = document.getElementById("resultList");
+
+    if (mode === "between") {
+      var start = toMinutes(document.getElementById("startTime").value);
+      var end = toMinutes(document.getElementById("endTime").value);
+      if (start === null || end === null) return;
+      var brk = Math.max(0, parseInt(document.getElementById("breakMins").value, 10) || 0);
+
+      // A shift that ends earlier on the clock than it started ran overnight.
+      // Equal times are read as zero rather than twenty-four hours: a
+      // calculator cannot tell "did not work" from "worked a full day", and
+      // zero is the safer of the two to assume.
+      var span = end - start;
+      if (span < 0) span += 1440;
+
+      var paid = span - brk;
+      var clamped = paid < 0;
+      if (clamped) paid = 0;
+
+      resultLabel.textContent = "Hours worked";
+      resultValue.textContent = fmtHM(paid);
+      resultSub.textContent = fmtClock(start) + " → " + fmtClock(end) +
+        (brk > 0 ? ", minus " + brk + " min unpaid break" : "") +
+        (end - start < 0 ? " (crosses midnight)" : "");
+      resultList.innerHTML =
+        "<li><span class='k'>Decimal hours</span><span class='v'>" + (paid / 60).toFixed(2) + "</span></li>" +
+        "<li><span class='k'>Total minutes</span><span class='v'>" + paid + "</span></li>" +
+        "<li><span class='k'>On the clock, before break</span><span class='v'>" + fmtHM(span) + "</span></li>" +
+        (clamped ? "<li><span class='k'>Note</span><span class='v bad'>Break is longer than the shift</span></li>" : "");
+    } else {
+      var base = toMinutes(document.getElementById("baseTime").value);
+      if (base === null) return;
+      var sign = parseInt(document.getElementById("direction").value, 10) || 1;
+      var oh = Math.max(0, parseInt(document.getElementById("offsetHours").value, 10) || 0);
+      var om = Math.max(0, parseInt(document.getElementById("offsetMins").value, 10) || 0);
+      var offset = sign * (oh * 60 + om);
+      var landed = base + offset;
+      var dayShift = Math.floor(landed / 1440);
+
+      resultLabel.textContent = sign > 0 ? "Time after" : "Time before";
+      resultValue.textContent = fmtClock(landed);
+      resultSub.textContent = fmtClock(base) + (sign > 0 ? " plus " : " minus ") + oh + " h " + om + " min";
+      resultList.innerHTML =
+        "<li><span class='k'>Day</span><span class='v'>" +
+          (dayShift === 0 ? "Same day" : dayShift > 0 ? (dayShift === 1 ? "Next day" : dayShift + " days later") : (dayShift === -1 ? "Previous day" : Math.abs(dayShift) + " days earlier")) +
+        "</span></li>" +
+        "<li><span class='k'>24-hour clock</span><span class='v'>" + fmtHM(((landed % 1440) + 1440) % 1440) + "</span></li>" +
+        "<li><span class='k'>Duration in decimal hours</span><span class='v'>" + ((oh * 60 + om) / 60).toFixed(2) + "</span></li>";
+    }
+  }
+
+  modeBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      modeBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      mode = btn.getAttribute("data-mode");
+      betweenFields.style.display = mode === "between" ? "" : "none";
+      addSubFields.style.display = mode === "addsub" ? "" : "none";
+      compute();
+    });
+  });
+
+  document.querySelectorAll("#betweenFields input, #addSubFields input, #addSubFields select").forEach(function(el){
+    el.addEventListener("input", compute);
+    el.addEventListener("change", compute);
+  });
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>

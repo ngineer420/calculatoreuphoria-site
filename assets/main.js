@@ -20,7 +20,10 @@ var CALCULATORS = [
   { name: "Age Calculator", url: "/calculators/age-calculator.html", category: "Everyday" },
   { name: "Unit Converter", url: "/calculators/unit-converter.html", category: "Everyday" },
   { name: "Date Calculator", url: "/calculators/date-calculator.html", category: "Everyday" },
-  { name: "Aspect Ratio Calculator", url: "/calculators/aspect-ratio-calculator.html", category: "Everyday" }
+  { name: "Aspect Ratio Calculator", url: "/calculators/aspect-ratio-calculator.html", category: "Everyday" },
+  { name: "Hours Calculator", url: "/calculators/hours-calculator.html", category: "Everyday" },
+  { name: "Time Card Calculator", url: "/calculators/time-card-calculator.html", category: "Everyday" },
+  { name: "Overtime Pay Calculator", url: "/calculators/overtime-pay-calculator.html", category: "Everyday" }
 ];
 
 (function () {
