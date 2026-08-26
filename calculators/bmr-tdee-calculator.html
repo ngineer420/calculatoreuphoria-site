@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMR &amp; TDEE Calculator — Basal Metabolic Rate and Daily Calorie Needs</title>
+<meta name="description" content="Free BMR and TDEE calculator. Enter age, sex, height, weight and activity level to see your basal metabolic rate, your maintenance calories, and weight loss targets.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/bmr-tdee-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<!-- jsonld:start -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"BMR & TDEE Calculator","url":"https://calculatoreuphoria.com/calculators/bmr-tdee-calculator.html","description":"Free BMR and TDEE calculator. Enter age, sex, height, weight and activity level to see your basal metabolic rate, your maintenance calories, and weight loss targets.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between BMR and TDEE?","acceptedAnswer":{"@type":"Answer","text":"BMR is the number of calories your body needs at rest for one full day. TDEE is BMR plus the calories you burn through daily movement and exercise. TDEE is the number to use when you plan your food intake."}},{"@type":"Question","name":"How accurate is this calculator?","acceptedAnswer":{"@type":"Answer","text":"The formulas estimate BMR from age, sex, height, and weight. For most adults the estimate is within about 10 percent of a lab measurement. Body composition, genetics, and hormones can move your true number outside that range. Track your weight for two to three weeks and adjust your intake if it does not move as expected."}},{"@type":"Question","name":"How many calories should I eat to lose weight?","acceptedAnswer":{"@type":"Answer","text":"Eat about 500 calories below your TDEE to lose about 0.5 kg (1 lb) per week. A deficit of 1,000 calories per day doubles that rate. Do not eat below your BMR for long periods without medical advice. The calculator raises any target below your BMR to your BMR for that reason."}},{"@type":"Question","name":"Does muscle mass change the result?","acceptedAnswer":{"@type":"Answer","text":"Yes. Muscle burns more energy at rest than fat. The formulas do not measure body composition, so they can underestimate BMR for very muscular people. They can overestimate BMR for people with a high body fat percentage. If you know your body fat percentage, the Katch-McArdle formula gives a closer estimate."}}]}]
+</script>
+<!-- jsonld:end -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 26 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 26<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+          <li><a href="/calculators/auto-loan-calculator.html">Auto Loan Calculator</a></li>
+          <li><a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+          <li><a href="/calculators/bmr-tdee-calculator.html" aria-current="page">BMR &amp; TDEE Calculator</a></li>
+          <li><a href="/calculators/due-date-calculator.html">Due Date Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+          <li><a href="/calculators/standard-deviation-calculator.html">Standard Deviation Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#health">Health</a> / BMR &amp; TDEE Calculator</div>
+    <h1>BMR &amp; TDEE Calculator</h1>
+    <p class="dek">Find your basal metabolic rate and the calories you burn each day at your activity level.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="row-2">
+          <div class="field">
+            <label>Units</label>
+            <div class="toggle-group" data-key="units">
+              <button type="button" class="active" data-value="metric">Metric</button>
+              <button type="button" data-value="imperial">Imperial</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Sex</label>
+            <div class="toggle-group" data-key="sex">
+              <button type="button" class="active" data-value="male">Male</button>
+              <button type="button" data-value="female">Female</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="age">Age</label>
+          <div class="input-group"><input type="number" id="age" value="30" min="1" step="1" inputmode="numeric"><span class="suffix">years</span></div>
+        </div>
+        <div id="metricFields">
+          <div class="row-2">
+            <div class="field">
+              <label for="heightCm">Height</label>
+              <div class="input-group"><input type="number" id="heightCm" value="180" step="0.1" inputmode="decimal"><span class="suffix">cm</span></div>
+            </div>
+            <div class="field">
+              <label for="weightKg">Weight</label>
+              <div class="input-group"><input type="number" id="weightKg" value="80" step="0.1" inputmode="decimal"><span class="suffix">kg</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="imperialFields" style="display:none;">
+          <div class="field">
+            <label for="heightFt">Height</label>
+            <div class="row-2" style="margin-bottom:0;">
+              <div class="input-group"><input type="number" id="heightFt" value="5" step="1" inputmode="numeric"><span class="suffix">ft</span></div>
+              <div class="input-group"><input type="number" id="heightIn" value="11" step="1" inputmode="numeric"><span class="suffix">in</span></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="weightLb">Weight</label>
+            <div class="input-group"><input type="number" id="weightLb" value="176" step="0.1" inputmode="decimal"><span class="suffix">lb</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="activity">Activity level</label>
+          <div class="input-group">
+            <select id="activity">
+              <option value="1.2">Sedentary (desk job, little exercise) x1.2</option>
+              <option value="1.375">Lightly active (exercise 1 to 3 days a week) x1.375</option>
+              <option value="1.55" selected>Moderately active (exercise 3 to 5 days a week) x1.55</option>
+              <option value="1.725">Very active (hard exercise 6 to 7 days a week) x1.725</option>
+              <option value="1.9">Extra active (physical job or two workouts a day) x1.9</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Formula</label>
+          <div class="toggle-group" data-key="formula">
+            <button type="button" class="active" data-value="msj">Mifflin-St Jeor</button>
+            <button type="button" data-value="hb">Harris-Benedict</button>
+          </div>
+          <div class="hint">Mifflin-St Jeor is the recommended default. Harris-Benedict uses the 1984 revised equations.</div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">TDEE (calories per day)</div>
+        <div class="result-value" id="tdee">2,759 kcal</div>
+        <div class="result-sub">Calories to maintain your weight</div>
+        <ul class="result-list">
+          <li><span class="k">BMR (at rest)</span><span class="v" id="bmr">–</span></li>
+          <li><span class="k" id="loseSlowK">Lose 0.5 kg per week</span><span class="v" id="loseSlow">–</span></li>
+          <li><span class="k" id="loseFastK">Lose 1 kg per week</span><span class="v" id="loseFast">–</span></li>
+          <li><span class="k" id="gainK">Gain 0.5 kg per week</span><span class="v" id="gain">–</span></li>
+        </ul>
+        <div class="result-sub" id="floorHint" style="display:none; margin:14px 0 0;">A target below your BMR is raised to your BMR. Do not eat below your BMR for long periods.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>TDEE at each activity level</h2></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Activity level</th><th>Multiplier</th><th>TDEE</th></tr></thead>
+        <tbody id="activityBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How this is calculated</h2>
+    <div class="formula">Mifflin-St Jeor<br>Male: BMR = 10 &times; kg + 6.25 &times; cm &minus; 5 &times; age + 5<br>Female: BMR = 10 &times; kg + 6.25 &times; cm &minus; 5 &times; age &minus; 161<br>TDEE = BMR &times; activity multiplier</div>
+    <p>BMR is the energy your body uses at complete rest. It powers breathing, circulation, body temperature, and cell repair. TDEE adds the calories you burn through daily movement and exercise. The calculator multiplies your BMR by an activity factor to get your TDEE. Eat close to your TDEE to hold your weight steady.</p>
+    <p>Mifflin-St Jeor is the default formula. Studies found that it predicts measured BMR more closely than older formulas for most adults. The revised Harris-Benedict formula is older and usually gives a slightly higher number. Use it if you want to compare against an older diet plan or app.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">What is the difference between BMR and TDEE?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>BMR is the number of calories your body needs at rest for one full day. TDEE is BMR plus the calories you burn through daily movement and exercise. TDEE is the number to use when you plan your food intake.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How accurate is this calculator?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>The formulas estimate BMR from age, sex, height, and weight. For most adults the estimate is within about 10 percent of a lab measurement. Body composition, genetics, and hormones can move your true number outside that range. Track your weight for two to three weeks and adjust your intake if it does not move as expected.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How many calories should I eat to lose weight?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Eat about 500 calories below your TDEE to lose about 0.5 kg (1 lb) per week. A deficit of 1,000 calories per day doubles that rate. Do not eat below your BMR for long periods without medical advice. The calculator raises any target below your BMR to your BMR for that reason.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does muscle mass change the result?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Yes. Muscle burns more energy at rest than fat. The formulas do not measure body composition, so they can underestimate BMR for very muscular people. They can overestimate BMR for people with a high body fat percentage. If you know your body fat percentage, the Katch-McArdle formula gives a closer estimate.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Estimates for healthy adults only. Talk to a doctor or dietitian before you change your diet. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/calorie-calculator.html"><h3>Calorie Calculator</h3><p>Daily calorie needs based on your body and activity.</p></a>
+    <a class="calc-card" href="/calculators/bmi-calculator.html"><h3>BMI Calculator</h3><p>Body mass index and healthy range.</p></a>
+    <a class="calc-card" href="/calculators/sleep-calculator.html"><h3>Sleep Calculator</h3><p>Bedtime and wake-up by sleep cycle.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  function $(id) { return document.getElementById(id); }
+  function num(id) { return parseFloat($(id).value) || 0; }
+
+  // Toggle-group state. Each group has a data-key and each button a data-value.
+  var state = { units: "metric", sex: "male", formula: "msj" };
+
+  var ACTIVITY = [
+    { mult: 1.2,   name: "Sedentary" },
+    { mult: 1.375, name: "Lightly active" },
+    { mult: 1.55,  name: "Moderately active" },
+    { mult: 1.725, name: "Very active" },
+    { mult: 1.9,   name: "Extra active" }
+  ];
+
+  var CM_PER_IN = 2.54;
+  var KG_PER_LB = 0.45359237;
+
+  function kcal(n) {
+    if (!isFinite(n)) return "0 kcal";
+    return Math.round(n).toLocaleString(undefined, { maximumFractionDigits: 0 }) + " kcal";
+  }
+
+  // Read height in cm and weight in kg from the visible unit fields.
+  function getBody() {
+    if (state.units === "metric") return { cm: num("heightCm"), kg: num("weightKg") };
+    var inches = num("heightFt") * 12 + num("heightIn");
+    return { cm: inches * CM_PER_IN, kg: num("weightLb") * KG_PER_LB };
+  }
+
+  function bmrFor(cm, kg, age) {
+    var male = state.sex === "male";
+    if (state.formula === "msj") {
+      return 10 * kg + 6.25 * cm - 5 * age + (male ? 5 : -161);
+    }
+    // Revised Harris-Benedict (Roza and Shizgal, 1984).
+    return male
+      ? 88.362 + 13.397 * kg + 4.799 * cm - 5.677 * age
+      : 447.593 + 9.247 * kg + 3.098 * cm - 4.330 * age;
+  }
+
+  function compute() {
+    var body = getBody();
+    var age = num("age");
+    var mult = parseFloat($("activity").value) || 1.2;
+    var bmr = Math.max(0, bmrFor(body.cm, body.kg, age));
+    var tdee = bmr * mult;
+
+    $("tdee").textContent = kcal(tdee);
+    $("bmr").textContent = kcal(bmr);
+
+    // A target below the BMR is raised to the BMR. The hint explains the clamp.
+    var loseSlow = tdee - 500;
+    var loseFast = tdee - 1000;
+    var clamped = bmr > 0 && (loseSlow < bmr || loseFast < bmr);
+    $("loseSlow").textContent = kcal(Math.max(loseSlow, bmr));
+    $("loseFast").textContent = kcal(Math.max(loseFast, bmr));
+    $("gain").textContent = kcal(tdee + 500);
+    $("floorHint").style.display = clamped ? "block" : "none";
+
+    var imperial = state.units === "imperial";
+    $("loseSlowK").textContent = imperial ? "Lose 1 lb per week" : "Lose 0.5 kg per week";
+    $("loseFastK").textContent = imperial ? "Lose 2 lb per week" : "Lose 1 kg per week";
+    $("gainK").textContent = imperial ? "Gain 1 lb per week" : "Gain 0.5 kg per week";
+
+    $("activityBody").innerHTML = ACTIVITY.map(function(a){
+      var selected = Math.abs(a.mult - mult) < 0.0001;
+      var style = selected ? ' style="font-weight:700;"' : "";
+      var badge = selected ? ' <span class="badge">Selected</span>' : "";
+      return "<tr" + style + "><td>" + a.name + badge + "</td><td>x" + a.mult + "</td><td>" + kcal(bmr * a.mult) + "</td></tr>";
+    }).join("");
+  }
+
+  // Convert the entered values when the unit system changes, so the body stays the same.
+  function switchUnits(units) {
+    if (units === state.units) return;
+    if (units === "imperial") {
+      var totalIn = num("heightCm") / CM_PER_IN;
+      var ft = Math.floor(totalIn / 12);
+      var inch = Math.round(totalIn - ft * 12);
+      if (inch === 12) { ft += 1; inch = 0; }
+      $("heightFt").value = ft;
+      $("heightIn").value = inch;
+      $("weightLb").value = Math.round(num("weightKg") / KG_PER_LB * 10) / 10;
+    } else {
+      var cm = (num("heightFt") * 12 + num("heightIn")) * CM_PER_IN;
+      $("heightCm").value = Math.round(cm * 10) / 10;
+      $("weightKg").value = Math.round(num("weightLb") * KG_PER_LB * 10) / 10;
+    }
+    state.units = units;
+    $("metricFields").style.display = units === "metric" ? "" : "none";
+    $("imperialFields").style.display = units === "imperial" ? "" : "none";
+  }
+
+  var groups = document.querySelectorAll(".toggle-group[data-key]");
+  Array.prototype.forEach.call(groups, function(group){
+    var key = group.getAttribute("data-key");
+    var buttons = group.querySelectorAll("button");
+    Array.prototype.forEach.call(buttons, function(btn){
+      btn.addEventListener("click", function(){
+        var value = btn.getAttribute("data-value");
+        Array.prototype.forEach.call(buttons, function(b){ b.classList.remove("active"); });
+        btn.classList.add("active");
+        if (key === "units") switchUnits(value); else state[key] = value;
+        compute();
+      });
+    });
+  });
+
+  var inputs = ["age", "heightCm", "weightKg", "heightFt", "heightIn", "weightLb", "activity"];
+  inputs.forEach(function(id){
+    $(id).addEventListener("input", compute);
+    $(id).addEventListener("change", compute);
+  });
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>

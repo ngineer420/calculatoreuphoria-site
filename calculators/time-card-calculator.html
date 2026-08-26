@@ -8,6 +8,11 @@
 <link rel="canonical" href="https://calculatoreuphoria.com/calculators/time-card-calculator.html">
 <link rel="stylesheet" href="/assets/style.css">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<!-- jsonld:start -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"Time Card Calculator","url":"https://calculatoreuphoria.com/calculators/time-card-calculator.html","description":"Free weekly time card calculator. Seven days of in, out and unpaid break times, with daily and weekly totals in decimal hours, an optional pay rate, and correct weekly or daily overtime. Saved in your browser.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I use a timesheet calculator with an unpaid lunch break?","acceptedAnswer":{"@type":"Answer","text":"Enter each day's clock-in and clock-out as they appear on your timesheet, then put the unpaid minutes in the break column for that day. The break is subtracted from that day only, so a 45-minute Tuesday lunch and a 30-minute Wednesday one both come out right without any hand arithmetic."}},{"@type":"Question","name":"Does the time card save my entries?","acceptedAnswer":{"@type":"Answer","text":"Yes, in this browser. Every change is written to local storage and read back when you come back to the page. There is no account and nothing is uploaded — which also means clearing your browser data clears the grid, and it will not follow you to another device."}},{"@type":"Question","name":"How does it handle a shift that starts at 10pm and ends at 6am?","acceptedAnswer":{"@type":"Answer","text":"It reads any row whose out time is earlier on the clock than its in time as an overnight shift and adds a full day, so 10:00 pm to 6:30 am comes back as 8.5 hours. The shift is credited to the day it started on."}},{"@type":"Question","name":"Why does the weekly overtime figure change when I switch to the daily rule?","acceptedAnswer":{"@type":"Answer","text":"Because the two rules count different things. The federal rule only looks at the weekly total. A daily rule looks at each day first, and the hours it has already paid a premium on are then removed from the week before the 40-hour test runs, so they are not paid twice. A week of five 8-hour days and one 10-hour day is 42 hours and 2 overtime hours either way; a week of six 10-hour days is 60 hours, and the two rules reach 20 overtime hours by different routes."}},{"@type":"Question","name":"Can I enter hours instead of clock times?","acceptedAnswer":{"@type":"Answer","text":"Not on this page — it is built around punches, because that is what a time card holds. If you already know the hours per day, the overtime pay calculator takes daily hours directly, and the hours calculator converts a single pair of times."}},{"@type":"Question","name":"What is 8 hours and 15 minutes in decimal?","acceptedAnswer":{"@type":"Answer","text":"8.25. Divide the minutes by 60 and add them to the whole hours: 15 ÷ 60 is 0.25. Every total on this page is already in decimal hours for that reason."}}]}]
+</script>
+<!-- jsonld:end -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -29,9 +34,9 @@
 <!-- nav:start -->
 <nav class="toolbar" aria-label="Tools">
   <details class="tb-menu">
-    <summary class="tb-trigger" aria-label="All 21 calculators">
+    <summary class="tb-trigger" aria-label="All 26 calculators">
       <span class="tb-glyph" aria-hidden="true">&#9636;</span>
-      <span class="tb-label">All 21<span class="tb-label-long"> calculators</span></span>
+      <span class="tb-label">All 26<span class="tb-label-long"> calculators</span></span>
     </summary>
     <div class="tb-sheet">
       <div class="tb-sheet-cols">
@@ -44,12 +49,16 @@
           <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
           <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
           <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+          <li><a href="/calculators/auto-loan-calculator.html">Auto Loan Calculator</a></li>
+          <li><a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a></li>
         </ul>
         <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
         <ul aria-labelledby="tb-g2">
           <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
           <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
           <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+          <li><a href="/calculators/bmr-tdee-calculator.html">BMR &amp; TDEE Calculator</a></li>
+          <li><a href="/calculators/due-date-calculator.html">Due Date Calculator</a></li>
         </ul>
         <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
         <ul aria-labelledby="tb-g3">
@@ -57,6 +66,7 @@
           <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
           <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
           <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+          <li><a href="/calculators/standard-deviation-calculator.html">Standard Deviation Calculator</a></li>
         </ul>
         <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
         <ul aria-labelledby="tb-g4">

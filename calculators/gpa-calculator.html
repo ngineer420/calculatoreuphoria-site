@@ -8,6 +8,11 @@
 <link rel="canonical" href="https://calculatoreuphoria.com/calculators/gpa-calculator.html">
 <link rel="stylesheet" href="/assets/style.css">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<!-- jsonld:start -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"GPA Calculator","url":"https://calculatoreuphoria.com/calculators/gpa-calculator.html","description":"Free GPA calculator. Add your courses, credit hours and letter grades to get your weighted GPA on a standard 4.0 scale.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a weighted GPA?","acceptedAnswer":{"@type":"Answer","text":"A weighted GPA gives each course a weight equal to its credit hours. A 4-credit course counts twice as much as a 2-credit course. This calculator uses that method."}},{"@type":"Question","name":"How do I raise my GPA?","acceptedAnswer":{"@type":"Answer","text":"Earn high grades in courses with many credit hours. Those courses move the average the most. Retake a course if your school replaces the old grade."}},{"@type":"Question","name":"Does an A+ count as more than 4.0?","acceptedAnswer":{"@type":"Answer","text":"Not on the standard scale. This calculator gives A+ and A the same 4.0 points. Some schools give an A+ 4.3 points. Check your school's scale."}}]}]
+</script>
+<!-- jsonld:end -->
 <style>
   .gpa-row { display: grid; grid-template-columns: 1fr 90px 130px 36px; gap: 10px; align-items: center; margin-bottom: 10px; }
   @media (max-width: 560px) { .gpa-row { grid-template-columns: 1fr 70px 100px 32px; } }
@@ -38,9 +43,9 @@
 <!-- nav:start -->
 <nav class="toolbar" aria-label="Tools">
   <details class="tb-menu">
-    <summary class="tb-trigger" aria-label="All 21 calculators">
+    <summary class="tb-trigger" aria-label="All 26 calculators">
       <span class="tb-glyph" aria-hidden="true">&#9636;</span>
-      <span class="tb-label">All 21<span class="tb-label-long"> calculators</span></span>
+      <span class="tb-label">All 26<span class="tb-label-long"> calculators</span></span>
     </summary>
     <div class="tb-sheet">
       <div class="tb-sheet-cols">
@@ -53,12 +58,16 @@
           <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
           <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
           <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+          <li><a href="/calculators/auto-loan-calculator.html">Auto Loan Calculator</a></li>
+          <li><a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a></li>
         </ul>
         <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
         <ul aria-labelledby="tb-g2">
           <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
           <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
           <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+          <li><a href="/calculators/bmr-tdee-calculator.html">BMR &amp; TDEE Calculator</a></li>
+          <li><a href="/calculators/due-date-calculator.html">Due Date Calculator</a></li>
         </ul>
         <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
         <ul aria-labelledby="tb-g3">
@@ -66,6 +75,7 @@
           <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
           <li><a href="/calculators/gpa-calculator.html" aria-current="page">GPA Calculator</a></li>
           <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+          <li><a href="/calculators/standard-deviation-calculator.html">Standard Deviation Calculator</a></li>
         </ul>
         <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
         <ul aria-labelledby="tb-g4">
@@ -135,6 +145,20 @@
       <tr><td>B-</td><td>2.7</td><td>D</td><td>1.0</td></tr>
       <tr><td>F</td><td>0.0</td><td>D-</td><td>0.7</td></tr>
     </table>
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">What is a weighted GPA?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>A weighted GPA gives each course a weight equal to its credit hours. A 4-credit course counts twice as much as a 2-credit course. This calculator uses that method.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I raise my GPA?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Earn high grades in courses with many credit hours. Those courses move the average the most. Retake a course if your school replaces the old grade.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does an A+ count as more than 4.0?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Not on the standard scale. This calculator gives A+ and A the same 4.0 points. Some schools give an A+ 4.3 points. Check your school's scale.</p></div>
+      </div>
+    </div>
     <p class="disclaimer">Grading scales vary by school — check your institution's official scale for transcripts. See our <a href="/terms.html">Terms of Use</a>.</p>
   </div>
 

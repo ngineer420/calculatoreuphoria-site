@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Loan Calculator — Monthly Car Payment with Tax and Trade-In</title>
+<meta name="description" content="Free auto loan calculator. Enter the vehicle price, down payment, trade-in, sales tax, APR and term to see your monthly car payment, total interest and a full amortization table.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/auto-loan-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<!-- jsonld:start -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"Auto Loan Calculator","url":"https://calculatoreuphoria.com/calculators/auto-loan-calculator.html","description":"Free auto loan calculator. Enter the vehicle price, down payment, trade-in, sales tax, APR and term to see your monthly car payment, total interest and a full amortization table.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I make a bigger down payment?","acceptedAnswer":{"@type":"Answer","text":"A bigger down payment cuts the amount financed. This cuts the monthly payment and the total interest. It also lowers the risk that you owe more than the car is worth. Keep enough cash for an emergency fund before you increase the down payment."}},{"@type":"Question","name":"Does a longer term save money?","acceptedAnswer":{"@type":"Answer","text":"No. A longer term gives a smaller monthly payment, but you pay interest for more months. Change the term from 60 to 72 months on this page and compare the total interest. The 72-month loan costs more in total. Choose the shortest term with a payment that fits your budget."}},{"@type":"Question","name":"How does the trade-in affect the sales tax?","acceptedAnswer":{"@type":"Answer","text":"Most states tax the vehicle price after the trade-in value. A $5,000 trade-in on a $35,000 car cuts the taxed amount to $30,000. A few states tax the full price. Clear the checkbox if your state taxes the full price."}},{"@type":"Question","name":"What APR is typical for an auto loan?","acceptedAnswer":{"@type":"Answer","text":"The APR depends on your credit score, the loan term and the age of the car. Borrowers with strong credit often see rates near 5% to 7% on a new car. Used cars and lower credit scores get higher rates. Check the APR in a real quote before you sign."}}]}]
+</script>
+<!-- jsonld:end -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 26 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 26<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+          <li><a href="/calculators/auto-loan-calculator.html" aria-current="page">Auto Loan Calculator</a></li>
+          <li><a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+          <li><a href="/calculators/bmr-tdee-calculator.html">BMR &amp; TDEE Calculator</a></li>
+          <li><a href="/calculators/due-date-calculator.html">Due Date Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+          <li><a href="/calculators/standard-deviation-calculator.html">Standard Deviation Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Auto Loan Calculator</div>
+    <h1>Auto Loan Calculator</h1>
+    <p class="dek">Estimate your monthly car payment. Include the sales tax, the down payment and the trade-in value.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="price">Vehicle price</label>
+          <div class="input-group"><span class="prefix">$</span><input type="number" id="price" value="35000" step="500" min="0" inputmode="decimal"></div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="down">Down payment</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="down" value="5000" step="500" min="0" inputmode="decimal"></div>
+          </div>
+          <div class="field">
+            <label for="tradeIn">Trade-in value</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="tradeIn" value="0" step="500" min="0" inputmode="decimal"></div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="taxRate">Sales tax rate</label>
+            <div class="input-group"><input type="number" id="taxRate" value="6" step="0.25" min="0" inputmode="decimal"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label for="apr">Interest rate (APR)</label>
+            <div class="input-group"><input type="number" id="apr" value="6.5" step="0.05" min="0" inputmode="decimal"><span class="suffix">%</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="term">Loan term</label>
+          <div class="input-group">
+            <select id="term">
+              <option value="24">24 months (2 years)</option>
+              <option value="36">36 months (3 years)</option>
+              <option value="48">48 months (4 years)</option>
+              <option value="60" selected>60 months (5 years)</option>
+              <option value="72">72 months (6 years)</option>
+              <option value="84">84 months (7 years)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="taxAfterTrade" style="display:flex;align-items:center;gap:9px;cursor:pointer;">
+            <input type="checkbox" id="taxAfterTrade" checked style="width:17px;height:17px;margin:0;flex-shrink:0;accent-color:var(--primary);">
+            <span>Trade-in reduces the taxed amount</span>
+          </label>
+          <div class="hint">Most states tax the price after the trade-in. A few tax the full price.</div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Monthly payment</div>
+        <div class="result-value" id="monthlyPayment">$628</div>
+        <div class="result-sub" id="resultSub">Fixed payment for 60 months</div>
+        <ul class="result-list">
+          <li><span class="k">Amount financed</span><span class="v" id="amountFinanced">–</span></li>
+          <li><span class="k">Sales tax</span><span class="v" id="salesTax">–</span></li>
+          <li><span class="k">Total interest</span><span class="v" id="totalInterest">–</span></li>
+          <li><span class="k">Total cost of the car</span><span class="v" id="totalCost">–</span></li>
+          <li><span class="k">Payoff date (from today)</span><span class="v" id="payoffDate">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Amortization table (monthly)</h2></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How this is calculated</h2>
+    <div class="formula">M = P &times; [r(1+r)<sup>n</sup>] &divide; [(1+r)<sup>n</sup> &minus; 1]<br>P = amount financed, r = APR &divide; 12, n = number of monthly payments<br>P = vehicle price + sales tax &minus; down payment &minus; trade-in value</div>
+    <p>The amount financed is the vehicle price plus the sales tax, minus the down payment and the trade-in value. The lender charges interest on this amount, not on the sticker price. A larger down payment or trade-in cuts the amount financed and the total interest. The calculator does not include dealer fees, registration or an extended warranty. Add these costs to the vehicle price if the dealer rolls them into the loan.</p>
+    <p>A dealer often quotes the monthly payment first. A long term makes the payment small, but the APR sets the real cost of the loan. At 6.5% APR, a 72-month loan costs more interest than a 60-month loan on the same car. Compare two loan offers by total interest, not by the monthly payment.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Should I make a bigger down payment?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>A bigger down payment cuts the amount financed. This cuts the monthly payment and the total interest. It also lowers the risk that you owe more than the car is worth. Keep enough cash for an emergency fund before you increase the down payment.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does a longer term save money?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>No. A longer term gives a smaller monthly payment, but you pay interest for more months. Change the term from 60 to 72 months on this page and compare the total interest. The 72-month loan costs more in total. Choose the shortest term with a payment that fits your budget.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the trade-in affect the sales tax?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Most states tax the vehicle price after the trade-in value. A $5,000 trade-in on a $35,000 car cuts the taxed amount to $30,000. A few states tax the full price. Clear the checkbox if your state taxes the full price.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What APR is typical for an auto loan?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>The APR depends on your credit score, the loan term and the age of the car. Borrowers with strong credit often see rates near 5% to 7% on a new car. Used cars and lower credit scores get higher rates. Check the APR in a real quote before you sign.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Estimates only. Confirm the exact terms with your lender. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/loan-calculator.html"><h3>Loan Calculator</h3><p>Any fixed-rate loan by amount, rate and term.</p></a>
+    <a class="calc-card" href="/calculators/mortgage-calculator.html"><h3>Mortgage Calculator</h3><p>Home loans with taxes and insurance.</p></a>
+    <a class="calc-card" href="/calculators/sales-tax-calculator.html"><h3>Sales Tax Calculator</h3><p>Add or remove sales tax from a price.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var price = document.getElementById("price");
+  var down = document.getElementById("down");
+  var tradeIn = document.getElementById("tradeIn");
+  var taxRate = document.getElementById("taxRate");
+  var apr = document.getElementById("apr");
+  var term = document.getElementById("term");
+  var taxAfterTrade = document.getElementById("taxAfterTrade");
+
+  // Whole dollars for the result panel.
+  function money(n) {
+    if (!isFinite(n)) return "$0";
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  // Cents for the amortization table.
+  function cents(n) {
+    if (!isFinite(n)) return "$0.00";
+    return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function compute() {
+    var p = Math.max(parseFloat(price.value) || 0, 0);
+    var d = Math.max(parseFloat(down.value) || 0, 0);
+    var t = Math.max(parseFloat(tradeIn.value) || 0, 0);
+    var taxPct = Math.max(parseFloat(taxRate.value) || 0, 0);
+    var r = Math.max(parseFloat(apr.value) || 0, 0) / 100 / 12;
+    var n = parseInt(term.value, 10) || 0;
+
+    // Most states tax the price after the trade-in. The checkbox controls this.
+    var taxable = taxAfterTrade.checked ? Math.max(p - t, 0) : p;
+    var salesTax = taxable * taxPct / 100;
+    var P = Math.max(p + salesTax - d - t, 0);
+
+    var m = 0;
+    if (n > 0 && P > 0) m = r > 0 ? P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : P / n;
+
+    // Build the monthly schedule and the yearly subtotal rows.
+    var balance = P;
+    var totalInterest = 0;
+    var rows = [];
+    var yPay = 0, yPrin = 0, yInt = 0;
+    if (n > 0 && P > 0) {
+      for (var i = 1; i <= n; i++) {
+        var interestPortion = balance * r;
+        var principalPortion = m - interestPortion;
+        // The last payment clears the balance and removes the rounding residual.
+        if (i === n || principalPortion > balance) principalPortion = balance;
+        var payment = principalPortion + interestPortion;
+        balance -= principalPortion;
+        totalInterest += interestPortion;
+        yPay += payment; yPrin += principalPortion; yInt += interestPortion;
+        rows.push("<tr><td>" + i + "</td><td>" + cents(payment) + "</td><td>" + cents(principalPortion) + "</td><td>" + cents(interestPortion) + "</td><td>" + cents(Math.max(balance, 0)) + "</td></tr>");
+        if (i % 12 === 0 || i === n) {
+          rows.push("<tr style=\"font-weight:700;background:var(--surface-2);\"><td>Year " + Math.ceil(i / 12) + "</td><td>" + cents(yPay) + "</td><td>" + cents(yPrin) + "</td><td>" + cents(yInt) + "</td><td>" + cents(Math.max(balance, 0)) + "</td></tr>");
+          yPay = 0; yPrin = 0; yInt = 0;
+        }
+      }
+    } else {
+      rows.push("<tr><td colspan=\"5\" style=\"text-align:center;color:var(--text-muted);\">Nothing to finance. The down payment and trade-in cover the price and tax.</td></tr>");
+    }
+
+    document.getElementById("monthlyPayment").textContent = money(m);
+    document.getElementById("resultSub").textContent = n > 0 ? "Fixed payment for " + n + " months" : "Fixed payment for the life of the loan";
+    document.getElementById("amountFinanced").textContent = money(P);
+    document.getElementById("salesTax").textContent = money(salesTax);
+    document.getElementById("totalInterest").textContent = money(totalInterest);
+    document.getElementById("totalCost").textContent = money(p + salesTax + totalInterest);
+
+    var payoff = new Date();
+    payoff.setMonth(payoff.getMonth() + n);
+    document.getElementById("payoffDate").textContent = (n > 0 && P > 0) ? payoff.toLocaleDateString(undefined, { month: "short", year: "numeric" }) : "–";
+
+    document.getElementById("scheduleBody").innerHTML = rows.join("");
+  }
+
+  [price, down, tradeIn, taxRate, apr, term, taxAfterTrade].forEach(function(el){
+    el.addEventListener("input", compute);
+    el.addEventListener("change", compute);
+  });
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>

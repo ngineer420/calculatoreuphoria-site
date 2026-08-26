@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Deviation Calculator — Sample &amp; Population SD, Variance, Mean</title>
+<meta name="description" content="Free standard deviation calculator. Paste a list of numbers to get the sample or population standard deviation, variance, mean, median, standard error, and a full step table.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/standard-deviation-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<!-- jsonld:start -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"Standard Deviation Calculator","url":"https://calculatoreuphoria.com/calculators/standard-deviation-calculator.html","description":"Free standard deviation calculator. Paste a list of numbers to get the sample or population standard deviation, variance, mean, median, standard error, and a full step table.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between sample and population standard deviation?","acceptedAnswer":{"@type":"Answer","text":"The population formula divides the sum of squared deviations by the count n. The sample formula divides by n minus 1. Use the population formula when you have data for every member of the group. Use the sample formula when your data is a subset of a larger group. The sample result is always a little larger than the population result for the same data."}},{"@type":"Question","name":"What does a high standard deviation mean?","acceptedAnswer":{"@type":"Answer","text":"A high standard deviation means that the values are spread far from the mean. A low standard deviation means that the values sit close to the mean. High or low depends on the scale of the data. Compare the standard deviation with the mean to judge the spread. A standard deviation of 10 is large for test scores near 50 and small for house prices."}},{"@type":"Question","name":"How is variance related to standard deviation?","acceptedAnswer":{"@type":"Answer","text":"The standard deviation is the square root of the variance. The variance is the average of the squared deviations from the mean. The variance uses squared units, so a data set in meters has a variance in square meters. The standard deviation returns the result to the original unit. Both numbers measure the same spread."}},{"@type":"Question","name":"What is the standard error of the mean?","acceptedAnswer":{"@type":"Answer","text":"The standard error of the mean is the standard deviation divided by the square root of the count. It tells you how much the sample mean can differ from the true population mean. A larger sample gives a smaller standard error. This calculator uses the selected standard deviation, sample or population, to find the standard error."}}]}]
+</script>
+<!-- jsonld:end -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+<style>
+.input-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+}
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+table.data-table tr.total-row td { font-weight: 700; border-top: 2px solid var(--border); border-bottom: none; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 26 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 26<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+          <li><a href="/calculators/auto-loan-calculator.html">Auto Loan Calculator</a></li>
+          <li><a href="/calculators/paycheck-calculator.html">Paycheck Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+          <li><a href="/calculators/bmr-tdee-calculator.html">BMR &amp; TDEE Calculator</a></li>
+          <li><a href="/calculators/due-date-calculator.html">Due Date Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+          <li><a href="/calculators/standard-deviation-calculator.html" aria-current="page">Standard Deviation Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#math">Math</a> / Standard Deviation Calculator</div>
+    <h1>Standard Deviation Calculator</h1>
+    <p class="dek">Paste a list of numbers to get the standard deviation, variance, mean, median, and a full step table.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label for="data">Data set</label>
+          <div class="input-group"><textarea id="data" rows="6" spellcheck="false">2, 4, 4, 4, 5, 5, 7, 9</textarea></div>
+          <div class="hint">Separate numbers with commas, spaces or new lines.</div>
+          <div class="hint" id="ignoredNote" hidden></div>
+        </div>
+        <div class="field">
+          <label>Type</label>
+          <div class="toggle-group" id="modeToggle">
+            <button type="button" class="active" data-mode="sample">Sample (n &minus; 1)</button>
+            <button type="button" data-mode="population">Population (n)</button>
+          </div>
+          <div class="hint">Use Sample when the numbers are a subset of a larger group.</div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Standard deviation</div>
+        <div class="result-value" id="sdValue">–</div>
+        <div class="result-sub" id="sdSub">Sample standard deviation (n &minus; 1)</div>
+        <ul class="result-list">
+          <li><span class="k">Count (n)</span><span class="v" id="rCount">–</span></li>
+          <li><span class="k">Mean</span><span class="v" id="rMean">–</span></li>
+          <li><span class="k">Variance</span><span class="v" id="rVariance">–</span></li>
+          <li><span class="k">Sum</span><span class="v" id="rSum">–</span></li>
+          <li><span class="k">Sum of squares of deviations</span><span class="v" id="rSumSq">–</span></li>
+          <li><span class="k">Standard error of the mean</span><span class="v" id="rSem">–</span></li>
+          <li><span class="k">Median</span><span class="v" id="rMedian">–</span></li>
+          <li><span class="k">Min</span><span class="v" id="rMin">–</span></li>
+          <li><span class="k">Max</span><span class="v" id="rMax">–</span></li>
+          <li><span class="k">Range</span><span class="v" id="rRange">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Steps</h2></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>x</th><th>x &minus; mean</th><th>(x &minus; mean)&sup2;</th></tr></thead>
+        <tbody id="stepsBody"></tbody>
+      </table>
+    </div>
+    <div class="field" style="margin:10px 0 0;"><div class="hint" id="stepsNote" hidden></div></div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How this is calculated</h2>
+    <div class="formula">Population: &sigma; = &radic;( &Sigma;(x &minus; &mu;)&sup2; &divide; N )<br>Sample: s = &radic;( &Sigma;(x &minus; x&#772;)&sup2; &divide; (n &minus; 1) )<br>&mu; or x&#772; = mean, N or n = count of values</div>
+    <p>The calculator first finds the mean of all values. It then subtracts the mean from each value and squares the result. The sum of those squares is the sum of squares of deviations. Division by the count gives the variance. The square root of the variance is the standard deviation.</p>
+    <p>Use the population formula when the data set contains every member of the group. Use the sample formula when the data set is a subset of a larger group. The sample formula divides by n &minus; 1 instead of n. This correction makes the sample estimate closer to the true population value.</p>
+    <p>The standard deviation tells you how far the values sit from the mean on average. A small standard deviation means that the values sit close together. A large standard deviation means that the values are spread out. The result has the same unit as the input values.</p>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">What is the difference between sample and population standard deviation?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>The population formula divides the sum of squared deviations by the count n. The sample formula divides by n minus 1. Use the population formula when you have data for every member of the group. Use the sample formula when your data is a subset of a larger group. The sample result is always a little larger than the population result for the same data.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What does a high standard deviation mean?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>A high standard deviation means that the values are spread far from the mean. A low standard deviation means that the values sit close to the mean. High or low depends on the scale of the data. Compare the standard deviation with the mean to judge the spread. A standard deviation of 10 is large for test scores near 50 and small for house prices.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is variance related to standard deviation?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>The standard deviation is the square root of the variance. The variance is the average of the squared deviations from the mean. The variance uses squared units, so a data set in meters has a variance in square meters. The standard deviation returns the result to the original unit. Both numbers measure the same spread.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the standard error of the mean?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>The standard error of the mean is the standard deviation divided by the square root of the count. It tells you how much the sample mean can differ from the true population mean. A larger sample gives a smaller standard error. This calculator uses the selected standard deviation, sample or population, to find the standard error.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Results are for reference only. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/percentage-calculator.html"><h3>Percentage Calculator</h3><p>Quick percentage math.</p></a>
+    <a class="calc-card" href="/calculators/fraction-calculator.html"><h3>Fraction Calculator</h3><p>Add, subtract, multiply and divide fractions.</p></a>
+    <a class="calc-card" href="/calculators/gpa-calculator.html"><h3>GPA Calculator</h3><p>Weighted grade point average.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  var MAX_ROWS = 500;
+  var data = document.getElementById("data");
+  var toggle = document.getElementById("modeToggle");
+  var mode = "sample";
+
+  function $(id) { return document.getElementById(id); }
+
+  // Format to 6 significant digits and remove trailing zeros.
+  function fmt(n) {
+    if (typeof n !== "number" || !isFinite(n)) return "–";
+    if (Math.abs(n) < 1e-12) n = 0;
+    var rounded = Number(n.toPrecision(6));
+    return rounded.toLocaleString(undefined, { maximumFractionDigits: 12 });
+  }
+
+  // Split the text on commas, semicolons and whitespace. Keep the numbers.
+  function parse(text) {
+    var tokens = text.split(/[\s,;]+/);
+    var values = [];
+    var ignored = 0;
+    for (var i = 0; i < tokens.length; i++) {
+      var t = tokens[i];
+      if (t === "") continue;
+      var v = Number(t);
+      if (isFinite(v)) values.push(v); else ignored++;
+    }
+    return { values: values, ignored: ignored };
+  }
+
+  function median(sorted) {
+    var n = sorted.length;
+    if (n === 0) return NaN;
+    var mid = Math.floor(n / 2);
+    return n % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+
+  function compute() {
+    var parsed = parse(data.value);
+    var xs = parsed.values;
+    var n = xs.length;
+
+    var note = $("ignoredNote");
+    if (parsed.ignored > 0) {
+      note.textContent = "Ignored " + parsed.ignored + (parsed.ignored === 1 ? " entry that is not a number." : " entries that are not numbers.");
+      note.hidden = false;
+    } else {
+      note.hidden = true;
+    }
+
+    var sum = 0;
+    for (var i = 0; i < n; i++) sum += xs[i];
+    var mean = n > 0 ? sum / n : NaN;
+
+    var sumSq = 0;
+    for (var j = 0; j < n; j++) sumSq += (xs[j] - mean) * (xs[j] - mean);
+
+    var divisor = mode === "sample" ? n - 1 : n;
+    var variance = divisor > 0 ? sumSq / divisor : NaN;
+    var sd = Math.sqrt(variance);
+    var sem = n > 0 ? sd / Math.sqrt(n) : NaN;
+
+    var sorted = xs.slice().sort(function(a, b){ return a - b; });
+    var min = n > 0 ? sorted[0] : NaN;
+    var max = n > 0 ? sorted[n - 1] : NaN;
+
+    $("sdValue").textContent = fmt(sd);
+    $("sdSub").textContent = mode === "sample" ? "Sample standard deviation (n − 1)" : "Population standard deviation (n)";
+    if (mode === "sample" && n === 1) $("sdSub").textContent = "Sample standard deviation needs at least 2 values";
+    if (n === 0) $("sdSub").textContent = "Enter at least one number";
+
+    $("rCount").textContent = n;
+    $("rMean").textContent = fmt(mean);
+    $("rVariance").textContent = fmt(variance);
+    $("rSum").textContent = fmt(sum);
+    $("rSumSq").textContent = fmt(sumSq);
+    $("rSem").textContent = fmt(sem);
+    $("rMedian").textContent = fmt(median(sorted));
+    $("rMin").textContent = fmt(min);
+    $("rMax").textContent = fmt(max);
+    $("rRange").textContent = n > 0 ? fmt(max - min) : "–";
+
+    var rows = [];
+    var shown = Math.min(n, MAX_ROWS);
+    var devSum = 0;
+    for (var k = 0; k < shown; k++) {
+      var d = xs[k] - mean;
+      devSum += d;
+      rows.push("<tr><td>" + fmt(xs[k]) + "</td><td>" + fmt(d) + "</td><td>" + fmt(d * d) + "</td></tr>");
+    }
+    if (n > 0) {
+      for (var m = shown; m < n; m++) devSum += xs[m] - mean;
+      rows.push('<tr class="total-row"><td>Total (n = ' + n + ")</td><td>" + fmt(devSum) + "</td><td>" + fmt(sumSq) + "</td></tr>");
+    }
+    $("stepsBody").innerHTML = rows.join("");
+
+    var stepsNote = $("stepsNote");
+    if (n > MAX_ROWS) {
+      stepsNote.textContent = "The table shows the first " + MAX_ROWS + " of " + n + " values. The totals include all values.";
+      stepsNote.hidden = false;
+    } else {
+      stepsNote.hidden = true;
+    }
+  }
+
+  var buttons = toggle.querySelectorAll("button");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].addEventListener("click", function(){
+      for (var c = 0; c < buttons.length; c++) buttons[c].classList.remove("active");
+      this.classList.add("active");
+      mode = this.getAttribute("data-mode");
+      compute();
+    });
+  }
+
+  data.addEventListener("input", compute);
+  data.addEventListener("change", compute);
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>
