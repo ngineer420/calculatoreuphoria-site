@@ -5,7 +5,7 @@ copies verbatim. Nothing here is computed at runtime by the browser: sync_nav
 renders it into the static HTML of every page.
 
 Tier rule (portfolio spec, ngineer420.github.io#13): a page is tier 1 only if it
-answers a *different question*. Every one of these 21 calculators does — there is
+answers a *different question*. Every one of these 26 calculators does — there is
 no preset family on this site, so there is no tier 2, no hub row and no in-panel
 sibling chips.
 
@@ -15,7 +15,7 @@ place writing extensionless paths, which split every calculator's equity across
 two URLs.
 """
 
-# Noun used in the menu trigger: "All 21 calculators".
+# Noun used in the menu trigger: "All 26 calculators".
 NOUN = "calculators"
 
 # Tier-1 tools. The first eight are the rail, in traffic order; the rest are
@@ -38,10 +38,15 @@ TOOLS = [
     {"href": "/calculators/discount-calculator.html",          "label": "Discount",       "long": "Discount Calculator",          "group": "finance",  "tier": 1},
     {"href": "/calculators/sales-tax-calculator.html",         "label": "Sales Tax",      "long": "Sales Tax Calculator",         "group": "finance",  "tier": 1},
     {"href": "/calculators/simple-interest-calculator.html",   "label": "Simple Interest","long": "Simple Interest Calculator",   "group": "finance",  "tier": 1},
+    {"href": "/calculators/auto-loan-calculator.html",         "label": "Auto Loan",      "long": "Auto Loan Calculator",         "group": "finance",  "tier": 1},
+    {"href": "/calculators/paycheck-calculator.html",          "label": "Paycheck",       "long": "Paycheck Calculator",          "group": "finance",  "tier": 1},
     {"href": "/calculators/calorie-calculator.html",           "label": "Calorie",        "long": "Calorie Calculator",           "group": "health",   "tier": 1},
     {"href": "/calculators/sleep-calculator.html",             "label": "Sleep",          "long": "Sleep Calculator",             "group": "health",   "tier": 1},
+    {"href": "/calculators/bmr-tdee-calculator.html",          "label": "BMR & TDEE",     "long": "BMR & TDEE Calculator",        "group": "health",   "tier": 1},
+    {"href": "/calculators/due-date-calculator.html",          "label": "Due Date",       "long": "Due Date Calculator",          "group": "health",   "tier": 1},
     {"href": "/calculators/gpa-calculator.html",               "label": "GPA",            "long": "GPA Calculator",               "group": "math",     "tier": 1},
     {"href": "/calculators/fraction-calculator.html",          "label": "Fraction",       "long": "Fraction Calculator",          "group": "math",     "tier": 1},
+    {"href": "/calculators/standard-deviation-calculator.html","label": "Std Deviation",  "long": "Standard Deviation Calculator","group": "math",     "tier": 1},
     {"href": "/calculators/date-calculator.html",              "label": "Date",           "long": "Date Calculator",              "group": "everyday", "tier": 1},
     {"href": "/calculators/aspect-ratio-calculator.html",      "label": "Aspect Ratio",   "long": "Aspect Ratio Calculator",      "group": "everyday", "tier": 1},
     {"href": "/calculators/hours-calculator.html",             "label": "Hours",          "long": "Hours Calculator",             "group": "everyday", "tier": 1},
@@ -65,7 +70,7 @@ GROUPS = [
 HUBS = []
 
 # The homepage footer already carries a partial tool list and every page's footer
-# carries the legal links; the rail plus the sheet carry all 18 calculators, so
+# carries the legal links; the rail plus the sheet carry all 26 calculators, so
 # adding a footer duplicate would be boilerplate without a new crawl surface.
 FOOTER = []
 

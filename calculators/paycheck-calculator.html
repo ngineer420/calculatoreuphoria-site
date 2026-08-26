@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator — 2026 Take-Home Pay After Federal Tax and FICA</title>
+<meta name="description" content="Free 2026 paycheck calculator. Estimate take-home pay per paycheck after federal income tax, Social Security, Medicare, 401(k) and a state rate you enter.">
+<link rel="canonical" href="https://calculatoreuphoria.com/calculators/paycheck-calculator.html">
+<link rel="stylesheet" href="/assets/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<!-- jsonld:start -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"WebApplication","name":"Paycheck Calculator","url":"https://calculatoreuphoria.com/calculators/paycheck-calculator.html","description":"Free 2026 paycheck calculator. Estimate take-home pay per paycheck after federal income tax, Social Security, Medicare, 401(k) and a state rate you enter.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does my real paycheck differ from this estimate?","acceptedAnswer":{"@type":"Answer","text":"Your employer withholds federal tax with the IRS Publication 15-T tables and the entries on your Form W-4. This calculator uses the annualized method with the standard deduction and no credits. Dependents, a second job, a Roth 401(k), local tax, and state payroll taxes all change the real amount. The estimate is close for one job with a simple W-4."}},{"@type":"Question","name":"What is FICA?","acceptedAnswer":{"@type":"Answer","text":"FICA is the Federal Insurance Contributions Act. It funds Social Security and Medicare. In 2026 the employee pays 6.2% for Social Security on wages up to $184,500 and 1.45% for Medicare on all wages. Wages over $200,000 pay an extra 0.9% Medicare tax. Your employer pays a matching 6.2% and 1.45% on top of your pay."}},{"@type":"Question","name":"How do I find my state income tax rate?","acceptedAnswer":{"@type":"Answer","text":"Nine states have no wage income tax: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Enter 0 for these states. Other states use one flat rate or a set of brackets. The simplest method is to take your last pay stub and divide the state tax by the gross pay. Enter that percent here. Your state revenue department also publishes the withholding rates."}},{"@type":"Question","name":"Does a 401(k) contribution reduce my tax?","acceptedAnswer":{"@type":"Answer","text":"A pre-tax 401(k) contribution reduces your federal and state taxable wages. It does not reduce Social Security or Medicare wages. A $5,000 contribution in the 22% bracket cuts federal tax by about $1,100 for the year. A Roth 401(k) contribution comes out after tax and gives no reduction today. This calculator treats the contribution as pre-tax."}}]}]
+</script>
+<!-- jsonld:end -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/index.html">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="8" cy="11" r="0.6" fill="currentColor"/><circle cx="12" cy="11" r="0.6" fill="currentColor"/><circle cx="16" cy="11" r="0.6" fill="currentColor"/><circle cx="8" cy="15" r="0.6" fill="currentColor"/><circle cx="12" cy="15" r="0.6" fill="currentColor"/><circle cx="16" cy="15" r="0.6" fill="currentColor"/><circle cx="8" cy="19" r="0.6" fill="currentColor"/><circle cx="12" cy="19" r="0.6" fill="currentColor"/><circle cx="16" cy="19" r="0.6" fill="currentColor"/></svg></span>
+      Calculator<span class="accent">Euphoria</span>
+    </a>
+    <div class="header-spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 26 calculators">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 26<span class="tb-label-long"> calculators</span></span>
+    </summary>
+    <div class="tb-sheet">
+      <div class="tb-sheet-cols">
+        <p class="tb-grouplabel" id="tb-g1"><a href="/index.html#finance">Finance</a></p>
+        <ul aria-labelledby="tb-g1">
+          <li><a href="/calculators/mortgage-calculator.html">Mortgage Calculator</a></li>
+          <li><a href="/calculators/loan-calculator.html">Loan Calculator</a></li>
+          <li><a href="/calculators/tip-calculator.html">Tip Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+          <li><a href="/calculators/discount-calculator.html">Discount Calculator</a></li>
+          <li><a href="/calculators/sales-tax-calculator.html">Sales Tax Calculator</a></li>
+          <li><a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator</a></li>
+          <li><a href="/calculators/auto-loan-calculator.html">Auto Loan Calculator</a></li>
+          <li><a href="/calculators/paycheck-calculator.html" aria-current="page">Paycheck Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g2"><a href="/index.html#health">Health</a></p>
+        <ul aria-labelledby="tb-g2">
+          <li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+          <li><a href="/calculators/sleep-calculator.html">Sleep Calculator</a></li>
+          <li><a href="/calculators/bmr-tdee-calculator.html">BMR &amp; TDEE Calculator</a></li>
+          <li><a href="/calculators/due-date-calculator.html">Due Date Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g3"><a href="/index.html#math">Math</a></p>
+        <ul aria-labelledby="tb-g3">
+          <li><a href="/calculators/percentage-calculator.html">Percentage Calculator</a></li>
+          <li><a href="/calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="/calculators/gpa-calculator.html">GPA Calculator</a></li>
+          <li><a href="/calculators/fraction-calculator.html">Fraction Calculator</a></li>
+          <li><a href="/calculators/standard-deviation-calculator.html">Standard Deviation Calculator</a></li>
+        </ul>
+        <p class="tb-grouplabel" id="tb-g4"><a href="/index.html#everyday">Everyday</a></p>
+        <ul aria-labelledby="tb-g4">
+          <li><a href="/calculators/age-calculator.html">Age Calculator</a></li>
+          <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+          <li><a href="/calculators/date-calculator.html">Date Calculator</a></li>
+          <li><a href="/calculators/aspect-ratio-calculator.html">Aspect Ratio Calculator</a></li>
+          <li><a href="/calculators/hours-calculator.html">Hours Calculator</a></li>
+          <li><a href="/calculators/time-card-calculator.html">Time Card Calculator</a></li>
+          <li><a href="/calculators/overtime-pay-calculator.html">Overtime Pay Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/calculators/mortgage-calculator.html">Mortgage</a></li>
+    <li><a href="/calculators/percentage-calculator.html">Percentage</a></li>
+    <li><a href="/calculators/loan-calculator.html">Loan</a></li>
+    <li><a href="/calculators/bmi-calculator.html">BMI</a></li>
+    <li><a href="/calculators/tip-calculator.html">Tip</a></li>
+    <li><a href="/calculators/scientific-calculator.html">Scientific</a></li>
+    <li><a href="/calculators/age-calculator.html">Age</a></li>
+    <li><a href="/calculators/unit-converter.html">Unit Converter</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="wrap">
+  <div class="calc-page-head">
+    <div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/index.html#finance">Finance</a> / Paycheck Calculator</div>
+    <h1>Paycheck Calculator</h1>
+    <p class="dek">Estimate take-home pay after 2026 federal income tax and FICA. Enter your own state rate.</p>
+  </div>
+
+  <div class="calc-app">
+    <div class="calc-layout">
+      <div>
+        <div class="field">
+          <label>Pay type</label>
+          <div class="toggle-group" id="payType">
+            <button type="button" class="active" data-type="salary">Salary (annual)</button>
+            <button type="button" data-type="hourly">Hourly</button>
+          </div>
+        </div>
+        <div id="salaryFields">
+          <div class="field">
+            <label for="salary">Annual salary</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="salary" value="75000" step="1000" min="0" inputmode="decimal"></div>
+          </div>
+        </div>
+        <div id="hourlyFields" style="display:none;">
+          <div class="row-2">
+            <div class="field">
+              <label for="hourlyRate">Hourly rate</label>
+              <div class="input-group"><span class="prefix">$</span><input type="number" id="hourlyRate" value="25" step="0.25" min="0" inputmode="decimal"></div>
+            </div>
+            <div class="field">
+              <label for="hoursPerWeek">Hours per week</label>
+              <div class="input-group"><input type="number" id="hoursPerWeek" value="40" step="1" min="0" inputmode="decimal"><span class="suffix">hrs</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="frequency">Pay frequency</label>
+            <div class="input-group">
+              <select id="frequency">
+                <option value="52">Weekly</option>
+                <option value="26" selected>Biweekly</option>
+                <option value="24">Semimonthly</option>
+                <option value="12">Monthly</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="filingStatus">Filing status</label>
+            <div class="input-group">
+              <select id="filingStatus">
+                <option value="single" selected>Single</option>
+                <option value="married">Married filing jointly</option>
+                <option value="hoh">Head of household</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="retirePct">Pre-tax 401(k), percent of gross</label>
+            <div class="input-group"><input type="number" id="retirePct" value="0" step="0.5" min="0" max="100" inputmode="decimal"><span class="suffix">%</span></div>
+            <div class="hint">Reduces federal and state taxable wages, not FICA.</div>
+          </div>
+          <div class="field">
+            <label for="otherPretax">Other pre-tax per paycheck</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="otherPretax" value="0" step="10" min="0" inputmode="decimal"></div>
+            <div class="hint">Health premiums, HSA, FSA. Reduces all taxable wages.</div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="stateRate">State income tax rate</label>
+            <div class="input-group"><input type="number" id="stateRate" value="0" step="0.1" min="0" max="100" inputmode="decimal"><span class="suffix">%</span></div>
+            <div class="hint">Enter your state's rate. Nine states have no income tax.</div>
+          </div>
+          <div class="field">
+            <label for="extraWithholding">Extra federal withholding per paycheck</label>
+            <div class="input-group"><span class="prefix">$</span><input type="number" id="extraWithholding" value="0" step="5" min="0" inputmode="decimal"></div>
+            <div class="hint">Line 4(c) on Form W-4.</div>
+          </div>
+        </div>
+      </div>
+      <div class="result-panel">
+        <div class="result-label">Take-home pay per paycheck</div>
+        <div class="result-value" id="netPay">$0.00</div>
+        <div class="result-sub" id="netSub">Estimated net pay, biweekly</div>
+        <ul class="result-list">
+          <li><span class="k">Gross pay per paycheck</span><span class="v" id="grossPer">–</span></li>
+          <li><span class="k">Federal income tax</span><span class="v" id="federalPer">–</span></li>
+          <li><span class="k">Social Security</span><span class="v" id="ssPer">–</span></li>
+          <li><span class="k">Medicare</span><span class="v" id="medicarePer">–</span></li>
+          <li id="rowState"><span class="k">State income tax</span><span class="v" id="statePer">–</span></li>
+          <li id="rowRetire"><span class="k">401(k)</span><span class="v" id="retirePer">–</span></li>
+          <li id="rowOther"><span class="k">Other pre-tax deductions</span><span class="v" id="otherPer">–</span></li>
+          <li id="rowExtra"><span class="k">Extra withholding</span><span class="v" id="extraPer">–</span></li>
+          <li><span class="k">Annual take-home</span><span class="v" id="netAnnual">–</span></li>
+          <li><span class="k">Effective tax rate</span><span class="v" id="effectiveRate">–</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-app">
+    <div class="section-heading" style="margin-top:0;"><h2>Annual breakdown</h2></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Line item</th><th>Annual amount</th><th>Percent of gross</th></tr></thead>
+        <tbody id="breakdownBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="calc-content">
+    <h2>How this is calculated</h2>
+    <div class="formula">Taxable wages = Gross &minus; 401(k) &minus; Other pre-tax &minus; Standard deduction<br>Federal tax = 2026 progressive brackets on taxable wages<br>Social Security = 6.2% &times; min(Gross &minus; Other pre-tax, $184,500)<br>Medicare = 1.45% &times; (Gross &minus; Other pre-tax) + 0.9% &times; amount over $200,000<br>State tax = (Gross &minus; 401(k) &minus; Other pre-tax) &times; State rate<br>Take-home = Gross &minus; Federal &minus; Social Security &minus; Medicare &minus; State &minus; 401(k) &minus; Other pre-tax &minus; Extra</div>
+    <p>The calculator first finds your annual gross pay. For hourly pay it multiplies the rate by the hours per week and by 52 weeks. It then applies the 2026 federal tax to the full year and divides each amount by the number of pay periods. This is the annualized method. The effective tax rate divides federal, Social Security, Medicare, and state tax by gross pay. Extra withholding is a prepayment and is not part of that rate.</p>
+
+    <h2>Assumptions</h2>
+    <ul>
+      <li>Federal tax uses the 2026 brackets and the 2026 standard deduction from IRS Rev. Proc. 2025-32.</li>
+      <li>The estimate includes no tax credits and no dependents.</li>
+      <li>The calculator uses the annualized method, not the IRS Publication 15-T percentage tables that employers use.</li>
+      <li>FICA is Social Security at 6.2% up to the $184,500 wage base, plus Medicare at 1.45% and an extra 0.9% on wages over $200,000.</li>
+      <li>State tax is one flat rate that you enter. Real state brackets and state deductions can give a different amount.</li>
+      <li>The estimate includes no local or city tax.</li>
+      <li>The estimate includes no SDI, paid family leave, or other state payroll taxes.</li>
+      <li>The 401(k) contribution is pre-tax, not Roth.</li>
+    </ul>
+
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <button class="faq-q">Why does my real paycheck differ from this estimate?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Your employer withholds federal tax with the IRS Publication 15-T tables and the entries on your Form W-4. This calculator uses the annualized method with the standard deduction and no credits. Dependents, a second job, a Roth 401(k), local tax, and state payroll taxes all change the real amount. The estimate is close for one job with a simple W-4.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is FICA?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>FICA is the Federal Insurance Contributions Act. It funds Social Security and Medicare. In 2026 the employee pays 6.2% for Social Security on wages up to $184,500 and 1.45% for Medicare on all wages. Wages over $200,000 pay an extra 0.9% Medicare tax. Your employer pays a matching 6.2% and 1.45% on top of your pay.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I find my state income tax rate?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Nine states have no wage income tax: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Enter 0 for these states. Other states use one flat rate or a set of brackets. The simplest method is to take your last pay stub and divide the state tax by the gross pay. Enter that percent here. Your state revenue department also publishes the withholding rates.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does a 401(k) contribution reduce my tax?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>A pre-tax 401(k) contribution reduces your federal and state taxable wages. It does not reduce Social Security or Medicare wages. A $5,000 contribution in the 22% bracket cuts federal tax by about $1,100 for the year. A Roth 401(k) contribution comes out after tax and gives no reduction today. This calculator treats the contribution as pre-tax.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer">Estimates only. Your employer, your W-4 entries, and your state rules set the real amount. See our <a href="/terms.html">Terms of Use</a>.</p>
+  </div>
+
+  <div class="section-heading"><h2>Related calculators</h2></div>
+  <div class="related-grid">
+    <a class="calc-card" href="/calculators/hours-calculator.html"><h3>Hours Calculator</h3><p>Count the hours between two times.</p></a>
+    <a class="calc-card" href="/calculators/overtime-pay-calculator.html"><h3>Overtime Pay Calculator</h3><p>Time-and-a-half pay for extra hours.</p></a>
+    <a class="calc-card" href="/calculators/sales-tax-calculator.html"><h3>Sales Tax Calculator</h3><p>Add sales tax to any price.</p></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>&copy; 2026 Calculator Euphoria.</span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js" defer></script>
+<script>
+(function(){
+  // 2026 figures from IRS Rev. Proc. 2025-32. Each row is [upper limit, rate].
+  var BRACKETS = {
+    single:  [[12400, 0.10], [50400, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]],
+    married: [[24800, 0.10], [100800, 0.12], [211400, 0.22], [403550, 0.24], [512450, 0.32], [768700, 0.35], [Infinity, 0.37]],
+    hoh:     [[17700, 0.10], [67450, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]]
+  };
+  var STANDARD_DEDUCTION = { single: 16100, married: 32200, hoh: 24150 };
+  var SS_RATE = 0.062;
+  var SS_WAGE_BASE = 184500;
+  var MEDICARE_RATE = 0.0145;
+  var ADDL_MEDICARE_RATE = 0.009;
+  var ADDL_MEDICARE_THRESHOLD = 200000;
+  var FREQ_LABEL = { "52": "weekly", "26": "biweekly", "24": "semimonthly", "12": "monthly" };
+
+  var payType = "salary";
+  var payTypeButtons = document.querySelectorAll("#payType button");
+  var salaryFields = document.getElementById("salaryFields");
+  var hourlyFields = document.getElementById("hourlyFields");
+  var salary = document.getElementById("salary");
+  var hourlyRate = document.getElementById("hourlyRate");
+  var hoursPerWeek = document.getElementById("hoursPerWeek");
+  var frequency = document.getElementById("frequency");
+  var filingStatus = document.getElementById("filingStatus");
+  var retirePct = document.getElementById("retirePct");
+  var otherPretax = document.getElementById("otherPretax");
+  var stateRate = document.getElementById("stateRate");
+  var extraWithholding = document.getElementById("extraWithholding");
+
+  function num(el) {
+    var v = parseFloat(el.value);
+    return isFinite(v) ? v : 0;
+  }
+
+  function money(n) {
+    if (!isFinite(n)) return "$0.00";
+    var s = Math.abs(n).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return (n < -0.005 ? "-$" : "$") + s;
+  }
+
+  function pct(part, whole) {
+    if (!(whole > 0)) return "0.0%";
+    return (part / whole * 100).toFixed(1) + "%";
+  }
+
+  function federalTax(taxable, status) {
+    var rows = BRACKETS[status] || BRACKETS.single;
+    var tax = 0;
+    var lower = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var upper = rows[i][0];
+      if (taxable > lower) tax += (Math.min(taxable, upper) - lower) * rows[i][1];
+      lower = upper;
+    }
+    return tax;
+  }
+
+  function setText(id, text) { document.getElementById(id).textContent = text; }
+
+  function setRow(rowId, valueId, perPeriod) {
+    document.getElementById(rowId).style.display = perPeriod > 0 ? "" : "none";
+    setText(valueId, money(perPeriod));
+  }
+
+  function compute() {
+    var periods = parseInt(frequency.value, 10) || 26;
+    var status = filingStatus.value;
+
+    var annualGross = payType === "hourly"
+      ? num(hourlyRate) * num(hoursPerWeek) * 52
+      : num(salary);
+    if (annualGross < 0) annualGross = 0;
+
+    var annualRetire = annualGross * (num(retirePct) / 100);
+    var annualOther = num(otherPretax) * periods;
+    var annualExtra = num(extraWithholding) * periods;
+
+    var federalTaxable = Math.max(annualGross - annualRetire - annualOther - STANDARD_DEDUCTION[status], 0);
+    var annualFederal = federalTax(federalTaxable, status);
+
+    var ficaWages = Math.max(annualGross - annualOther, 0);
+    var annualSS = SS_RATE * Math.min(ficaWages, SS_WAGE_BASE);
+    var annualMedicare = MEDICARE_RATE * ficaWages + ADDL_MEDICARE_RATE * Math.max(ficaWages - ADDL_MEDICARE_THRESHOLD, 0);
+
+    var stateWages = Math.max(annualGross - annualRetire - annualOther, 0);
+    var annualState = stateWages * (num(stateRate) / 100);
+
+    var annualTaxes = annualFederal + annualSS + annualMedicare + annualState;
+    var annualNet = annualGross - annualTaxes - annualRetire - annualOther - annualExtra;
+
+    setText("netPay", money(annualNet / periods));
+    setText("netSub", "Estimated net pay, " + (FREQ_LABEL[frequency.value] || "per period"));
+    setText("grossPer", money(annualGross / periods));
+    setText("federalPer", money(annualFederal / periods));
+    setText("ssPer", money(annualSS / periods));
+    setText("medicarePer", money(annualMedicare / periods));
+    setRow("rowState", "statePer", annualState / periods);
+    setRow("rowRetire", "retirePer", annualRetire / periods);
+    setRow("rowOther", "otherPer", annualOther / periods);
+    setRow("rowExtra", "extraPer", annualExtra / periods);
+    setText("netAnnual", money(annualNet));
+    setText("effectiveRate", pct(annualTaxes, annualGross));
+
+    var rows = [
+      ["Gross pay", annualGross],
+      ["Federal income tax", annualFederal],
+      ["Social Security", annualSS],
+      ["Medicare", annualMedicare],
+      ["State income tax", annualState],
+      ["401(k)", annualRetire],
+      ["Other pre-tax deductions", annualOther],
+      ["Extra withholding", annualExtra],
+      ["Take-home pay", annualNet]
+    ];
+    document.getElementById("breakdownBody").innerHTML = rows.map(function(row){
+      return "<tr><td>" + row[0] + "</td><td>" + money(row[1]) + "</td><td>" + pct(row[1], annualGross) + "</td></tr>";
+    }).join("");
+  }
+
+  function selectPayType(type) {
+    payType = type;
+    for (var i = 0; i < payTypeButtons.length; i++) {
+      var b = payTypeButtons[i];
+      if (b.getAttribute("data-type") === type) b.classList.add("active");
+      else b.classList.remove("active");
+    }
+    salaryFields.style.display = type === "salary" ? "" : "none";
+    hourlyFields.style.display = type === "hourly" ? "" : "none";
+    compute();
+  }
+
+  for (var i = 0; i < payTypeButtons.length; i++) {
+    payTypeButtons[i].addEventListener("click", function(){ selectPayType(this.getAttribute("data-type")); });
+  }
+
+  var inputs = [salary, hourlyRate, hoursPerWeek, frequency, filingStatus, retirePct, otherPretax, stateRate, extraWithholding];
+  for (var j = 0; j < inputs.length; j++) {
+    inputs[j].addEventListener("input", compute);
+    inputs[j].addEventListener("change", compute);
+  }
+  compute();
+})();
+</script>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>

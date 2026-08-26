@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use — Calculator Euphoria</title>
-<meta name="description" content="Terms of use for Calculator Euphoria, including the accuracy disclaimer for financial, health and academic calculators.">
-<link rel="canonical" href="https://calculatoreuphoria.com/terms.html">
+<title>Page Not Found — Calculator Euphoria</title>
+<meta name="description" content="That page does not exist. Search the calculators or pick one from the grid.">
+<meta name="robots" content="noindex">
 <link rel="stylesheet" href="/assets/style.css">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
@@ -90,43 +90,47 @@
 </nav>
 <!-- nav:end -->
 
-<main id="main" class="wrap-narrow static-page">
-  <h1>Terms of Use</h1>
-  <p class="updated">Last updated: July 11, 2026</p>
+<main id="main">
+<section class="hero wrap">
+  <h1>Page not found</h1>
+  <p class="lead">That address does not exist on Calculator Euphoria. Search for a calculator, or pick one below.</p>
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" data-hero-search placeholder="Search calculators — mortgage, BMI, tip, GPA…" autocomplete="off">
+    <div class="search-results" data-search-results></div>
+  </div>
+  <p style="margin-top:18px;"><a href="/index.html">Go to the homepage &rarr;</a></p>
+</section>
 
-  <p>By using calculatoreuphoria.com, you agree to the following terms.</p>
-
-  <h2>Informational purposes only</h2>
-  <p>Every calculator on this site — mortgage, loan, compound interest, BMI, calorie, GPA, percentage, unit conversion and others — produces an estimate based on standard formulas and the numbers you enter. Results are provided for general informational and educational purposes only and are <strong>not</strong> financial, medical, legal, tax, or academic advice.</p>
-
-  <h2>No guarantee of accuracy</h2>
-  <p>While we aim for correct, well-established formulas, we make no warranty that results are error-free, current, or applicable to your specific situation. Real-world figures (loan terms, lender fees, metabolic factors, institutional grading rules, etc.) vary and can produce different results than a general calculator.</p>
-
-  <h2>Consult a professional</h2>
-  <p>For decisions with real financial, medical, or legal consequences — taking out a mortgage, planning a diet, managing a health condition, calculating official transcripts — verify results with a qualified professional (a loan officer, doctor, dietitian, registrar, or accountant) before acting on them.</p>
-
-  <h2>Limitation of liability</h2>
-  <p>Calculator Euphoria and its operator are not liable for any loss or damage arising from reliance on information or calculations provided on this site.</p>
-
-  <h2>Advertising</h2>
-  <p>This site may be supported by third-party advertising. Ads are served by ad networks and are not endorsements by Calculator Euphoria.</p>
-
-  <h2>Changes</h2>
-  <p>These terms may be updated from time to time; continued use of the site means you accept the current version.</p>
-
-  <h2>Contact</h2>
-  <p>See our <a href="/about.html">About</a> page for how to reach us.</p>
+<div class="wrap">
+  <div class="section-heading"><h2>All calculators</h2></div>
+  <div class="calc-grid" id="notFoundGrid"></div>
+</div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-bottom">
       <span>&copy; 2026 Calculator Euphoria.</span>
-      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a></span>
+      <span><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
+
 <script src="/assets/main.js" defer></script>
+<script>
+// main.js is deferred, so CALCULATORS exists once DOMContentLoaded fires.
+// The grid comes from that list so this page never drifts from the search index.
+document.addEventListener("DOMContentLoaded", function () {
+  var grid = document.getElementById("notFoundGrid");
+  if (!grid || typeof CALCULATORS === "undefined") return;
+  grid.innerHTML = CALCULATORS.map(function (c) {
+    return '<a class="calc-card" data-category="' + c.category + '" href="' + c.url + '">' +
+      '<span class="cat-tag">' + c.category + '</span>' +
+      '<h3>' + c.name.replace(/&/g, "&amp;") + '</h3></a>';
+  }).join("");
+});
+</script>
 <a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
 </body>
 </html>
