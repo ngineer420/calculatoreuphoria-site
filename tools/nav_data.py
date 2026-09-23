@@ -69,10 +69,32 @@ GROUPS = [
 # so there is no tier-2 hub row and no in-panel sibling chips.
 HUBS = []
 
-# The homepage footer already carries a partial tool list and every page's footer
-# carries the legal links; the rail plus the sheet carry all 26 calculators, so
-# adding a footer duplicate would be boilerplate without a new crawl surface.
+# The homepage footer already carries a partial tool list and the footerlinks
+# region carries the legal links. The rail plus the sheet carry all 26
+# calculators, so a footer duplicate would be boilerplate with no new crawl
+# surface.
 FOOTER = []
+
+# The site's contact address. `sync_nav.py` renders every character of both the
+# href and the visible text as a decimal numeric character reference, so the
+# link works with no JavaScript while the raw HTML holds no literal at sign.
+CONTACT = "hello@goodbotbad.bot"
+
+# The footer legal line. Both strings are site prose that carries its own
+# markup, so sync_nav copies them verbatim and does not escape them.
+FOOTER_COPYRIGHT = "&copy; 2026 Calculator Euphoria."
+FOOTER_NOTE = 'All calculations are estimates \u2014 see our <a href="/terms.html">terms</a>.'
+
+# The footer link row: (href, text). Every page carries all four links. The
+# renderer stamps aria-current="page" on the link that points at the page it
+# renders, which is clearer than the old markup, where each page silently
+# dropped its own link and the homepage dropped the whole row.
+FOOTER_LINKS = [
+    ("/index.html",   "Home"),
+    ("/about.html",   "About"),
+    ("/privacy.html", "Privacy"),
+    ("/terms.html",   "Terms"),
+]
 
 # The related-tools footer block: (href, name, one short line).
 #
@@ -105,4 +127,9 @@ MIGRATE = [
     # block goes above that line, inside the footer's own .wrap.
     {"op": "insert_before", "region": "peers",
      "pattern": r'    <div class="foot-bottom">', "indent": "    "},
+    # The legal line, hand-copied in five variants. Three pages dropped their
+    # own link from the row, and the homepage dropped the row but kept the
+    # accuracy disclaimer. The renderer reconciles all five into one block.
+    {"op": "replace", "region": "footerlinks",
+     "pattern": r'    <div class="foot-bottom">.*?\n    </div>', "indent": "    "},
 ]

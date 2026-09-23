@@ -72,6 +72,16 @@ def esc(text):
     )
 
 
+def entity_encode(text):
+    """Every character as a decimal numeric character reference.
+
+    The browser decodes these while it parses, so the href is a real mailto
+    and the link needs no JavaScript. A scraper that reads the raw HTML and
+    looks for an at sign finds nothing.
+    """
+    return "".join("&#%d;" % ord(c) for c in text)
+
+
 def anchor(href, text, current, extra="", owns=()):
     """One anchor, with the page's only per-page difference stamped on it.
 
@@ -232,11 +242,41 @@ def render_peers(url):
     return "\n".join(out)
 
 
+def render_footerlinks(url):
+    """The footer legal line: copyright, the link row and the contact address.
+
+    This markup was hand-copied across every page in five variants that drifted
+    apart, so the region owns the whole `.foot-bottom` block. The contact
+    address is entity-encoded, which keeps the link real and keeps the literal
+    address out of the raw HTML.
+    """
+    line = " ".join(x for x in (getattr(D, "FOOTER_COPYRIGHT", ""),
+                                getattr(D, "FOOTER_NOTE", "")) if x)
+    links = [anchor(href, text, url) for href, text in getattr(D, "FOOTER_LINKS", [])]
+    contact = getattr(D, "CONTACT", "")
+    if not (line or links or contact):
+        return ""
+
+    out = ['<div class="foot-bottom">']
+    # FOOTER_COPYRIGHT and FOOTER_NOTE carry their own markup, so they go out
+    # verbatim. Everything else on this line is escaped by anchor().
+    if line:
+        out.append("  <span>%s</span>" % line)
+    if links:
+        out.append("  <span>%s</span>" % " &middot; ".join(links))
+    if contact:
+        out.append('  <span>Contact <a href="%s">%s</a></span>'
+                   % (entity_encode("mailto:" + contact), entity_encode(contact)))
+    out.append("</div>")
+    return "\n".join(out)
+
+
 RENDERERS = {
     "nav": render_nav,
     "sizechips": render_sizechips,
     "footernav": render_footernav,
     "peers": render_peers,
+    "footerlinks": render_footerlinks,
     "count": render_count,
 }
 
