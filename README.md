@@ -10,14 +10,15 @@ Plain static HTML/CSS/JS. No build step, no framework, no server. Every calculat
 
 ```
 index.html                   Homepage: hero search, category filters, calculator grid
-about.html, privacy-policy.html, terms.html
+about.html, privacy.html, terms.html
 404.html                     Branded not-found page: header, search box and the calculator grid
 assets/style.css             Shared design system (light/dark theme via CSS variables)
 assets/main.js                Shared behavior: theme toggle, toolbar, FAQ accordions, hero search
 calculators/*.html            One self-contained page per calculator (markup + inline logic)
 tools/nav_data.py             The calculator list behind the toolbar — the only file to edit
 tools/sync_nav.py             Writes the toolbar into every page (portfolio-wide, copied verbatim)
-tools/sync_jsonld.py          Writes the WebApplication + FAQPage JSON-LD block into every calculator page
+tools/sync_jsonld.py          Writes the JSON-LD block and the Open Graph tags into every page below the root
+tools/sync_sitemap.py         Writes sitemap.xml, with a <lastmod> taken from git
 CNAME                          GitHub Pages custom domain
 robots.txt, sitemap.xml
 ```
@@ -27,7 +28,7 @@ robots.txt, sitemap.xml
 Every page carries one `<nav class="toolbar">` — a menu trigger plus a single non-wrapping
 row of calculator chips — rendered between `<!-- nav:start -->` and `<!-- nav:end -->`.
 
-**Do not hand-edit that region.** It is written into all 32 files from `tools/nav_data.py`:
+**Do not hand-edit that region.** It is written into every page from `tools/nav_data.py`:
 
 ```sh
 python3 tools/sync_nav.py           # rewrite every marked region
@@ -39,15 +40,20 @@ commits it, so hosting is unchanged.
 
 ## Structured data
 
-Every page in `calculators/` carries one JSON-LD block between `<!-- jsonld:start -->` and
-`<!-- jsonld:end -->` in its `<head>`. The block holds a `WebApplication` item and a `FAQPage`
-item. `tools/sync_jsonld.py` reads each page's `<h1>`, canonical, meta description, breadcrumb
-category and `.faq-item` blocks, and writes the JSON from them.
+Every page below the root carries two managed regions in its `<head>`: a JSON-LD block between
+`<!-- jsonld:start -->` and `<!-- jsonld:end -->`, and the Open Graph and Twitter tags between
+`<!-- og:start -->` and `<!-- og:end -->`. `tools/sync_jsonld.py` reads each page's `<h1>`,
+canonical, meta description, breadcrumb and `.faq-item` blocks, and writes both regions.
+
+The JSON-LD array holds a `BreadcrumbList` on every page, plus one of `WebApplication` for a
+calculator, `Article` for a page in `articles/`, or `WebPage` for about, terms and privacy. A
+page with `.faq-item` blocks also gets a `FAQPage`. Article dates come from git, because the
+markup carries none.
 
 **Do not hand-edit that region.** Edit the FAQ items or the head tags, then run:
 
 ```sh
-python3 tools/sync_jsonld.py           # rewrite the block in every calculator page
+python3 tools/sync_jsonld.py           # rewrite both regions in every page
 python3 tools/sync_jsonld.py --check   # exit 1 if any page has drifted (run before deploy)
 ```
 
@@ -66,7 +72,7 @@ calculator is added.
 3. Add a card to the grid in `index.html` and an entry to the `CALCULATORS` array in `assets/main.js` (powers the hero search).
 4. Add it to `TOOLS` in `tools/nav_data.py` and run `python3 tools/sync_nav.py`.
 5. Give the page at least two `.faq-item` blocks and run `python3 tools/sync_jsonld.py`.
-6. Add the new URL to `sitemap.xml`.
+6. Run `python3 tools/sync_sitemap.py` to add the new URL to `sitemap.xml`.
 
 ## Design system
 

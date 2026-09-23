@@ -1,26 +1,27 @@
 # Deploying calculatoreuphoria.com
 
-This repo is built and committed locally, but **not yet pushed to GitHub** —
-the `gh` CLI on this machine has an expired token, so the remote repo needs
-to be created manually (or re-auth `gh` and it can be done in one command).
+This repo is live. `origin` points at
+`https://github.com/ngineer420/calculatoreuphoria-site`, GitHub Pages serves
+the `main` branch, and the site answers at https://calculatoreuphoria.com.
 
-## 1. Create the GitHub repo and push
+Sections 2 and 3 record how that was set up. Read them when you repoint DNS or
+rebuild the Pages configuration. To ship a change, push a branch and open a
+pull request. A merge to `main` deploys within a minute or two.
 
-Option A — re-authenticate `gh` first, then let it create + push in one step:
-
-```
-gh auth refresh -h github.com
-gh repo create calculatoreuphoria-site --public --source=. --remote=origin --push
-```
-
-Option B — create the repo manually on github.com (Settings → your account →
-New repository, name it e.g. `calculatoreuphoria-site`, public, no README/
-.gitignore/license), then:
+## 1. Push a change
 
 ```
-git remote add origin https://github.com/<your-username>/calculatoreuphoria-site.git
-git push -u origin main
+git checkout -b fix/<short-topic>
+python3 tools/sync_nav.py
+python3 tools/sync_jsonld.py
+python3 tools/sync_sitemap.py
+git commit -am "<what changed>"
+git push -u origin fix/<short-topic>
+gh pr create
 ```
+
+Run the three generators before every commit. Each one takes `--check`, which
+exits 1 when a file has drifted.
 
 ## 2. Enable GitHub Pages
 
@@ -86,7 +87,7 @@ want to apply:
    (Claude/this agent never touches this step).
 3. Once approved, add your AdSense snippet to the `<head>` of each page, or
    ask for it to be templated in — happy to wire that up on request.
-4. Keep the Privacy Policy page (`privacy-policy.html`) accurate about ad
+4. Keep the Privacy Policy page (`privacy.html`) accurate about ad
    cookies — it already has a placeholder section for this.
 
 ## 6. Ongoing

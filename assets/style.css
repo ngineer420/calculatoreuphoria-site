@@ -724,6 +724,23 @@ table.data-table th { color: var(--text-muted); font-size: 12px; text-transform:
   padding-top: 20px; border-top: 1px solid var(--border);
 }
 
+/* Related tools: a short row of sibling sites, above the legal line. The grid
+   wraps to one column on a phone, and `minmax(0, 1fr)` is deliberate — a bare
+   1fr will not shrink below its widest word and pushes the row off the page. */
+.peer-tools { margin-bottom: 28px; }
+.peer-tools-label {
+  font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--text); margin: 0 0 12px; font-weight: 700;
+}
+.peer-tools ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 10px 24px;
+}
+.peer-tools li { min-width: 0; }
+.peer-tools li a { font-weight: 600; }
+.peer-tools li span { display: block; font-size: 12.5px; color: var(--text-muted); }
+
 .erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; cursor: default; }
 .erabbit-mark img { display: block; width: 10px; height: 10px; }
 
