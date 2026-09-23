@@ -147,7 +147,8 @@ table.data-table tr.total-row td { font-weight: 700; border-top: 2px solid var(-
       </div>
       <div class="result-panel">
         <div class="result-label">Standard deviation</div>
-        <div class="result-value" id="sdValue">–</div>
+        <div data-result class="result-value" id="sdValue">–</div>
+        <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="result-sub" id="sdSub">Sample standard deviation (n &minus; 1)</div>
         <ul class="result-list">
           <li><span class="k">Count (n)</span><span class="v" id="rCount">–</span></li>

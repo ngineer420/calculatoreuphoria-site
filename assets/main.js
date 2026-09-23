@@ -43,6 +43,7 @@ var CALCULATORS = [
     initFaqAccordions();
     initHeroSearch();
     initCategoryPills();
+    initResultAnnouncer();
   });
 
   function initThemeToggle() {
@@ -178,6 +179,76 @@ var CALCULATORS = [
           card.style.display = show ? "" : "none";
         });
       });
+    });
+  }
+
+  /*
+   * One announced result per calculator page.
+   *
+   * A live region cannot be throttled from the outside. A screen reader speaks
+   * whatever the region holds the moment the region changes, so a headline
+   * figure that is itself the region speaks on every keystroke. The announced
+   * region is therefore a separate visually hidden node with role="status",
+   * and the visible figure is only its source. The visible figure keeps its
+   * immediate update, and exactly one figure is ever announced. The long
+   * amortization and breakdown tables stay silent.
+   *
+   * The write is guarded the way the perfecttune trainer readout is guarded:
+   * keep the last announced string, and write nothing when the new string
+   * matches it. An identical value must never speak twice.
+   */
+  var ANNOUNCE_DELAY = 500;
+
+  function initResultAnnouncer() {
+    var source = document.querySelector("[data-result]");
+    var region = document.querySelector("[data-result-status]");
+    if (!source || !region) return;
+
+    var label = source.getAttribute("data-result-label");
+    if (label === null) {
+      var panel = source.closest ? source.closest(".result-panel") : null;
+      var labelEl = panel ? panel.querySelector(".result-label") : null;
+      label = labelEl ? labelEl.textContent : "";
+    }
+    label = label.replace(/\s+/g, " ").trim();
+
+    var timer = null;
+    var last = null;
+
+    function currentText() {
+      var raw = source.tagName === "INPUT" ? source.value : source.textContent;
+      return (raw || "").replace(/\s+/g, " ").trim();
+    }
+
+    function speak() {
+      timer = null;
+      var text = currentText();
+      if (!text || text === last) return;
+      last = text;
+      region.textContent = label ? label + ": " + text : text;
+    }
+
+    function schedule() {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(speak, ANNOUNCE_DELAY);
+    }
+
+    // The page computes its first result before this deferred script runs.
+    // That value is already on screen, so it is not news.
+    last = currentText();
+
+    // Most results change through textContent.
+    if (window.MutationObserver) {
+      new MutationObserver(schedule).observe(source, {
+        childList: true, characterData: true, subtree: true
+      });
+    }
+    // Two results do not. The unit converter writes a readonly input through
+    // .value, which mutates no node, and the scientific calculator answers a
+    // keypad click. Re-check after any input or press. The guard above makes a
+    // redundant check free.
+    ["input", "change", "click", "keyup"].forEach(function (type) {
+      document.addEventListener(type, schedule, true);
     });
   }
 

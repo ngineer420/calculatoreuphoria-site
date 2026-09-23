@@ -142,8 +142,8 @@
           <div class="field">
             <label>Height</label>
             <div class="row-2">
-              <div class="input-group"><input type="number" id="heightFt" value="5" inputmode="numeric"><span class="suffix">ft</span></div>
-              <div class="input-group"><input type="number" id="heightIn" value="7" inputmode="numeric"><span class="suffix">in</span></div>
+              <div class="input-group"><input type="number" id="heightFt" aria-label="Height, feet" value="5" inputmode="numeric"><span class="suffix">ft</span></div>
+              <div class="input-group"><input type="number" id="heightIn" aria-label="Height, inches" value="7" inputmode="numeric"><span class="suffix">in</span></div>
             </div>
           </div>
           <div class="field">
@@ -179,7 +179,8 @@
       </div>
       <div class="result-panel">
         <div class="result-label">Daily calorie target</div>
-        <div class="result-value" id="goalCalories">2,050</div>
+        <div data-result class="result-value" id="goalCalories">2,050</div>
+        <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="result-sub" id="goalSub">To lose 0.5 lb/week</div>
         <ul class="result-list">
           <li><span class="k">BMR (base metabolic rate)</span><span class="v" id="bmr">–</span></li>

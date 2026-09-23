@@ -122,7 +122,7 @@
             <button data-tip="20">20%</button>
             <button data-tip="25">25%</button>
           </div>
-          <div class="input-group"><input type="number" id="tipPct" value="18" step="0.5" inputmode="decimal"><span class="suffix">%</span></div>
+          <div class="input-group"><input type="number" id="tipPct" aria-label="Custom tip percentage" value="18" step="0.5" inputmode="decimal"><span class="suffix">%</span></div>
         </div>
         <div class="field">
           <label for="people">Split between</label>
@@ -131,7 +131,8 @@
       </div>
       <div class="result-panel">
         <div class="result-label">Total per person</div>
-        <div class="result-value" id="perPersonTotal">$94.40</div>
+        <div data-result class="result-value" id="perPersonTotal">$94.40</div>
+        <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="result-sub">Tip + bill, split evenly</div>
         <ul class="result-list">
           <li><span class="k">Tip amount</span><span class="v" id="tipAmount">$14.40</span></li>

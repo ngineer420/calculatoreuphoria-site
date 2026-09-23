@@ -118,14 +118,15 @@
         <label for="fromValue">From</label>
         <div class="input-group">
           <input type="number" id="fromValue" value="1" inputmode="decimal">
-          <select id="fromUnit"></select>
+          <select id="fromUnit" aria-label="Convert from unit"></select>
         </div>
       </div>
       <div class="field">
         <label for="toValue">To</label>
         <div class="input-group">
-          <input type="number" id="toValue" readonly>
-          <select id="toUnit"></select>
+          <input data-result data-result-label="Converted value" type="number" id="toValue" readonly>
+          <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
+          <select id="toUnit" aria-label="Convert to unit"></select>
         </div>
       </div>
     </div>

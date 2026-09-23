@@ -772,10 +772,13 @@ table.time-card tfoot th, table.time-card tfoot td {
   font-weight: 700;
 }
 table.time-card .tc-foot-note { text-align: left; font-weight: 400; color: var(--text-muted); font-size: 13px; }
-.tc-lab {
+.tc-lab, .sr-only {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
 }
+/* The announced result region. It carries the headline figure for a screen
+   reader and must never take space, a margin or a focus outline. */
+.sr-only { margin: 0; padding: 0; border: 0; clip-path: inset(50%); }
 .tc-day-short { display: none; }
 
 /* Below ~620px five columns cannot hold two native time inputs without the

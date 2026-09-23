@@ -115,13 +115,13 @@
     <div class="calc-layout">
       <div>
         <div class="field" data-label="x">
-          <label id="labelX">Percentage (%)</label>
+          <label id="labelX" for="inputX">Percentage (%)</label>
           <div class="input-group">
             <input type="number" id="inputX" value="20" inputmode="decimal">
           </div>
         </div>
         <div class="field" data-label="y">
-          <label id="labelY">Of number</label>
+          <label id="labelY" for="inputY">Of number</label>
           <div class="input-group">
             <input type="number" id="inputY" value="50" inputmode="decimal">
           </div>
@@ -129,7 +129,8 @@
       </div>
       <div class="result-panel">
         <div class="result-label" id="resultLabel">Result</div>
-        <div class="result-value" id="resultValue">10</div>
+        <div data-result class="result-value" id="resultValue">10</div>
+        <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="result-sub" id="resultSub">20% of 50</div>
         <ul class="result-list" id="resultList"></ul>
       </div>
