@@ -205,10 +205,39 @@ def render_footernav(url):
     return "\n".join(out)
 
 
+def render_count(url):
+    """The tier-1 tool count, on its own, for use inside a sentence.
+
+    Prose that names a number drifts the moment a tool is added. A one-line
+    region makes nav_data the only place the number lives.
+    """
+    return str(len([t for t in D.TOOLS if t["tier"] == 1]))
+
+
+def render_peers(url):
+    """The related-tools footer block: a short, chosen set of sibling sites.
+
+    Not every site in the portfolio. A footer that lists nineteen destinations
+    reads as a link farm and helps nobody.
+    """
+    if not getattr(D, "PEERS", None):
+        return ""
+    out = ['<nav class="peer-tools" aria-label="Related tools">',
+           "  <p class=\"peer-tools-label\">Related tools</p>",
+           "  <ul>"]
+    for href, text, blurb in D.PEERS:
+        out.append('    <li><a href="%s" rel="noopener">%s</a> <span>%s</span></li>'
+                   % (esc(href), esc(text), esc(blurb)))
+    out += ["  </ul>", "</nav>"]
+    return "\n".join(out)
+
+
 RENDERERS = {
     "nav": render_nav,
     "sizechips": render_sizechips,
     "footernav": render_footernav,
+    "peers": render_peers,
+    "count": render_count,
 }
 
 
@@ -234,10 +263,16 @@ def apply_regions(text, url):
             indent = m.group(1)
             if not body:
                 return indent + m.group(2) + m.group(5)
+            # A region that renders one line sits inside running prose, so it
+            # stays on that line. Anything taller becomes its own block.
+            if "\n" not in body:
+                return "%s%s%s%s" % (indent, m.group(2), body, m.group(5))
             lines = "\n".join(indent + ln if ln else ln for ln in body.split("\n"))
             return "%s%s\n%s\n%s%s" % (indent, m.group(2), lines, indent, m.group(5))
 
-        text = pattern.sub(splice, text, count=1)
+        # Every marker pair of this name, not only the first: a page can name
+        # the tool count in three sentences and each one must stay current.
+        text = pattern.sub(splice, text)
     return text
 
 

@@ -74,6 +74,19 @@ HUBS = []
 # adding a footer duplicate would be boilerplate without a new crawl surface.
 FOOTER = []
 
+# The related-tools footer block: (href, name, one short line).
+#
+# Three to five peers, not all nineteen. These are the everyday-utility sites a
+# person who just worked out a mortgage payment or a time card plausibly needs
+# next: a timer, a random pick, something to print. A developer toolbox is a
+# different audience, so devboxkit is not here.
+PEERS = [
+    ("https://clocklab.net/",      "Clock Lab",       "Timers, stopwatches and world clocks."),
+    ("https://drawlots.net/",      "Draw Lots",       "Random picks, dice rolls and coin flips."),
+    ("https://paperprintouts.com/","Paper Printouts", "Printable grids, planners and note paper."),
+    ("https://textkitpro.com/",    "Text Kit Pro",    "Word counts, case changes and text cleanup."),
+]
+
 # One-time --migrate: what the legacy markup looked like and where the marker
 # pair goes. Per-site, because the legacy markup is per-site. Ops run in order.
 MIGRATE = [
@@ -87,4 +100,9 @@ MIGRATE = [
     {"op": "strip", "pattern": r'\n<nav class="calc-menu".*?\n</nav>\n'},
     # The toolbar is a direct child of <body>, immediately after </header>.
     {"op": "insert_after", "region": "nav", "pattern": r"</header>", "indent": ""},
+    # The footer is hand-copied across every page in five near-identical
+    # variants, but all five open the legal line the same way. The related-tools
+    # block goes above that line, inside the footer's own .wrap.
+    {"op": "insert_before", "region": "peers",
+     "pattern": r'    <div class="foot-bottom">', "indent": "    "},
 ]
