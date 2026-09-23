@@ -112,22 +112,23 @@
         <div class="field">
           <label>Original size (sets the ratio)</label>
           <div class="row-2">
-            <div class="input-group"><input type="number" id="origW" value="1920" min="1" inputmode="decimal"><span class="suffix">W</span></div>
-            <div class="input-group"><input type="number" id="origH" value="1080" min="1" inputmode="decimal"><span class="suffix">H</span></div>
+            <div class="input-group"><input type="number" id="origW" aria-label="Original width" value="1920" min="1" inputmode="decimal"><span class="suffix">W</span></div>
+            <div class="input-group"><input type="number" id="origH" aria-label="Original height" value="1080" min="1" inputmode="decimal"><span class="suffix">H</span></div>
           </div>
         </div>
         <div class="field">
           <label>New size (type either width or height)</label>
           <div class="row-2">
-            <div class="input-group"><input type="number" id="newW" value="1280" min="1" inputmode="decimal"><span class="suffix">W</span></div>
-            <div class="input-group"><input type="number" id="newH" value="720" min="1" inputmode="decimal"><span class="suffix">H</span></div>
+            <div class="input-group"><input type="number" id="newW" aria-label="New width" value="1280" min="1" inputmode="decimal"><span class="suffix">W</span></div>
+            <div class="input-group"><input type="number" id="newH" aria-label="New height" value="720" min="1" inputmode="decimal"><span class="suffix">H</span></div>
           </div>
           <div class="hint">Editing one field recalculates the other to keep the same proportions.</div>
         </div>
       </div>
       <div class="result-panel">
         <div class="result-label">Aspect ratio</div>
-        <div class="result-value" id="ratioValue">16:9</div>
+        <div data-result class="result-value" id="ratioValue">16:9</div>
+        <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="result-sub" id="resultSub">1920 × 1080</div>
         <ul class="result-list" id="resultList"></ul>
       </div>

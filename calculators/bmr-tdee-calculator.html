@@ -145,8 +145,8 @@
           <div class="field">
             <label for="heightFt">Height</label>
             <div class="row-2" style="margin-bottom:0;">
-              <div class="input-group"><input type="number" id="heightFt" value="5" step="1" inputmode="numeric"><span class="suffix">ft</span></div>
-              <div class="input-group"><input type="number" id="heightIn" value="11" step="1" inputmode="numeric"><span class="suffix">in</span></div>
+              <div class="input-group"><input type="number" id="heightFt" aria-label="Height, feet" value="5" step="1" inputmode="numeric"><span class="suffix">ft</span></div>
+              <div class="input-group"><input type="number" id="heightIn" aria-label="Height, inches" value="11" step="1" inputmode="numeric"><span class="suffix">in</span></div>
             </div>
           </div>
           <div class="field">
@@ -177,7 +177,8 @@
       </div>
       <div class="result-panel">
         <div class="result-label">TDEE (calories per day)</div>
-        <div class="result-value" id="tdee">2,759 kcal</div>
+        <div data-result class="result-value" id="tdee">2,759 kcal</div>
+        <p class="sr-only" data-result-status role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="result-sub">Calories to maintain your weight</div>
         <ul class="result-list">
           <li><span class="k">BMR (at rest)</span><span class="v" id="bmr">–</span></li>
