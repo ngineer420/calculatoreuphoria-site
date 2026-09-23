@@ -53,6 +53,23 @@ OG_IMAGE = SITE + "/assets/og-image.png"
 # privacy-policy.html is the redirect stub left behind by the rename.
 SKIP = {"index.html", "404.html", "privacy-policy.html"}
 
+# Publication dates, one per article.
+#
+# A publication date is a fact about the article, not a build artifact. It was
+# derived from git history, and that breaks in a shallow clone: `git clone
+# --depth 1`, which most CI runners do by default, leaves `git log` with only
+# the tip commit, so every article was republished with the date of the run.
+# The dates below are the real first-commit dates from the full history.
+#
+# Add a line here when you add an article. A missing entry falls back to the
+# date already written into the page, and then to the file's mtime.
+PUBLISHED = {
+    "articles/guide-to-our-calculators.html": "2026-07-12",
+    "articles/history-of-the-calculator.html": "2026-07-12",
+    "articles/mental-math-vs-calculators.html": "2026-07-12",
+    "articles/why-we-built-calculator-euphoria.html": "2026-07-12",
+}
+
 # The breadcrumb category -> schema.org applicationCategory.
 CATEGORY = {
     "Finance": "FinanceApplication",
@@ -81,9 +98,21 @@ def first(pattern, text, flags=re.S):
 
 
 # --------------------------------------------------------------------------
-# Dates. The markup carries none, so git is the only honest source. A file with
-# uncommitted work is newer than its last commit, so it falls back to mtime.
+# Dates.
+#
+# The markup carries no date, so the last-modified date comes from git. Two
+# cases must never invent a date:
+#
+#   A shallow clone, where `git log` knows only the tip commit. The tool keeps
+#   the date the page already carries instead of stamping it with today.
+#   A file with uncommitted work, which really is newer than its last commit.
+#   That one falls back to mtime.
+#
+# The publication date is not derived at all. It is in PUBLISHED above.
 # --------------------------------------------------------------------------
+
+DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
 
 def git(*args):
     try:
@@ -94,24 +123,39 @@ def git(*args):
     return out.stdout.strip() if out.returncode == 0 else ""
 
 
+def shallow():
+    """True when git cannot answer a question about history."""
+    if (ROOT / ".git" / "shallow").exists():
+        return True
+    return not git("rev-parse", "--git-dir")
+
+
 def mtime_date(path):
     return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).strftime("%Y-%m-%d")
 
 
-def file_dates(path):
-    """Return (created, modified) as YYYY-MM-DD."""
+def written_date(text, key):
+    """The date the page already carries, read back out of its own JSON-LD."""
+    found = first(r'"%s":"(\d{4}-\d{2}-\d{2})"' % key, text)
+    return found if found and DATE.match(found) else None
+
+
+def file_dates(path, text=""):
+    """Return (published, modified) as YYYY-MM-DD."""
     rel = path.relative_to(ROOT).as_posix()
-    dirty = bool(git("status", "--porcelain", "--", rel))
-    log = git("log", "--follow", "--format=%cs", "--", rel)
-    dates = [d for d in log.split("\n") if d]
-    created = dates[-1] if dates else mtime_date(path)
-    if dirty or not dates:
+
+    if git("status", "--porcelain", "--", rel):
         modified = mtime_date(path)
+    elif shallow():
+        modified = written_date(text, "dateModified") or mtime_date(path)
     else:
-        modified = dates[0]
-    if modified < created:
-        modified = created
-    return created, modified
+        dates = [d for d in git("log", "--format=%cs", "--", rel).split("\n") if d]
+        modified = dates[0] if dates else mtime_date(path)
+
+    published = PUBLISHED.get(rel) or written_date(text, "datePublished") or modified
+    if modified < published:
+        modified = published
+    return published, modified
 
 
 # --------------------------------------------------------------------------
@@ -148,7 +192,7 @@ def page_data(text, path):
             continue
         faqs.append((text_of(q), text_of(a)))
 
-    created, modified = file_dates(path)
+    published, modified = file_dates(path, text)
     return {
         "kind": page_kind(path),
         "name": text_of(name),
@@ -159,7 +203,7 @@ def page_data(text, path):
         "category": CATEGORY.get(text_of(crumb_pair.group(2)) if crumb_pair else "",
                                  "UtilitiesApplication"),
         "faqs": faqs,
-        "created": created,
+        "published": published,
         "modified": modified,
     }
 
@@ -204,7 +248,7 @@ def primary(data):
             "url": data["url"],
             "description": data["description"],
             "image": OG_IMAGE,
-            "datePublished": data["created"],
+            "datePublished": data["published"],
             "dateModified": data["modified"],
             "author": PUBLISHER,
             "publisher": PUBLISHER,

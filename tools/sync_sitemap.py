@@ -10,7 +10,8 @@ had nothing to tell a changed page from an untouched one.
 The date comes from git, not from the filesystem: a fresh clone stamps every
 file with the checkout time, which would claim the whole site changed at once.
 A file with uncommitted work has no commit date yet, so that one falls back to
-its mtime.
+its mtime. In a shallow clone git knows only the tip commit, so the tool keeps
+the date already written in the file rather than stamping it with today.
 
 `priority` follows nav_data, so the rail and the sheet cannot disagree:
 
@@ -26,12 +27,13 @@ carries `noindex`.
 """
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import nav_data as D  # noqa: E402
-from sync_jsonld import ROOT, SITE, file_dates  # noqa: E402
+from sync_jsonld import ROOT, SITE, file_dates, shallow  # noqa: E402
 
 OUT = ROOT / "sitemap.xml"
 SKIP = {"404.html", "privacy-policy.html", "sitemap.xml"}
@@ -66,15 +68,27 @@ def pages():
                 yield path
 
 
+LASTMOD = re.compile(r"<loc>([^<]+)</loc><lastmod>(\d{4}-\d{2}-\d{2})</lastmod>")
+
+
+def previous():
+    """The dates the current sitemap already carries, keyed by URL."""
+    if not OUT.exists():
+        return {}
+    return dict(LASTMOD.findall(OUT.read_text(encoding="utf-8")))
+
+
 def render():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    keep = previous() if shallow() else {}
     for path in pages():
         item = entry_for(path)
         if not item:
             continue
         loc, freq, priority = item
-        lastmod = file_dates(path)[1]
+        text = path.read_text(encoding="utf-8")
+        lastmod = keep.get(loc) or file_dates(path, text)[1]
         lines.append("  <url><loc>%s</loc><lastmod>%s</lastmod>"
                      "<changefreq>%s</changefreq><priority>%s</priority></url>"
                      % (loc, lastmod, freq, priority))
