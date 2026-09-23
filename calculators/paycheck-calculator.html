@@ -14,7 +14,7 @@
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <!-- jsonld:start -->
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"WebApplication","name":"Paycheck Calculator","url":"https://calculatoreuphoria.com/calculators/paycheck-calculator.html","description":"Free 2026 paycheck calculator. Estimate take-home pay per paycheck after federal income tax, Social Security, Medicare, 401(k) and a state rate you enter.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does my real paycheck differ from this estimate?","acceptedAnswer":{"@type":"Answer","text":"Your employer withholds federal tax with the IRS Publication 15-T tables and the entries on your Form W-4. This calculator uses the annualized method with the standard deduction and no credits. Dependents, a second job, a Roth 401(k), local tax, and state payroll taxes all change the real amount. The estimate is close for one job with a simple W-4."}},{"@type":"Question","name":"What is FICA?","acceptedAnswer":{"@type":"Answer","text":"FICA is the Federal Insurance Contributions Act. It funds Social Security and Medicare. In 2026 the employee pays 6.2% for Social Security on wages up to $184,500 and 1.45% for Medicare on all wages. Wages over $200,000 pay an extra 0.9% Medicare tax. Your employer pays a matching 6.2% and 1.45% on top of your pay."}},{"@type":"Question","name":"How do I find my state income tax rate?","acceptedAnswer":{"@type":"Answer","text":"Nine states have no wage income tax: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Enter 0 for these states. Other states use one flat rate or a set of brackets. The simplest method is to take your last pay stub and divide the state tax by the gross pay. Enter that percent here. Your state revenue department also publishes the withholding rates."}},{"@type":"Question","name":"Does a 401(k) contribution reduce my tax?","acceptedAnswer":{"@type":"Answer","text":"A pre-tax 401(k) contribution reduces your federal and state taxable wages. It does not reduce Social Security or Medicare wages. A $5,000 contribution in the 22% bracket cuts federal tax by about $1,100 for the year. A Roth 401(k) contribution comes out after tax and gives no reduction today. This calculator treats the contribution as pre-tax."}}]}]
+[{"@context":"https://schema.org","@type":"WebApplication","name":"Paycheck Calculator","url":"https://calculatoreuphoria.com/calculators/paycheck-calculator.html","description":"Free 2026 paycheck calculator. Estimate take-home pay per paycheck after federal income tax, Social Security, Medicare, 401(k) and a state rate you enter.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator Euphoria","url":"https://calculatoreuphoria.com/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does my real paycheck differ from this estimate?","acceptedAnswer":{"@type":"Answer","text":"Your employer withholds federal tax with the IRS Publication 15-T tables and the entries on your Form W-4. This calculator uses the annualized method with the standard deduction and no credits. Dependents, a second job, a Roth 401(k), local tax, and state payroll taxes all change the real amount. The estimate is close for one job with a simple W-4."}},{"@type":"Question","name":"What is FICA?","acceptedAnswer":{"@type":"Answer","text":"FICA is the Federal Insurance Contributions Act. It funds Social Security and Medicare. In 2026 the employee pays 6.2% for Social Security on wages up to $184,500 and 1.45% for Medicare on all wages. Wages over $200,000 pay an extra 0.9% Medicare tax. Your employer pays a matching 6.2% and 1.45% on top of your pay."}},{"@type":"Question","name":"How do I find my state income tax rate?","acceptedAnswer":{"@type":"Answer","text":"Nine states have no wage income tax: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming. Enter 0 for these states. Other states use one flat rate or a set of brackets. The simplest method is to take your last pay stub and divide the state tax by the gross pay. Enter that percent here. Your state revenue department also publishes the withholding rates."}},{"@type":"Question","name":"Does a 401(k) contribution reduce my tax?","acceptedAnswer":{"@type":"Answer","text":"This calculator treats your 401(k) contribution as pre-tax, so the contribution reduces your federal taxable wages. It does not reduce Social Security or Medicare wages. A $5,000 contribution in the 22% bracket cuts federal tax by about $1,100 for the year. The 2026 limit on the contribution is $24,500, so the calculator stops there. The contribution also reduces state taxable wages in most states, but Pennsylvania, New Jersey and Mississippi tax it. A Roth 401(k) contribution comes out after tax and gives no reduction today."}}]}]
 </script>
 <!-- jsonld:end -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
@@ -161,7 +161,7 @@
           <div class="field">
             <label for="retirePct">Pre-tax 401(k), percent of gross</label>
             <div class="input-group"><input type="number" id="retirePct" value="0" step="0.5" min="0" max="100" inputmode="decimal"><span class="suffix">%</span></div>
-            <div class="hint">Reduces federal and state taxable wages, not FICA.</div>
+            <div class="hint">Reduces federal and state taxable wages, not FICA. Capped at the 2026 limit of $24,500.</div>
           </div>
           <div class="field">
             <label for="otherPretax">Other pre-tax per paycheck</label>
@@ -180,6 +180,18 @@
             <div class="input-group"><span class="prefix">$</span><input type="number" id="extraWithholding" value="0" step="5" min="0" inputmode="decimal"></div>
             <div class="hint">Line 4(c) on Form W-4.</div>
           </div>
+        </div>
+        <div class="field">
+          <label for="stateRetireTax">Does your state tax 401(k) contributions?</label>
+          <div class="input-group">
+            <select id="stateRetireTax">
+              <option value="" selected>No, my state exempts it</option>
+              <option value="PA">Yes, Pennsylvania</option>
+              <option value="NJ">Yes, New Jersey</option>
+              <option value="MS">Yes, Mississippi</option>
+            </select>
+          </div>
+          <div class="hint">These three states tax the contribution as state wages. Every other state exempts it.</div>
         </div>
       </div>
       <div class="result-panel">
@@ -214,7 +226,7 @@
 
   <div class="calc-content">
     <h2>How this is calculated</h2>
-    <div class="formula">Taxable wages = Gross &minus; 401(k) &minus; Other pre-tax &minus; Standard deduction<br>Federal tax = 2026 progressive brackets on taxable wages<br>Social Security = 6.2% &times; min(Gross &minus; Other pre-tax, $184,500)<br>Medicare = 1.45% &times; (Gross &minus; Other pre-tax) + 0.9% &times; amount over $200,000<br>State tax = (Gross &minus; 401(k) &minus; Other pre-tax) &times; State rate<br>Take-home = Gross &minus; Federal &minus; Social Security &minus; Medicare &minus; State &minus; 401(k) &minus; Other pre-tax &minus; Extra</div>
+    <div class="formula">Taxable wages = Gross &minus; 401(k) &minus; Other pre-tax &minus; Standard deduction<br>Federal tax = 2026 progressive brackets on taxable wages<br>Social Security = 6.2% &times; min(Gross &minus; Other pre-tax, $184,500)<br>Medicare = 1.45% &times; (Gross &minus; Other pre-tax) + 0.9% &times; amount over $200,000<br>401(k) = min(Gross &times; Your percent, $24,500)<br>State tax = (Gross &minus; 401(k) &minus; Other pre-tax) &times; State rate, or (Gross &minus; Other pre-tax) &times; State rate in PA, NJ and MS<br>Take-home = Gross &minus; Federal &minus; Social Security &minus; Medicare &minus; State &minus; 401(k) &minus; Other pre-tax &minus; Extra</div>
     <p>The calculator first finds your annual gross pay. For hourly pay it multiplies the rate by the hours per week and by 52 weeks. It then applies the 2026 federal tax to the full year and divides each amount by the number of pay periods. This is the annualized method. The effective tax rate divides federal, Social Security, Medicare, and state tax by gross pay. Extra withholding is a prepayment and is not part of that rate.</p>
 
     <h2>Assumptions</h2>
@@ -227,6 +239,8 @@
       <li>The estimate includes no local or city tax.</li>
       <li>The estimate includes no SDI, paid family leave, or other state payroll taxes.</li>
       <li>The 401(k) contribution is pre-tax, not Roth.</li>
+      <li>The 401(k) contribution stops at the 2026 section 402(g) elective deferral limit of $24,500, from IRS Notice 2025-67. The form does not ask your age, so the calculator does not add the age-50 catch-up of $8,000.</li>
+      <li>Pennsylvania, New Jersey and Mississippi tax the 401(k) contribution as state wages. Select your state in the form. Every other state exempts the contribution.</li>
     </ul>
 
     <div style="margin-top:20px;">
@@ -244,7 +258,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Does a 401(k) contribution reduce my tax?<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>A pre-tax 401(k) contribution reduces your federal and state taxable wages. It does not reduce Social Security or Medicare wages. A $5,000 contribution in the 22% bracket cuts federal tax by about $1,100 for the year. A Roth 401(k) contribution comes out after tax and gives no reduction today. This calculator treats the contribution as pre-tax.</p></div>
+        <div class="faq-a"><p>This calculator treats your 401(k) contribution as pre-tax, so the contribution reduces your federal taxable wages. It does not reduce Social Security or Medicare wages. A $5,000 contribution in the 22% bracket cuts federal tax by about $1,100 for the year. The 2026 limit on the contribution is $24,500, so the calculator stops there. The contribution also reduces state taxable wages in most states, but Pennsylvania, New Jersey and Mississippi tax it. A Roth 401(k) contribution comes out after tax and gives no reduction today.</p></div>
       </div>
     </div>
     <p class="disclaimer">Estimates only. Your employer, your W-4 entries, and your state rules set the real amount. See our <a href="/terms.html">Terms of Use</a>.</p>
@@ -277,6 +291,14 @@
     hoh:     [[17700, 0.10], [67450, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]]
   };
   var STANDARD_DEDUCTION = { single: 16100, married: 32200, hoh: 24150 };
+  // 2026 retirement plan limits from IRS Notice 2025-67. This is the section
+  // 402(g) limit on elective deferrals to a 401(k). The form collects no age,
+  // so the calculator does not add the age-50 catch-up of $8,000.
+  var ELECTIVE_DEFERRAL_LIMIT = 24500;
+  // Pennsylvania, New Jersey and Mississippi tax elective deferrals as state
+  // wages. Every other state exempts them. The keys match the option values of
+  // the #stateRetireTax select, so this list alone decides the state wage base.
+  var RETIRE_TAXED_STATES = ["PA", "NJ", "MS"];
   var SS_RATE = 0.062;
   var SS_WAGE_BASE = 184500;
   var MEDICARE_RATE = 0.0145;
@@ -296,6 +318,7 @@
   var retirePct = document.getElementById("retirePct");
   var otherPretax = document.getElementById("otherPretax");
   var stateRate = document.getElementById("stateRate");
+  var stateRetireTax = document.getElementById("stateRetireTax");
   var extraWithholding = document.getElementById("extraWithholding");
 
   function num(el) {
@@ -342,7 +365,9 @@
       : num(salary);
     if (annualGross < 0) annualGross = 0;
 
-    var annualRetire = annualGross * (num(retirePct) / 100);
+    // Clamp to the 402(g) elective deferral limit. Without the clamp a high
+    // percent on a high salary removes more pre-tax pay than the law allows.
+    var annualRetire = Math.min(annualGross * (num(retirePct) / 100), ELECTIVE_DEFERRAL_LIMIT);
     var annualOther = num(otherPretax) * periods;
     var annualExtra = num(extraWithholding) * periods;
 
@@ -353,7 +378,9 @@
     var annualSS = SS_RATE * Math.min(ficaWages, SS_WAGE_BASE);
     var annualMedicare = MEDICARE_RATE * ficaWages + ADDL_MEDICARE_RATE * Math.max(ficaWages - ADDL_MEDICARE_THRESHOLD, 0);
 
-    var stateWages = Math.max(annualGross - annualRetire - annualOther, 0);
+    // A state in RETIRE_TAXED_STATES taxes the deferral, so it stays in state wages.
+    var retireCut = RETIRE_TAXED_STATES.indexOf(stateRetireTax.value) !== -1 ? 0 : annualRetire;
+    var stateWages = Math.max(annualGross - retireCut - annualOther, 0);
     var annualState = stateWages * (num(stateRate) / 100);
 
     var annualTaxes = annualFederal + annualSS + annualMedicare + annualState;
@@ -404,7 +431,7 @@
     payTypeButtons[i].addEventListener("click", function(){ selectPayType(this.getAttribute("data-type")); });
   }
 
-  var inputs = [salary, hourlyRate, hoursPerWeek, frequency, filingStatus, retirePct, otherPretax, stateRate, extraWithholding];
+  var inputs = [salary, hourlyRate, hoursPerWeek, frequency, filingStatus, retirePct, otherPretax, stateRate, stateRetireTax, extraWithholding];
   for (var j = 0; j < inputs.length; j++) {
     inputs[j].addEventListener("input", compute);
     inputs[j].addEventListener("change", compute);
