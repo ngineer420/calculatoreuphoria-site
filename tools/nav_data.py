@@ -98,16 +98,10 @@ FOOTER_LINKS = [
 
 # The related-tools footer block: (href, name, one short line).
 #
-# Three to five peers, not all nineteen. These are the everyday-utility sites a
-# person who just worked out a mortgage payment or a time card plausibly needs
-# next: a timer, a random pick, something to print. A developer toolbox is a
-# different audience, so devboxkit is not here.
-PEERS = [
-    ("https://clocklab.net/",      "Clock Lab",       "Timers, stopwatches and world clocks."),
-    ("https://drawlots.net/",      "Draw Lots",       "Random picks, dice rolls and coin flips."),
-    ("https://paperprintouts.com/","Paper Printouts", "Printable grids, planners and note paper."),
-    ("https://textkitpro.com/",    "Text Kit Pro",    "Word counts, case changes and text cleanup."),
-]
+# No peers. No sibling site is close enough to a calculator to earn a footer
+# link, so PEERS is empty and render_peers() drops the whole block, heading and
+# wrapper included. The marker pair stays, so a future peer has a place to go.
+PEERS = []
 
 # One-time --migrate: what the legacy markup looked like and where the marker
 # pair goes. Per-site, because the legacy markup is per-site. Ops run in order.
